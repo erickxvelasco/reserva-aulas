@@ -4,6 +4,8 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
+ 
+   
   <div class="logo">
     <a href="#" class="simple-text logo-normal">
       {{ __('Reserva de Aulas') }}
@@ -12,37 +14,38 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'reserva' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href=""> {{--href="{{ route('home') }}">--}}
           <i class="material-icons">add</i>
             <p>{{ __('Nueva Solicitud') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
+        <a class="nav-link" href="">
           <i class="material-icons">schedule</i>
             <p>{{ __('Historial') }}</p>
         </a>
       </li>      
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
+        <a class="nav-link" href="">
           <i class="material-icons">content_paste</i>
             <p>{{ __('Mis Materias') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('typography') }}">
+        <a class="nav-link" href="">
           <i class="material-icons">library_books</i>
             <p>{{ __('Aulas') }}</p>
         </a>
       </li>      
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('notifications') }}">
+        <a class="nav-link" href="">
           <i class="material-icons">notifications</i>
           <p>{{ __('Notificaciones') }}</p>
         </a>
       </li>
       <hr>
-      <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+      <li class="nav-item {{ $activePage == 'profile'  ? ' active' : '' }}">
+        {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i class="material-icons">person_outline</i>
           <p>{{ __('Cuenta') }}
@@ -52,15 +55,15 @@
         <div class="collapse show" id="laravelExample">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('profile.edit') }}">
+              <a class="nav-link" href="">
                 <i class="material-icons">account_circle</i>
                 <span class="sidebar-normal">{{ __('mi Cuenta') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <i class="material-icons">logout</i>
-                <span class="sidebar-normal"> {{ __('Cerrar Sesón') }} </span>
+                <span class="sidebar-normal text-danger"> {{ __('Cerrar Sesón') }} </span>
               </a>
             </li>
           </ul>
