@@ -1,15 +1,20 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top visible-hidden">
   <div class="container-fluid">
     <div class="navbar-wrapper">
-      <a class="navbar-brand" href="#">erick</a>
+      <div class="d-md-block d-lg-none">
+        <h5><b>RESERVA DE AULAS</b></h5>
+      </div>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler badge bg-light text-warning " type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+    
     <span class="sr-only">Toggle navigation</span>
     <span class="navbar-toggler-icon icon-bar"></span>
     <span class="navbar-toggler-icon icon-bar"></span>
     <span class="navbar-toggler-icon icon-bar"></span>
     </button>
+
+    {{--notificaciones
     <div class="collapse navbar-collapse justify-content-end">
        <ul class="navbar-nav">        
         <li class="nav-item dropdown">
@@ -43,5 +48,6 @@
         </li>
       </ul>
     </div>
+    --}}
   </div>
 </nav>
