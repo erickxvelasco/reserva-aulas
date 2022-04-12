@@ -25,9 +25,9 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
+	Route::get('usuarios', function () {
+		return view('users.index');
+	})->name('usuarios');
 
 	Route::get('typography', function () {
 		return view('pages.typography');
