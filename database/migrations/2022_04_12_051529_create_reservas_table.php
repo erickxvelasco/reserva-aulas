@@ -18,6 +18,7 @@ class CreateReservasTable extends Migration
             $table->string('materia');
             $table->integer('total');
             $table->string('motivo');
+            $table->date('fecha');
             $table->time('inicio');
             $table->time('fin');
             $table->timestamps();

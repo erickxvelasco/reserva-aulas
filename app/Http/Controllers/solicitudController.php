@@ -14,12 +14,5 @@ class solicitudController extends Controller
          $reserva= new Reserva($request->all());
          $reserva->save();
          return redirect()->back();
-        /*$solicitud = Reserva::create($request->all());
-        return response()->json($solicitud);
-*/
-        /*Reserva::created($request->all());
-        return redirect()->back();*/
-
-
     }
 }

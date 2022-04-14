@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     use HasFactory;
-    protected $fillable = ['materia', 'total','motivo','inicio','fin'];
+    protected $fillable = ['materia','total','motivo','fecha','inicio','fin'];
 }

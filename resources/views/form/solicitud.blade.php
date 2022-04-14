@@ -21,7 +21,7 @@
 
                             <input class="form-select"  style="width:auto" aria-label="Default select example" name="materia" placeholder="Search" ">
                         </div>
-<br>
+                <br>
                 </div>
                     <div class="form-group">
                         <h5>Total Estudiantes</h5>
@@ -32,15 +32,15 @@
                         <h5>Seleccione motivo</h5>
                         <select class="form-select" name="motivo"style="width:auto" aria-label="Default select example">
                         <option value="" disabled selected hidden>Seleccione</option>
-                        <option value="1">Examen</option>
-                          <option value="2">Laboratorio</option>
-                          <option value="3">Conferencia</option>
+                         <option value="Examen">Examen</option>
+                          <option value="Laboratorio">Laboratorio</option>
+                          <option value="Conferencia">Conferencia</option>
                         </select>
                     </div>
                     <br>
                     <div class="form-group">
                         <h5>Fecha</h5>
-                        <input class="form-select"  style="width:auto" aria-label="Default select example" type="date" >
+                        <input class="form-select" name="fecha" style="width:auto" aria-label="Default select example" type="date" >
                     </div>
                     <br>
                     <div class="form-group">
@@ -48,16 +48,15 @@
                         <select class="form-select" name="inicio" style="width:auto" aria-label="Default select example">
                           <option value="" disabled selected hidden>Seleccione</option>
                           <option value="6:45">6:45</option>
-                          <option value="2">8:15</option>
-                          <option value="3">9:45</option>
-                          <option value="1">11:15</option>
-                          <option value="2">12:45</option>
-                          <option value="3">13:15</option>
-                          <option value="1">15:45</option>
-                          <option value="2">17:15</option>
-                          <option value="3">19:45</option>
-                          <option value="1">21:45</option>
-
+                          <option value="8:15">8:15</option>
+                          <option value="9:45">9:45</option>
+                          <option value="11:!5">11:15</option>
+                          <option value="12:45">12:45</option>
+                          <option value="13:15">13:15</option>
+                          <option value="15:45">15:45</option>
+                          <option value="17:15">17:15</option>
+                          <option value="19:45">19:45</option>
+                          <option value="21:45">21:45</option>
                         </select>
                     </div>
                     <br>
@@ -65,16 +64,16 @@
                         <h5>Hora fin</h5>
                         <select class="form-select" name="fin" style="width:auto" aria-label="Default select example">
                         <option value="" disabled selected hidden>Seleccione</option>
-                          <option value="1">6:45</option>
-                          <option value="2">8:15</option>
-                          <option value="3">9:45</option>
-                          <option value="1">11:15</option>
-                          <option value="2">12:45</option>
-                          <option value="3">13:15</option>
-                          <option value="1">15:45</option>
-                          <option value="2">17:15</option>
-                          <option value="3">19:45</option>
-                          <option value="1">21:45</option>
+                          <option value="6:45">6:45</option>
+                          <option value="8:15">8:15</option>
+                          <option value="9:45">9:45</option>
+                          <option value="11:!5">11:15</option>
+                          <option value="12:45">12:45</option>
+                          <option value="13:15">13:15</option>
+                          <option value="15:45">15:45</option>
+                          <option value="17:15">17:15</option>
+                          <option value="19:45">19:45</option>
+                          <option value="21:45">21:45</option>
                         </select>
                     </div>
                     <br>
