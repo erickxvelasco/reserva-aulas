@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\solicitudController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,11 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
+	/*Route::get('table-list', function () {
 		return view('pages.table_list');
-	})->name('table');
+	})->name('table');*/
+   /* Route::get('/form/solicitud', [App\Http\Controllers\solicitudController::class, 'create'])->name('home1');*/
+    /*Route::post('/form', [App\Http\Controllers\solicitudController::class, 'store'])->name('form.store');*/
 
 	Route::get('typography', function () {
 		return view('pages.typography');
@@ -60,4 +63,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
-
+/*Route::get('/form/solicitud',solicitudController::class,'create');*/
+Route::get('/form/solicitud', [App\Http\Controllers\solicitudController::class, 'create'])->name('home1');
+Route::post('/form/solicitud', [App\Http\Controllers\solicitudController::class, 'store'])->name('form.store');

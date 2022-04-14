@@ -4,17 +4,17 @@
 
       Tip 2: you can also add an image using data-image tag
   -->
- 
-   
+
+
   <div class="logo">
     <a href="#" class="simple-text logo-normal">
       {{ __('Reserva de Aulas') }}
-    </a>    
-  </div>  
+    </a>
+  </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'reserva' ? ' active' : '' }}">
-        <a class="nav-link" href=""> {{--href="{{ route('home') }}">--}}
+        <a class="nav-link" href="{{ route('home1') }}"> 
           <i class="material-icons">add</i>
             <p>{{ __('Nueva Solicitud') }}</p>
         </a>
@@ -24,7 +24,7 @@
           <i class="material-icons">schedule</i>
             <p>{{ __('Historial') }}</p>
         </a>
-      </li>      
+      </li>
       <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="">
           <i class="material-icons">content_paste</i>
@@ -36,7 +36,7 @@
           <i class="material-icons">library_books</i>
             <p>{{ __('Aulas') }}</p>
         </a>
-      </li>      
+      </li>
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="">
           <i class="material-icons">notifications</i>
@@ -69,7 +69,7 @@
           </ul>
         </div>
       </li>
-      
+
     </ul>
   </div>
 </div>
