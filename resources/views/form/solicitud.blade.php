@@ -4,7 +4,7 @@
 <div class="content">
   <div class="container-fluid">
     <div class="card">
-              <div class="card-header card-header-primary">
+              <div class="card-header card-header-success">
                 <h2 class="text-center font-size 1.1rem;">FORMULARIO RESERVA</h2>
               </div>
            <div class="card-body">
@@ -15,20 +15,21 @@
                 <hr class="bg-light w-75">
                 <form action="{{ url('form') }}" method="post" id="formulario-ejemplo" class="w-75 mx-auto" class="form-search">
                 @csrf
-                <div class="form-group" aria-label="Default select example" >
-                        <label class="form-label" for="materia">Materia</label><br>
+                <div class="form-group " aria-label="Default select example" >
+                        <h5 style:font-size:35px >Materia</h5>
                         <div class="d-flex" >
 
-                            <input  name="materia" placeholder="Search" ">
+                            <input class="form-select"  style="width:auto" aria-label="Default select example" name="materia" placeholder="Search" ">
                         </div>
-                        <br>
+<br>
                 </div>
                     <div class="form-group">
-                        <label>Total Estudiantes</label><br>
-                        <input type="number" name="total" max='200' min='1'>
+                        <h5>Total Estudiantes</h5>
+                        <input class="form-select"  style="width:auto" aria-label="Default select example" type="number" name="total" max='200' min='1'>
                     </div>
+                    <br>
                     <div class="form-group">
-                        <label>Seleccione motivo</label><br>
+                        <h5>Seleccione motivo</h5>
                         <select class="form-select" name="motivo"style="width:auto" aria-label="Default select example">
                         <option value="" disabled selected hidden>Seleccione</option>
                         <option value="1">Examen</option>
@@ -36,14 +37,16 @@
                           <option value="3">Conferencia</option>
                         </select>
                     </div>
+                    <br>
                     <div class="form-group">
-                        <label>Fecha</label><br>
-                        <input type="date" >
+                        <h5>Fecha</h5>
+                        <input class="form-select"  style="width:auto" aria-label="Default select example" type="date" >
                     </div>
+                    <br>
                     <div class="form-group">
-                        <label>Hora inicio</label><br>
+                        <h5>Hora inicio</h5>
                         <select class="form-select" name="inicio" style="width:auto" aria-label="Default select example">
-                        <option value="" disabled selected hidden>Seleccione</option>
+                          <option value="" disabled selected hidden>Seleccione</option>
                           <option value="6:45">6:45</option>
                           <option value="2">8:15</option>
                           <option value="3">9:45</option>
@@ -57,8 +60,9 @@
 
                         </select>
                     </div>
+                    <br>
                     <div class="form-group">
-                        <label>Hora fin</label><br>
+                        <h5>Hora fin</h5>
                         <select class="form-select" name="fin" style="width:auto" aria-label="Default select example">
                         <option value="" disabled selected hidden>Seleccione</option>
                           <option value="1">6:45</option>
@@ -72,23 +76,17 @@
                           <option value="3">19:45</option>
                           <option value="1">21:45</option>
                         </select>
-                    </div><br><br>
-                    <div >
-                        <input type="submit" class="float-right mx-2"name="enviar" id="enviar" value="Enviar">
                     </div>
-                    <div >
-                        <input type="submit" class="float-right mx-2" value="Cancelar">
+                    <br>
+                    <div class="text-center">
+                    <button class="btn btn-info btn-responsive btninter" name="enviar" id="enviar" type="submit"> enviar</button>
+                    <button class="btn btn-info btn-responsive btninter right" type="submit" >cancelar</button>
                     </div>
-                    <div >
-                        <input type="submit" class="float-right mx-2" value="Limpiar">
-                    </div>
-
-
-
+                    <br>
+                    <br>
                 </form>
-
             </div>
-        </div>
+          </div>
           </div>
         </div>
       </div>

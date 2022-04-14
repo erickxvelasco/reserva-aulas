@@ -65,4 +65,4 @@ Route::group(['middleware' => 'auth'], function () {
 });
 /*Route::get('/form/solicitud',solicitudController::class,'create');*/
 Route::get('/form/solicitud', [App\Http\Controllers\solicitudController::class, 'create'])->name('home1');
-Route::post('/form/solicitud', [App\Http\Controllers\solicitudController::class, 'store'])->name('form.store');
+Route::post('/form', [App\Http\Controllers\solicitudController::class, 'store'])->name('form.store');
