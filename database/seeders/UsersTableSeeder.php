@@ -14,11 +14,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('users')->insert([
-            'name' => 'Erick Vladimir Velasco Ustariz',
+            'apellidos' => 'Velasco Ustariz',
+            'nombres' => 'Erick Vladimir',
+            'ci' => '8025458',
+            'expedido' => '2',
+            'domicilio' => 'calle final sucre',
+            'celular' => '77777777',
+            'cargo' => 'Auxiliar',
+            'tipo' => '1',
             'email' => 'erick@sitic.com',
-            'email_verified_at' => now(),
             'password' => Hash::make('secret'),
+            'estado' => '1',
+            'email_verified_at' => now(),
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -28,6 +37,6 @@ class UsersTableSeeder extends Seeder
 
 
 
-        
+
     }
 }

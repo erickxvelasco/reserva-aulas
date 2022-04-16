@@ -5,6 +5,7 @@
   <div class="row justify-content-center">
       <div class="col-lg-10 col-md-10">
         <br><br>
+            <div data-color="orange"><div>
           <h1 class="text-dark text-center">{{ __('Bienvenido al Sistema de Reserva de Aulas') }}</h1>
       </div>
   </div>

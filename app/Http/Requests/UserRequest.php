@@ -22,18 +22,44 @@ class UserRequest extends FormRequest
      * Get the validation rules that apply to the request.
      *
      * @return array
+     *
+
      */
     public function rules()
     {
         return [
-            'name' => [
-                'required', 'min:3'
+            'apellidos' => [
+                'required', 'min:3',"max:50","regex:/^[\pL\s\-]+$/u"
+            ],
+            'nombres' => [
+                'required', 'min:3',"max:50","regex:/^[\pL\s\-]+$/u"
+            ],
+            'ci' => [
+                'required', 'numeric','digits_between:6,10'
+            ],
+            'expedido' => [
+                ''
+            ],
+            'domicilio' => [
+                 'min:6'
+            ],
+            'celular' => [
+                'numeric','digits:8'
+           ],
+           'cargo' => [
+            ''
+            ],
+            'tipo' => [
+            'between:1,2'
+            ],
+            'estado' => [
+            'between:1,2'
             ],
             'email' => [
-                'required', 'email', Rule::unique((new User)->getTable())->ignore($this->route()->user->id ?? null)
+                'required', 'email', 'unique:users,email,'.$this->route('user') //((new User)->getTable())->ignore($this->route()->user->id ?? null)
             ],
             'password' => [
-                $this->route()->user ? 'nullable' : 'required', 'confirmed', 'min:6'
+                'required', 'min:6'
             ]
         ];
     }
