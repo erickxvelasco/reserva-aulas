@@ -17,17 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 
+//Route::get('/usuarios', 'App\Http\Controllers\UserController@index');
+
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('usuarios', function () {
-		return view('users.index');
-	})->name('usuarios');
 
 	Route::get('typography', function () {
 		return view('pages.typography');
@@ -54,8 +53,11 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('upgrade');
 });
 
+
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::resource('user', 'App\Http\Controllers\UserController');
+    route::post('user/{user}/asignature','App\Http\Controllers\UserController@asignature')->name('user.asignature');
+
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

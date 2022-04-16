@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExpedidosTable extends Migration
+class ForeignkeyAddExpedidoUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateExpedidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('expedido', function (Blueprint $table) {
-            $table->id();
-            $table->string('ciudad');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //$table->integer('expedido')->unsigned();
+            $table->foreign('expedido')->references('id')->on('expedidos');
         });
     }
 
@@ -27,6 +26,9 @@ class CreateExpedidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('expedido');
+        Schema::table('users', function($table)
+        {
+            $table->dropForeign('expedido');
+        });
     }
 }
