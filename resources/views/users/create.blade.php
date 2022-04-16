@@ -162,7 +162,7 @@
                           <label class="col-sm-2 pt-3 col-form-label text-secondary" for="id_pass">{{ __(' Contraseña ') }}</label>
                           <div class="col-sm-9">
                             <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                              <input class="form-control{{ $errors->has('pass') ? ' is-invalid' : '' }}" type="password" name="password" id="id_pass" placeholder="{{ __('Contraseña') }}" value="{{ old('password') }}" required />
+                              <input class="form-control{{ $errors->has('pass') ? ' is-invalid' : '' }}" name="password" id="id_pass" type="password" placeholder="{{ __('Contraseña') }}" value="{{ old('password') }}" required />
                               @if ($errors->has('password'))
                                 <span id="name-error" class="error text-danger" for="id_pass">{{ $errors->first('password') }}</span>
                               @endif
@@ -172,7 +172,10 @@
                 </div>
             </div>
               <div class=" text-center">
-                <input type="submit" class="btn btn-dark active btn-lg" value={{ __('Registrar') }}>
+                <input type="submit" class="btn btn-dark active btn-lg" value={{ __('Registrar') }} >
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    Tooltip on top
+                  </button>
               </div>
           </form>
 
