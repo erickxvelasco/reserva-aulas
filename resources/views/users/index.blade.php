@@ -10,18 +10,15 @@
             <h4 class="card-title mt-0"> Usuarios</h4>
             <p class="card-category"> Listado de usuarios del sistema</p>
           </div>
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <i class="material-icons">close</i>
-                </button>
-                <span>fdgfdgdfgfdg fdgfdg{{ session('status') }}</span>
-              </div>
-            </div>
+          @if (session('status'))
+          <div class="alert alert-default alert-with-icon bg-success" data-notify="container">
+            <i class="material-icons" data-notify="icon">notifications</i>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <i class="material-icons">close</i>
+            </button>
+            <span class="text-white" data-notify="message">{{ session('status') }}</span>
           </div>
-        @if (session('status'))
+
         @endif
           <div class="card-body">
             <div class="table-responsive">

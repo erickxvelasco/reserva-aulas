@@ -27,9 +27,9 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $reglas= [
             'apellidos' => [
-                'required', 'min:3',"max:50","regex:/^[\pL\s\-]+$/u"
+                'required', 'min:3','max:50',"regex:/^[\pL\s\-]+$/u"
             ],
             'nombres' => [
                 'required', 'min:3',"max:50","regex:/^[\pL\s\-]+$/u"
@@ -41,12 +41,12 @@ class UserRequest extends FormRequest
                 ''
             ],
             'domicilio' => [
-                 'min:6'
+                'nullable','min:6'
             ],
             'celular' => [
-                'numeric','digits:8'
-           ],
-           'cargo' => [
+                'nullable','numeric','digits:8'
+        ],
+        'cargo' => [
             ''
             ],
             'tipo' => [
@@ -56,11 +56,21 @@ class UserRequest extends FormRequest
             'between:1,2'
             ],
             'email' => [
-                'required', 'email', 'unique:users,email,'.$this->route('user') //((new User)->getTable())->ignore($this->route()->user->id ?? null)
+                'required', 'email', 'unique:users,email,'.$this->route('user.id') //((new User)->getTable())->ignore($this->route()->user->id ?? null)
             ],
             'password' => [
-                'required', 'min:6'
+                ''
             ]
         ];
+        switch ($this->method()) {
+            case "POST": {
+               $reglas['password'] = ['required','min:6'];
+            }
+            case "PATCH":{
+                $reglas['password']= ['nullable','min:6'];
+            }
+        }
+        //dd($reglas);
+        return $reglas;
     }
 }
