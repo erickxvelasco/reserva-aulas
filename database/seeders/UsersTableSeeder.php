@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             'expedido' => '2',
             'domicilio' => 'calle final sucre',
             'celular' => '77777777',
-            'cargo' => 'Auxiliar',
+            'cargo' => '1',
             'tipo' => '1',
             'email' => 'erick@sitic.com',
             'password' => Hash::make('secret'),

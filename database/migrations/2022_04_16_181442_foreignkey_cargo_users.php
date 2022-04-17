@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ForeignkeyAddExpedidoUsers extends Migration
+class ForeignkeyCargoUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,9 @@ class ForeignkeyAddExpedidoUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //$table->integer('expedido')->unsigned();
-            $table->foreign('expedido')->references('id')->on('expedidos');
+            $table->foreign('cargo')->references('id')->on('cargos');
         });
+
     }
 
     /**
@@ -27,7 +28,8 @@ class ForeignkeyAddExpedidoUsers extends Migration
     public function down()
     {
         Schema::table('users', function($table){
-            $table->dropForeign('expedido');
+            $table->dropForeign('cargo');
         });
+
     }
 }

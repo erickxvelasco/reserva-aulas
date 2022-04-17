@@ -17,11 +17,11 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('apellidos');
             $table->string('nombres');
-            $table->integer('ci');
+            $table->bigInteger('ci');
             $table->tinyInteger('expedido');
-            $table->string('domicilio');
-            $table->integer('celular');
-            $table->string('cargo');
+            $table->string('domicilio')->nullable();
+            $table->bigInteger('celular')->nullable();
+            $table->tinyInteger('cargo');
 
             $table->tinyInteger('tipo');
             $table->string('email')->unique();
