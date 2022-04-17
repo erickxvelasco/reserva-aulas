@@ -83,7 +83,14 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        echo("eliminar" . $id);
+        $registro = User::whereId($id)->firstOrFail();
+        $estado=$registro['estado']==1?'2':'1';
+
+        $registro->estado=$estado;
+        $registro->save();
+        Return redirect()->route('user.index')->with('status','Listado Actualizado de usuarios');
+
+        //echo("eliminar" . $id);
     }
 
     public function asignature($id)
