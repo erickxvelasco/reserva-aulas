@@ -43,7 +43,7 @@
                     <td>{{$dato['apellidos']}} {{ $dato['nombres']}}</td>
                     <td><b class="text-primary">{{$dato['tipo']==1 ? 'Estandar':'Administrador'}}</b></td>
                     <td>{{$dato['email']}}</td>
-                    <td><b >{{$dato['cargo']}}</b></td>
+                    <td><b >{{$dato->relacion_cargo['descripcion']}}</b></td>
 
                         @if($dato['tipo']==1)
                         <td>

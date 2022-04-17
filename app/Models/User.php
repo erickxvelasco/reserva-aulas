@@ -51,4 +51,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function relacion_expedido() {
+        return $this->hasOne(Expedido::class,'id','expedido');
+    }
+
+    public function relacion_cargo() {
+        return $this->hasOne(Cargo::class,'id','cargo');
+    }
+
+
 }

@@ -21,7 +21,12 @@ class UserController extends Controller
     {
         $users=User::all();
 
-        return view('users.index', compact('users'));
+       return view('users.index', compact('users'));
+         // $user=User::find(1)->expedid_o;
+        // dd($user);
+        //dd( $users);
+        //dd($users->cargo);
+        //
     }
 
     public function create()
