@@ -2,9 +2,10 @@
 
 @section('content')
     @auth
-        @if (auth()->user()->estado==2)
+        @if (auth()->user()->estado==1)
+            {{ session()->get('abc','hello world') }}
+           {{ auth()->logout() }}
 
-            {{ auth()->logout() }}
             {{--redirect()->route('login')->with('status','Usuario Modificado con Exito!!!') --}}
         @endif
     @endauth

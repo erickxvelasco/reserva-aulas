@@ -20,6 +20,9 @@
                     <i class="material-icons">email</i>
                   </span>
                 </div>
+                @if (session()->has('abc'))
+                    {{ session()->get('abc') }}// si existe imprime el valor de la variable mensaje
+                @endif
                 <input type="email" name="email" class="form-control" placeholder="{{ __('Email...') }}" value="{{ old('email', 'erick@sitic.com') }}" required>
               </div>
               @if ($errors->has('email'))

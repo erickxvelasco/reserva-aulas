@@ -35,7 +35,7 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="usercollapse">
+            <div class="collapse {{ (!strpos($activePage,'user')) ? ' show' : '' }}" id="usercollapse">
               <ul class="nav">
                 <li class="nav-item{{ ($activePage == 'user.index'|| $activePage == 'user.edit') ? ' active' : '' }}">
                   <a class="nav-link" href="{{ route('user.index') }}">
@@ -46,7 +46,7 @@
                 <li class="nav-item {{ $activePage == 'user.create' ? ' active' : '' }}">
                     <a class="nav-link" href="{{ route('user.create') }}">
                     <i class="material-icons">person_add_alt</i>
-                    <span class="sidebar-normal"> {{ __('Registrar Usuarios') }} </span>
+                    <span class="sidebar-normal"> {{ __('Registrar Usuario') }} </span>
                   </a>
                 </li>
               </ul>
