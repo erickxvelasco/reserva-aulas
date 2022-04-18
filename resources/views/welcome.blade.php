@@ -2,7 +2,7 @@
 
 @section('content')
     @auth
-        @if (auth()->user()->estado==1)
+        @if (auth()->user()->estado==2)
             {{ session()->get('abc','hello world') }}
            {{ auth()->logout() }}
 
