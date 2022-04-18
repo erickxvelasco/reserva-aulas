@@ -95,6 +95,6 @@ class UserController extends Controller
 
     public function asignature($id)
     {
-        echo("materias" . $id);
+        echo("Formulario edicion de materias " . $id);
     }
 }

@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container" style="height: auto;">
-  <div class="row align-items-center">    
+  <div class="row align-items-center">
     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
       <form class="form" method="POST" action="{{ route('login') }}">
         @csrf
 
         <div class="card card-login card-hidden mb-3">
-          <div class="card-header card-header-primary text-center">
-            <h4 class="card-title"><strong>{{ __('Iniciar Sesión') }}</strong></h4>            
+          <div class="card-header card-header-warning text-center">
+            <h4 class="card-title"><strong>{{ __('Iniciar Sesión') }}</strong></h4>
           </div>
           <div class="card-body">
             <p class="card-description text-center">{{ __('Recuerde que la cuenta fue generada por el ') }} <strong>Administrador</strong></p>
@@ -53,10 +53,10 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-primary btn-link btn-lg">{{ __('Ingresar') }}</button>
+            <button type="submit" class="btn btn-warning btn-link btn-lg">{{ __('Ingresar') }}</button>
           </div>
         </div>
-      </form>   
+      </form>
 
     </div>
   </div>
