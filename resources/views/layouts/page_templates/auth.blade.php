@@ -1,5 +1,5 @@
 <div class="wrapper ">
-    @if (auth()->user()->tipo==2)
+    @if (auth()->user()->tipo==1)
         @include('layouts.navbars.sidebar_estandar')
     @else
         @include('layouts.navbars.sidebar_admin')
