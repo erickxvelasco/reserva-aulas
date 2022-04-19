@@ -15,7 +15,6 @@ class CreateExpedidosTable extends Migration
     {
         Schema::create('expedidos', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id')->references('expedido')->on('users');
             $table->string('lugar');
             $table->timestamps();
         });

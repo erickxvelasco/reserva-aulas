@@ -87,7 +87,7 @@
                     </div>
                   </div>
                 </div>
-                {{  Carbon\Carbon::now()->format('d-m-Y') }}
+
                 <div class="row">
                     <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Fecha ') }}</label>
                     <div class="col-sm-6">
@@ -102,15 +102,7 @@
                   </div>
 
                   <div class="row">
-                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Cedula de Identidad ') }}</label>
-                    <div class="col-sm-5">
-                      <div class="form-group{{ $errors->has('ci') ? ' has-danger' : '' }}">
-                        <input class="form-control{{ $errors->has('ci') ? ' is-invalid' : '' }}" name="ci" id="id_ci" type="number" placeholder="{{ __('Cedula de identidad') }}" value="{{ old('ci') }}" required="true" aria-required="true"/>
-                        @if ($errors->has('ci'))
-                          <span id="name-error" class="error text-danger" for="id_ci">{{ $errors->first('ci') }}</span>
-                        @endif
-                      </div>
-                    </div>
+                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Rango de Horas ') }}</label>
                     <div class="col-sm-4">
                         <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
                             <select name="expedido" class="form-control " style="position: relative;top: -5px;">
@@ -121,110 +113,258 @@
                           @endif
                         </div>
                       </div>
-                  </div>
 
-                  <div class="row">
-                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Domicilio ') }}</label>
-                    <div class="col-sm-9">
-                      <div class="form-group{{ $errors->has('domicilio') ? ' has-danger' : '' }}">
-                        <input class="form-control{{ $errors->has('domicilio') ? ' is-invalid' : '' }}" name="domicilio" id="id_domicilio" type="text" placeholder="{{ __('Direccion Domicilio') }}" value="{{ old('domicilio') }}" />
-                        @if ($errors->has('domicilio'))
-                          <span id="name-error" class="error text-danger" for="id_domicilio">{{ $errors->first('domicilio') }}</span>
-                        @endif
+                    <div class="col-sm-4">
+                        <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
+                            <select name="expedido" class="form-control " style="position: relative;top: -5px;">
+
+                            </select>
+                           @if ($errors->has('expedido'))
+                            <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('expedido') }}</span>
+                          @endif
+                        </div>
                       </div>
-                    </div>
+
                   </div>
-
-                  <div class="row">
-                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Numero de Celular ') }}</label>
-                    <div class="col-sm-9">
-                      <div class="form-group{{ $errors->has('celular') ? ' has-danger' : '' }}">
-                        <input class="form-control{{ $errors->has('celular') ? ' is-invalid' : '' }}" name="celular" id="id_celular" type="number" placeholder="{{ __('Numero de Celular') }}" value="{{ old('celular') }}" />
-                        @if ($errors->has('celular'))
-                          <span id="name-error" class="error text-danger" for="id_celular">{{ $errors->first('celular') }}</span>
-                        @endif
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <label class="col-sm-2 pt-3 col-form-label text-secondary"> {{ __('Cargo ') }}</label>
-                    <div class="col-sm-9">
-                      <div class="form-group{{ $errors->has('apellido') ? ' has-danger' : '' }}">
-                        <select name="cargo" class="form-control " >
-
-                        </select>
-                        @if ($errors->has('cargo'))
-                          <span id="name-error" class="error text-danger" for="id_apellido">{{ $errors->first('cargo') }}</span>
-                        @endif
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
 
 
 
                   <br>
                 </div>{{--end cardbody--}}
-                <div class="card-header card-header-default" style="background-color:rgb(221, 230, 231); height:50px;">
-                    <p class="card-category text-dark">{{ __('Datos cuenta') }}</p>
+
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header card-header-tabs card-header-warning">
+                        <div class="nav-tabs-navigation">
+                          <div class="nav-tabs-wrapper">
+                            <span class="nav-tabs-title">Aulas Disponibles:</span>
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                              <li class="nav-item">
+                                <a class="nav-link active" href="#profile" data-toggle="tab">
+                                  <i class="material-icons">Generar Permutaciones</i> Bugs
+                                  <div class="ripple-container"></div>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="profile">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                  </td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane" id="messages">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                  </td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="tab-pane" id="settings">
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="">
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                  </td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                  <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                      <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="card-body ">
-
-                      <div class="row">
-                        <label class="col-sm-2 pt-3 col-form-label text-secondary"> {{ __('Rol de cuenta ') }}</label>
-                        <div class="col-sm-9">
-                          <div class="row">
-                            <div class="px-3 py-2 form-check form-check-radio form-check-inline">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="1" {{ old('tipo','1')==1?'checked':''}}> Estandar
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
-                              <div class="p-2 form-check form-check-radio form-check-inline">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="2" {{ old('tipo')==2?'checked':''}}> Administrador
-                                  <span class="circle">
-                                      <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
-
-                          </div>
-                        </div>
-                      </div>
-
-                      <input type="hidden" name="estado" value="1">
-
-                    <div class="row">
-                        <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Correo Electronico ') }}</label>
-                        <div class="col-sm-9">
-                          <div class="form-group{{ $errors->has('email ') ? ' has-danger' : '' }}">
-                            <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" id="id_correo" type="email" placeholder="{{ __('Correo Electronico') }}" value="{{ old('email') }}" required/>
-                            @if ($errors->has('email'))
-                              <span id="email-error" class="error text-danger" for="id_correo">{{ $errors->first('email') }}</span>
-                            @endif
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row">
-                          <label class="col-sm-2 pt-3 col-form-label text-secondary" for="id_pass">{{ __(' Contraseña ') }}</label>
-                          <div class="col-sm-9">
-                            <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                              <input class="form-control{{ $errors->has('pass') ? ' is-invalid' : '' }}" name="password" id="id_pass" type="password" placeholder="{{ __('Contraseña') }}" value="{{ old('password') }}" required />
-                              @if ($errors->has('password'))
-                                <span id="name-error" class="error text-danger" for="id_pass">{{ $errors->first('password') }}</span>
-                              @endif
-                            </div>
-                          </div>
-                        </div>
-                </div>
                 <div class="text-center" style="background-color:rgb(242, 239, 239);">
                     <br><input type="submit" class="btn btn-dark active btn-lg" value={{ __('Registrar') }} /><br><br>
                   </div>
