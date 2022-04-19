@@ -16,7 +16,7 @@ class CreateGruposTable extends Migration
         Schema::create('grupos', function (Blueprint $table) {
             $table->id();
             $table->string('grupo');
-            $table->tinyInteger('materia');
+            $table->bigInteger('materia');
             $table->foreign('materia')->references('id')->on('materias');
             $table->tinyInteger('usuario');
             $table->foreign('usuario')->references('id')->on('users');
