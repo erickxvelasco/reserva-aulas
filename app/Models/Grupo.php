@@ -16,4 +16,8 @@ class Grupo extends Model
         'usuario',
         'inscritos'
     ];
+
+    public function relacion_materia() {
+        return $this->hasOne(Materia::class,'id','materia');
+    }
 }
