@@ -59,8 +59,9 @@ class User extends Authenticatable
     public function relacion_cargo() {
         return $this->hasOne(Cargo::class,'id','cargo');
     }
+
     public function relacion_grupos() {
-        return $this->hasMany(Grupo::class,'id','id');
+        return $this->hasmany(Grupo::class,'usuario','id')->orderBy('materia','desc');
     }
 
 

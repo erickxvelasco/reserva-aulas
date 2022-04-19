@@ -13,7 +13,5 @@ class Cargo extends Model
     protected $fillable = [
         'descripcion'
     ];
-    public function user(){
-        return $this->belongTo('App\User','id','cargo');
-    }
+
 }

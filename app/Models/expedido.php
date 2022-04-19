@@ -13,7 +13,5 @@ class Expedido extends Model
     protected $fillable = [
         'lugar'
     ];
-    public function user(){
-        return $this->belongTo('App\User','id','expedido');
-    }
+
 }
