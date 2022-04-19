@@ -14,8 +14,8 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item<?php echo e($activePage == 'reserva' ? ' active' : ''); ?>">
-        <a class="nav-link" href=""> 
+      <li class="nav-item<?php echo e($activePage == 'solicitud.create' ? ' active' : ''); ?>">
+        <a class="nav-link" href="<?php echo e(route('solicitud.create')); ?>"> 
           <i class="material-icons">add_box</i>
             <p><?php echo e(__('Nueva Solicitud')); ?></p>
         </a>
