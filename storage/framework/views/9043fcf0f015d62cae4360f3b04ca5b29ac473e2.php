@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <?php if(auth()->guard()->check()): ?>
         <?php if(auth()->user()->estado==2): ?>
