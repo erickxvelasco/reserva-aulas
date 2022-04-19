@@ -20,4 +20,5 @@ class Grupo extends Model
     public function relacion_materia() {
         return $this->hasOne(Materia::class,'id','materia');
     }
+
 }
