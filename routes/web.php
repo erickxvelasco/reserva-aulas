@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController');
-    Route::resource('request', 'App\Http\Controllers\RequestController');
+    Route::resource('solicitudes', 'App\Http\Controllers\SolicitudesController');
 
     route::post('user/{user}/asignature','App\Http\Controllers\UserController@asignature')->name('user.asignature');
 
