@@ -48,6 +48,7 @@ class UsersTableSeeder extends Seeder
             'updated_at' => now()
         ]);
 
+
         DB::table('users')->insert([
             'apellidos' => 'Choque Humana',
             'nombres' => 'Yasmani',
@@ -90,6 +91,22 @@ class UsersTableSeeder extends Seeder
             'cargo' => '2',
             'tipo' => '1',
             'email' => 'einar@sitic.com',
+            'password' => Hash::make('secret'),
+            'estado' => '1',
+            'email_verified_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'apellidos' => 'Rodriguez Bilbao',
+            'nombres' => 'Erika Patricia',
+            'ci' => '8028758',
+            'expedido' => '3',
+            'domicilio' => 'calle final jordan',
+            'celular' => '40233719',
+            'cargo' => '2',
+            'tipo' => '1',
+            'email' => 'akirebilbao@gmail.com',
             'password' => Hash::make('secret'),
             'estado' => '1',
             'email_verified_at' => now(),
