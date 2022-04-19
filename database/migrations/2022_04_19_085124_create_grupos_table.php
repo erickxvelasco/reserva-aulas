@@ -18,6 +18,9 @@ class CreateGruposTable extends Migration
             $table->string('grupo');
             $table->tinyInteger('materia');
             $table->foreign('materia')->references('id')->on('materias');
+            $table->tinyInteger('usuario');
+            $table->foreign('usuario')->references('id')->on('users');
+
             $table->integer('Inscritos');
             $table->timestamps();
         });

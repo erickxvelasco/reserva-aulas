@@ -13,6 +13,7 @@ class Grupo extends Model
     protected $fillable = [
         'grupo',
         'materia',
+        'usuario',
         'inscritos'
     ];
 }
