@@ -14,15 +14,14 @@
             <div class="card ">
               <div class="card-header card-header-default bg-dark">
                 <h4 class="card-title">{{ __('Solicitud de Reserva') }}</h4>
-                <p class="card-category">{{ __('Datos Personales') }}</p>
+                <p class="card-category">{{ auth()->user()->relacion_cargo['descripcion'] . ' : ' . auth()->user()->nombres . ' ' . auth()->user()->apellidos }}</p>
               </div>
               <div class="card-body ">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12">
+                    <div class="col-12">
                       <div class="card">
                         <div class="card-header card-header-tabs card-header-success" style="height:30px">
                             <span class="nav-tabs-title" style="position: relative; top: -20px;">Grupos - Materias :</span>
-
                         </div>
                         <div class="card-body">
                           <div class="tab-content">
@@ -55,19 +54,30 @@
                                 </tbody>
                               </table>
                             </div>
-
-
                           </div>
                         </div>
                       </div>
-                    </div>
+                      <div class="row">
 
+                        <div class="col-9">
+                            <div class="alert alert-default" style="background-color: rgb(241, 241, 241);" >
+                                <div class="p-0 form-group label-floating has-success">
+                                    <label class="control-label">la Reserva se Solicitara para : </label>
+                                          <input type="number" value="80" class="form-control" />
+                                    <span class="form-control-feedback">
+                                    <i class="material-icons">done</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                   </div>
 
 
 
                 <div class="row">
-                  <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Apellidos ') }}</label>
+                  <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Motivo ') }}</label>
                   <div class="col-sm-9">
                     <div class="form-group{{ $errors->has('apellidos') ? ' has-danger' : '' }}">
                       <input autocomplete="off" class="form-control{{ $errors->has('apellidso') ? ' is-invalid' : '' }}" name="apellidos" id="id_apellido" type="text" placeholder="{{ __('Apellidos') }}" value="{{ old('apellidos') }}" required="true" />
@@ -77,16 +87,18 @@
                     </div>
                   </div>
                 </div>
+                {{  Carbon\Carbon::now()->format('d-m-Y') }}
                 <div class="row">
-                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Nombres ') }}</label>
-                    <div class="col-sm-9">
+                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Fecha ') }}</label>
+                    <div class="col-sm-6">
                       <div class="form-group{{ $errors->has('nombres') ? ' has-danger' : '' }}">
-                        <input class="form-control{{ $errors->has('nombres') ? ' is-invalid' : '' }}" name="nombres" id="id_nombre" type="text" placeholder="{{ __('Nombres') }}" value="{{ old('nombres') }}" required="true" aria-required="true"/>
+                        <input class="form-control{{ $errors->has('nombres') ? ' is-invalid' : '' }}" name="nombres" id="id_nombre" type="date" placeholder="sss" value="{{ old('nombres', Carbon\Carbon::now()->format('d-m-Y')) }}" required="true" />
                         @if ($errors->has('nombres'))
                           <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('nombres') }}</span>
                         @endif
                       </div>
                     </div>
+                    <label class="col-sm-3 pt-3 col-form-label text-primary"><b> Semestre(15/02/2022 - 19/08/2022) </b></label>
                   </div>
 
                   <div class="row">

@@ -22,7 +22,7 @@
                   <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Apellidos ') }}</label>
                   <div class="col-sm-9">
                     <div class="form-group{{ $errors->has('apellidos') ? ' has-danger' : '' }}">
-                      <input autocomplete="off" class="form-control{{ $errors->has('apellidso') ? ' is-invalid' : '' }}" name="apellidos" id="id_apellido" type="text" placeholder="{{ __('Apellidos') }}" value="{{ old('apellidos') }}" required="true" />
+                      <input autocomplete="off" class="form-control{{ $errors->has('apellidos') ? ' is-invalid' : '' }}" name="apellidos" id="id_apellido" type="text" placeholder="{{ __('Apellidos') }}" value="{{ old('apellidos') }}" required="true" />
                       @if ($errors->has('apellidos'))
                         <span id="name-error" class="error text-danger" for="id_apellido">{{ $errors->first('apellidos') }}</span>
                       @endif
