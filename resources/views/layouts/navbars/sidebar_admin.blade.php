@@ -111,8 +111,8 @@
         <li class="nav-item {{ $activePage == 'profile'  ? ' active' : '' }}">
           {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
           <a class="nav-link" data-toggle="collapse" href="#cuentacollapse" aria-expanded="false">
-            <i class="material-icons">perm_contact_calendar</i>
-            <p>{{ __('Cuenta') }}
+            <i class="material-icons text-rose">perm_contact_calendar</i>
+            <p class="text-rose"><b> {{auth()->user()->nombres}}</b>
               <b class="caret"></b>
             </p>
           </a>
@@ -120,14 +120,14 @@
             <ul class="nav">
               <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
                 <a class="nav-link" href="">
-                  <i class="material-icons">settings</i>
-                  <span class="sidebar-normal">{{ __('mi Cuenta') }} </span>
+                  <i class="material-icons ">settings</i>
+                  <span class="sidebar-normal"><b>{{ __('mi Cuenta') }} </b></span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                  <i class="material-icons">exit_to_app</i>
-                  <span class="sidebar-normal text-danger"> {{ __('Cerrar Sesión') }} </span>
+                  <i class="material-icons text-rose">exit_to_app</i>
+                  <span class="sidebar-normal text-rose"><b> {{ __('Cerrar Sesión') }}</b> </span>
                 </a>
               </li>
             </ul>

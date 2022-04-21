@@ -46,32 +46,31 @@
       </li>
 
       <hr>
-      <li class="nav-item <?php echo e($activePage == 'profile'  ? ' active' : ''); ?>">
-        
-        <a class="nav-link" data-toggle="collapse" href="#cuentacollapse" aria-expanded="false">
-          <i class="material-icons">perm_contact_calendar</i>
-          <p><?php echo e(__('Cuenta')); ?>
-
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse " id="cuentacollapse">
-          <ul class="nav">
-            <li class="nav-item<?php echo e($activePage == 'profile' ? ' active' : ''); ?>">
-              <a class="nav-link" href="">
-                <i class="material-icons">settings</i>
-                <span class="sidebar-normal"><?php echo e(__('mi Cuenta')); ?> </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                <i class="material-icons">exit_to_app</i>
-                <span class="sidebar-normal text-danger"> <?php echo e(__('Cerrar Sesión')); ?> </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
+        <li class="nav-item <?php echo e($activePage == 'profile'  ? ' active' : ''); ?>">
+          
+          <a class="nav-link" data-toggle="collapse" href="#cuentacollapse" aria-expanded="false">
+            <i class="material-icons text-rose">perm_contact_calendar</i>
+            <p class="text-rose"><b> <?php echo e(auth()->user()->nombres); ?></b>
+              <b class="caret"></b>
+            </p>
+          </a>
+          <div class="collapse " id="cuentacollapse">
+            <ul class="nav">
+              <li class="nav-item<?php echo e($activePage == 'profile' ? ' active' : ''); ?>">
+                <a class="nav-link" href="">
+                  <i class="material-icons ">settings</i>
+                  <span class="sidebar-normal"><b><?php echo e(__('mi Cuenta')); ?> </b></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                  <i class="material-icons text-rose">exit_to_app</i>
+                  <span class="sidebar-normal text-rose"><b> <?php echo e(__('Cerrar Sesión')); ?></b> </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
 
 
     </ul>

@@ -12,22 +12,19 @@
             {{--  <h1>{{$errors}}}</h1> --}}
 
             <div class="card ">
-              <div class="card-header card-header-default bg-dark">
+              <div class="card-header card-header-default bg-dark ">
                 <h4 class="card-title">{{ __('Solicitud de Reserva') }}</h4>
                 <p class="card-category">{{ auth()->user()->relacion_cargo['descripcion'] . ' : ' . auth()->user()->nombres . ' ' . auth()->user()->apellidos }}</p>
               </div>
-              <div class="card-body ">
-                <div class="row">
-                    <div class="col-12">
-                      <div class="card">
-                        <div class="card-header card-header-tabs card-header-success" style="height:30px">
-                            <span class="nav-tabs-title" style="position: relative; top: -20px;">Grupos - Materias :</span>
-                        </div>
-                        <div class="card-body">
-                          <div class="tab-content">
-                            <div class="tab-pane active" id="profile">
-                              <table class="table">
+              <div class="card-body " >
+                <div class="row d-block">
+
+                            <div class="px-3 col-xl-4 float-right bg-default text-dark" style="background-color: rgb(245, 245, 245)">
+
+
+                              <table class="table " style="">
                                 <thead>
+                                    <tr><th colspan="4" class="text-center text-dark table-active"><b>Mis Grupos - Materias</b></th></tr>
                                     <tr>
                                         <th class="text-center"></th>
                                         <th>Materia</th>
@@ -36,14 +33,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @php
+                                        $total=0;
+                                    @endphp
                                     @foreach ( auth()->user()->relacion_grupos as $grupos)
+                                    @php
+                                        $total=$total + $grupos->inscritos ;
+                                    @endphp
                                     <tr>
                                     <td width=30>
                                       <div class="form-check">
                                         <label class="form-check-label">
-                                          <input class="form-check-input" type="checkbox" value="{{$grupos->inscritos}}" checked>
-                                          <span class="form-check-sign">
+                                          <input class="form-check-input " type="checkbox" value="{{$grupos->inscritos}}" onclick="calcular()" checked>
+                                          <span class="form-check-sign ">
                                             <span class="check"></span>
                                           </span>
                                         </label>
@@ -53,139 +55,156 @@
                                     <td class="text-success"><b>{{ $grupos->grupo }}</b></td>
                                     <td>{{ $grupos->inscritos }}</td>
                                     </tr>
+
                                     @endforeach
 
 
                                 </tbody>
+
                               </table>
+                              <div class="text-center border border-dark bg-default" style="background-color: rgb(254, 255, 239);">
+                                <label class="text-right display-4">Total :</label>
+
+                                <label id="total_td" class="text-primary display-4">{{ $total }}</label>
+                            </div>
+                            <br>
+                            </div>
+
+
+
+                    <div class="col-md-12 col-xl-8 float-left">
+
+
+                        <div class="row">
+                            <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Total alumnos ') }}</label>
+                            <div class="col-sm-6">
+                              <div class="form-group{{ $errors->has('input_total') ? ' has-danger' : '' }}">
+                                <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="input_total" id="input_total" type="text" placeholder="{{ __('Total alumnos') }}" value="{{ old('input_total',$total) }}" required="true" />
+                                @if ($errors->has('input_total'))
+                                  <span id="name-error" class="error text-danger" for="input_total">{{ $errors->first('input_total') }}</span>
+                                @endif
+                              </div>
+                            </div>
+                            <label class="col-sm-4 pt-3 col-form-label text-success">{{ __('la reserva se solicitara para esta cantidad de alumnos ') }}</label>
+                          </div>
+
+                        <div class="row">
+                            <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Motivo ') }}</label>
+                            <div class="col-sm-9">
+                              <div class="form-group{{ $errors->has('motivo') ? ' has-danger' : '' }}">
+                                <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="motivo" id="id_motivo" type="text" placeholder="{{ __('Motivo') }}" value="{{ old('motivo') }}" required="true" />
+                                @if ($errors->has('motivo'))
+                                  <span id="name-error" class="error text-danger" for="id_motivo">{{ $errors->first('motivo') }}</span>
+                                @endif
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <button class="btn btn-dark" onclick="calcular()">obtener</button>
-                      <div class="row">
-                        <div class="col-9">
-                            <div class="alert alert-default" style="background-color: rgb(241, 241, 241);" >
-                                <div class="p-0 form-group label-floating has-success">
-                                    <label class="control-label">la Reserva se Solicitara para : </label>
-                                          <input type="number" value="80" class="form-control" id="input_total"/>
-                                    <span class="form-control-feedback">
-                                    <i class="material-icons">done</i>
-                                    </span>
+
+                          <div class="row">
+                              <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Fecha ') }}</label>
+                              <div class="col-sm-6">
+                                <div class="form-group{{ $errors->has('nombres') ? ' has-danger' : '' }}">
+                                  <input class="form-control{{ $errors->has('nombres') ? ' is-invalid' : '' }}" name="nombres" id="id_nombre" type="date" placeholder="sss" value="{{ old('nombres', Carbon\Carbon::now()->format('d-m-Y')) }}" required="true" />
+                                  @if ($errors->has('nombres'))
+                                    <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('nombres') }}</span>
+                                  @endif
                                 </div>
+                              </div>
+                              <label class="col-sm-4 pt-3 col-form-label text-primary"><b> Semestre(15/02/2022 - 19/08/2022) </b></label>
                             </div>
-                        </div>
-                        </div>
+
+                            <div class="row">
+                              <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Rango de Horas ') }}</label>
+                              <div class="col-sm-4">
+                                  <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
+                                      <select id="hora_inicio" name="hora_inicio" class="form-control " style="position: relative;top: -5px;">
+
+                                      </select>
+                                     @if ($errors->has('expedido'))
+                                      <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('expedido') }}</span>
+                                    @endif
+                                  </div>
+                                </div>
+
+                              <div class="col-sm-4">
+                                  <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
+                                      <select id="hora_final" name="hora_final" class="form-control " style="position: relative;top: -5px;">
+
+                                      </select>
+                                     @if ($errors->has('expedido'))
+                                      <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('expedido') }}</span>
+                                    @endif
+                                  </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12 cleafix">
+                                <div class="card cleafix">
+                                  <div class="card-header card-header-tabs card-header-success">
+                                    <div class="nav-tabs-navigation">
+                                      <div class="nav-tabs-wrapper">
+                                        <span class="nav-tabs-title">Aulas Disponibles:</span>
+                                        <ul class="nav nav-tabs" data-tabs="tabs">
+                                          <li class="nav-item">
+                                            <a class="nav-link active" href="" data-toggle="tab">
+                                              <i class="material-icons">view_in_ar</i> Generar Permutaciones
+                                              <div class="ripple-container"></div>
+                                            </a>
+                                          </li>
+
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="tab-content">
+                                      <div class="tab-pane active" id="profile">
+                                        <table class="table">
+                                            <thead>
+                                                <th>#</th>
+                                                <th>Aulas Sugeridas</th>
+                                                <th class="text-center">Seleccionar</th>
+                                            </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>1</td>
+                                              <td>622-623-624</td>
+                                              <td width=30><button class="btn btn-outline-success">Seleccionar</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>691a-691b-691g</td>
+                                                <td width=30><button class="btn btn-outline-success">Seleccionar</button></td>
+                                            </tr>
+
+
+                                          </tbody>
+                                        </table>
+                                      </div>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+
                     </div>
                   </div>
 
 
 
-                <div class="row">
-                  <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Motivo ') }}</label>
-                  <div class="col-sm-9">
-                    <div class="form-group{{ $errors->has('motivo') ? ' has-danger' : '' }}">
-                      <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="motivo" id="id_motivo" type="text" placeholder="{{ __('Motivo') }}" value="{{ old('motivo') }}" required="true" />
-                      @if ($errors->has('motivo'))
-                        <span id="name-error" class="error text-danger" for="id_motivo">{{ $errors->first('motivo') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
 
-                <div class="row">
-                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Fecha ') }}</label>
-                    <div class="col-sm-6">
-                      <div class="form-group{{ $errors->has('nombres') ? ' has-danger' : '' }}">
-                        <input class="form-control{{ $errors->has('nombres') ? ' is-invalid' : '' }}" name="nombres" id="id_nombre" type="date" placeholder="sss" value="{{ old('nombres', Carbon\Carbon::now()->format('d-m-Y')) }}" required="true" />
-                        @if ($errors->has('nombres'))
-                          <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('nombres') }}</span>
-                        @endif
-                      </div>
-                    </div>
-                    <label class="col-sm-3 pt-3 col-form-label text-primary"><b> Semestre(15/02/2022 - 19/08/2022) </b></label>
-                  </div>
-
-                  <div class="row">
-                    <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Rango de Horas ') }}</label>
-                    <div class="col-sm-4">
-                        <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
-                            <select id="hora_inicio" name="hora_inicio" class="form-control " style="position: relative;top: -5px;">
-
-                            </select>
-                           @if ($errors->has('expedido'))
-                            <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('expedido') }}</span>
-                          @endif
-                        </div>
-                      </div>
-
-                    <div class="col-sm-4">
-                        <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
-                            <select id="hora_final" name="hora_final" class="form-control " style="position: relative;top: -5px;">
-
-                            </select>
-                           @if ($errors->has('expedido'))
-                            <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('expedido') }}</span>
-                          @endif
-                        </div>
-                      </div>
-
-                  </div>
 
 
 
                   <br>
                 </div>{{--end cardbody--}}
 
-                  <div class="col-12">
-                    <div class="card">
-                      <div class="card-header card-header-tabs card-header-success">
-                        <div class="nav-tabs-navigation">
-                          <div class="nav-tabs-wrapper">
-                            <span class="nav-tabs-title">Aulas Disponibles:</span>
-                            <ul class="nav nav-tabs" data-tabs="tabs">
-                              <li class="nav-item">
-                                <a class="nav-link active" href="" data-toggle="tab">
-                                  <i class="material-icons">view_in_ar</i> Generar Permutaciones
-                                  <div class="ripple-container"></div>
-                                </a>
-                              </li>
 
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="profile">
-                            <table class="table">
-                                <thead>
-                                    <th>#</th>
-                                    <th>Aulas Sugeridas</th>
-                                    <th class="text-center">Seleccionar</th>
-                                </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>622-623-624</td>
-                                  <td width=30><button class="btn btn-outline-success">Seleccionar</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>691a-691b-691g</td>
-                                    <td width=30><button class="btn btn-outline-success">Seleccionar</button></td>
-                                </tr>
-
-
-                              </tbody>
-                            </table>
-                          </div>
-
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 <div class="text-center" style="background-color:rgb(242, 239, 239);">
                     <br><input type="submit" class="btn btn-dark active btn-lg" value='Enviar Solicitud' /><br><br>
                   </div>
@@ -269,7 +288,10 @@
                    total = total +  parseInt($(this).val());
                 });
                let input_total =  document.getElementById('input_total');
+               let auxi =  document.getElementById('total_td');
+
                input_total.value=total;
+               auxi.innerHTML="<b>" + total + "</b>";
             });
         }
 

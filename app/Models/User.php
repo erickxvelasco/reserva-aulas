@@ -61,7 +61,8 @@ class User extends Authenticatable
     }
 
     public function relacion_grupos() {
-        return $this->hasmany(Grupo::class,'usuario','id')->orderBy('materia','desc');
+        $aux=$this->hasmany(Grupo::class,'usuario','id');
+        return $aux;
     }
 
 
