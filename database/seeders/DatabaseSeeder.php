@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call([CargoSeeder::class]);
         $this->call([MateriaSeeder::class]);
         $this->call([GrupoSeeder::class]);
+        $this->call([GestionSeeder::class]);
 
     }
 }

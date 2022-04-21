@@ -12,6 +12,6 @@ class Ubicacion extends Model
 
     protected $fillable = [
         'ubicacion',
-        'descripcion'
+        'detalle'
     ];
 }
