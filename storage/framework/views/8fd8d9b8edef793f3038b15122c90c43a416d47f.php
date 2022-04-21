@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 <div class="content">
   <div class="container-fluid">
@@ -24,7 +22,6 @@
             <div class="table-responsive">
               <table class="table table-hover">
                   <thead class="table-secondary">
-                  <th>#</th>
                   <th>Estado</th>
                   <th>Apellidos y nombres</th>
                   <th>Cuenta</th>
@@ -33,12 +30,8 @@
                   <th colspan="3" class="text-center bg-sucess">Acciones</th>
                 </thead>
                 <tbody>
-                    <?php
-                        $num=1;
-                    ?>
-                    <?php $__empty_1 = true; $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dato): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                   <?php $__empty_1 = true; $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dato): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                   <tr>
-                    <td scope="row"><?php echo e($num++); ?></td>
                     <td><b class="text-<?php echo e($dato['estado']==1 ? 'success':'danger'); ?>"><?php echo e($dato['estado']==1 ? 'Activo':'Inactivo'); ?></b></td>
                     <td><?php echo e($dato['apellidos']); ?> <?php echo e($dato['nombres']); ?></td>
                     <td><b class="text-primary"><?php echo e($dato['tipo']==1 ? 'Estandar':'Administrador'); ?></b></td>
@@ -46,7 +39,7 @@
                     <td><b ><?php echo e($dato->relacion_cargo['descripcion']); ?></b></td>
 
                         <?php if($dato['tipo']==1): ?>
-                        <td>
+                        <td width=5>
                             <form action="<?php echo e(route('user.asignature', $dato->id)); ?>" method ="POST" >
                                 <?php echo csrf_field(); ?>
                                 <?php echo e(method_field('post')); ?>
@@ -57,14 +50,14 @@
                             </form>
                         </td>
                         <?php else: ?>
-                        <td></td>
+                        <td width=5></td>
                         <?php endif; ?>
-                        <td>
+                        <td width=5>
                         <a type="button"rel="tooltip" title="Editar Informacion" class="btn btn-primary btn-sm" href="<?php echo e(route('user.edit', $dato->id)); ?>">
                         <i class="material-icons">edit</i></a>
                         </td>
 
-                        <td>
+                        <td width=5>
                             <form action="<?php echo e(route('user.destroy', $dato->id)); ?>" method ="POST" >
                                 <?php echo csrf_field(); ?>
                                 <?php echo e(method_field('DELETE')); ?>
@@ -84,6 +77,12 @@
 
                 </tbody>
               </table>
+              <nav aria-label="Page navigation text-dark">
+                <ul class="pagination justify-content-end text-danger">
+                    <?php echo e($users->links()); ?>
+
+                </ul>
+              </nav>
             </div>
           </div>
         </div>

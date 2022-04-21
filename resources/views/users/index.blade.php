@@ -24,7 +24,6 @@
             <div class="table-responsive">
               <table class="table table-hover">
                   <thead class="table-secondary">
-                  <th>#</th>
                   <th>Estado</th>
                   <th>Apellidos y nombres</th>
                   <th>Cuenta</th>
@@ -33,12 +32,8 @@
                   <th colspan="3" class="text-center bg-sucess">Acciones</th>
                 </thead>
                 <tbody>
-                    @php
-                        $num=1;
-                    @endphp
-                    @forelse ($users as $dato )
+                   @forelse ($users as $dato )
                   <tr>
-                    <td scope="row">{{$num++}}</td>
                     <td><b class="text-{{$dato['estado']==1 ? 'success':'danger'}}">{{$dato['estado']==1 ? 'Activo':'Inactivo'}}</b></td>
                     <td>{{$dato['apellidos']}} {{ $dato['nombres']}}</td>
                     <td><b class="text-primary">{{$dato['tipo']==1 ? 'Estandar':'Administrador'}}</b></td>
@@ -46,7 +41,7 @@
                     <td><b >{{$dato->relacion_cargo['descripcion']}}</b></td>
 
                         @if($dato['tipo']==1)
-                        <td>
+                        <td width=5>
                             <form action="{{ route('user.asignature', $dato->id) }}" method ="POST" >
                                 @csrf
                                 {{ method_field('post') }}
@@ -56,14 +51,14 @@
                             </form>
                         </td>
                         @else
-                        <td></td>
+                        <td width=5></td>
                         @endif
-                        <td>
+                        <td width=5>
                         <a type="button"rel="tooltip" title="Editar Informacion" class="btn btn-primary btn-sm" href="{{ route('user.edit', $dato->id) }}">
                         <i class="material-icons">edit</i></a>
                         </td>
 
-                        <td>
+                        <td width=5>
                             <form action="{{ route('user.destroy', $dato->id) }}" method ="POST" >
                                 @csrf
                                 {{ method_field('DELETE') }}
@@ -82,6 +77,11 @@
 
                 </tbody>
               </table>
+              <nav aria-label="Page navigation text-dark">
+                <ul class="pagination justify-content-end text-danger">
+                    {{ $users->links() }}
+                </ul>
+              </nav>
             </div>
           </div>
         </div>

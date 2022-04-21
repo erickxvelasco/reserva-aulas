@@ -1,7 +1,3 @@
-
-
-
-
 <?php $__env->startSection('content'); ?>
   <div class="content">
     <div class="container-fluid">
@@ -22,7 +18,7 @@
                   <label class="col-sm-2 pt-3 col-form-label text-secondary"><?php echo e(__('Apellidos ')); ?></label>
                   <div class="col-sm-9">
                     <div class="form-group<?php echo e($errors->has('apellidos') ? ' has-danger' : ''); ?>">
-                      <input autocomplete="off" class="form-control<?php echo e($errors->has('apellidso') ? ' is-invalid' : ''); ?>" name="apellidos" id="id_apellido" type="text" placeholder="<?php echo e(__('Apellidos')); ?>" value="<?php echo e(old('apellidos')); ?>" required="true" />
+                      <input autocomplete="off" class="form-control<?php echo e($errors->has('apellidos') ? ' is-invalid' : ''); ?>" name="apellidos" id="id_apellido" type="text" placeholder="<?php echo e(__('Apellidos')); ?>" value="<?php echo e(old('apellidos')); ?>" required="true" />
                       <?php if($errors->has('apellidos')): ?>
                         <span id="name-error" class="error text-danger" for="id_apellido"><?php echo e($errors->first('apellidos')); ?></span>
                       <?php endif; ?>
