@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([GrupoSeeder::class]);
         $this->call([GestionSeeder::class]);
         $this->call([UbicacionSeeder::class]);
+        $this->call([PlantaSeeder::class]);
 
     }
 }
