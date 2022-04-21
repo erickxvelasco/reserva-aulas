@@ -34,6 +34,7 @@ return array(
     'App\\Http\\Requests\\ProfileRequest' => $baseDir . '/app/Http/Requests/ProfileRequest.php',
     'App\\Http\\Requests\\UserRequest' => $baseDir . '/app/Http/Requests/UserRequest.php',
     'App\\Models\\Cargo' => $baseDir . '/app/Models/Cargo.php',
+    'App\\Models\\Gestion' => $baseDir . '/app/Models/Gestion.php',
     'App\\Models\\Grupo' => $baseDir . '/app/Models/Grupo.php',
     'App\\Models\\Materia' => $baseDir . '/app/Models/Materia.php',
     'App\\Models\\Solicitud' => $baseDir . '/app/Models/Solicitud.php',

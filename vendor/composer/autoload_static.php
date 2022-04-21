@@ -598,6 +598,7 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         'App\\Http\\Requests\\ProfileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileRequest.php',
         'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
         'App\\Models\\Cargo' => __DIR__ . '/../..' . '/app/Models/Cargo.php',
+        'App\\Models\\Gestion' => __DIR__ . '/../..' . '/app/Models/Gestion.php',
         'App\\Models\\Grupo' => __DIR__ . '/../..' . '/app/Models/Grupo.php',
         'App\\Models\\Materia' => __DIR__ . '/../..' . '/app/Models/Materia.php',
         'App\\Models\\Solicitud' => __DIR__ . '/../..' . '/app/Models/Solicitud.php',
