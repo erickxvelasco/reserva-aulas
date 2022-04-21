@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([MateriaSeeder::class]);
         $this->call([GrupoSeeder::class]);
         $this->call([GestionSeeder::class]);
+        $this->call([UbicacionSeeder::class]);
 
     }
 }
