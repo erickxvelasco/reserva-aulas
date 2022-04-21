@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Planta extends Model
+class Aula extends Model
 {
     use HasFactory;
-    protected $table = 'plantas';
+    protected $table = 'aulas';
 
     protected $fillable = [
+        'nombre',
+        'capacidad',
+        'aulasgte',
         'planta',
-        'ubicacion',
         'detalle'
     ];
-    public function relacion_ubicacion() {
-        return $this->hasOne(Ubicacion::class,'id','ubicacion');
+    public function relacion_planta() {
+        return $this->hasOne(Planta::class,'id','planta');
     }
 }

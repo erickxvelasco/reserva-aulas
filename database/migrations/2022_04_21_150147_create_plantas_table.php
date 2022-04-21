@@ -15,6 +15,10 @@ class CreatePlantasTable extends Migration
     {
         Schema::create('plantas', function (Blueprint $table) {
             $table->id();
+            $table->string('planta');
+            $table->integer('ubicacion');
+            $table->foreign('ubicacion')->references('id')->on('ubicaciones');
+            $table->string('detalle')->nullable();
             $table->timestamps();
         });
     }
