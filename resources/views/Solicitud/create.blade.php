@@ -1,6 +1,5 @@
 @extends('layouts.app', ['activePage' => 'solicitud.create', 'titlePage' => __(' Nueva Solicitud')])
-{{--@include('modal.add_materia') --}}
-
+@include('modal.modal_configure_perm')
 @section('content')
   <div class="content">
     <div class="container-fluid">
@@ -10,6 +9,7 @@
             @csrf
             @method('post')
             {{--  <h1>{{$errors}}}</h1> --}}
+
 
             <div class="card ">
               <div class="card-header card-header-default bg-dark ">
@@ -34,8 +34,9 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $total=0;
+                                    $total=0;
                                     @endphp
+
                                     @foreach ( auth()->user()->relacion_grupos as $grupos)
                                     @php
                                         $total=$total + $grupos->inscritos ;
@@ -55,7 +56,6 @@
                                     <td class="text-success"><b>{{ $grupos->grupo }}</b></td>
                                     <td>{{ $grupos->inscritos }}</td>
                                     </tr>
-
                                     @endforeach
 
 
@@ -66,6 +66,11 @@
                                 <label class="text-right display-4">Total :</label>
 
                                 <label id="total_td" class="text-primary display-4">{{ $total }}</label>
+                                <script>
+                                    abc=document.getElementById("hidden_alumnos");
+                                    abc.value={{$total}}
+                                </script>
+
                             </div>
                             <br>
                             </div>
@@ -79,7 +84,7 @@
                             <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Total alumnos ') }}</label>
                             <div class="col-sm-6">
                               <div class="form-group{{ $errors->has('input_total') ? ' has-danger' : '' }}">
-                                <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="input_total" id="input_total" type="text" placeholder="{{ __('Total alumnos') }}" value="{{ old('input_total',$total) }}" required="true" />
+                                <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="input_total" id="input_total" type="number" placeholder="{{ __('Total alumnos') }}" value="{{ old('input_total',$total) }}" required="true" />
                                 @if ($errors->has('input_total'))
                                   <span id="name-error" class="error text-danger" for="input_total">{{ $errors->first('input_total') }}</span>
                                 @endif
@@ -110,7 +115,12 @@
                                   @endif
                                 </div>
                               </div>
-                              <label class="col-sm-4 pt-3 col-form-label text-primary"><b> Semestre(15/02/2022 - 19/08/2022) </b></label>
+                              @php
+
+                                  //$inicio= Carbon\Carbon::parse($gestion['inicio']);
+                                  //$incio=$incio ->format('d-m-y');
+                              @endphp
+                              <label class="col-sm-4 pt-3 col-form-label text-primary"><b> {{$gestion['detalle']." [". $gestion['inicio']." - " . $gestion['final']."]"}} </b></label>
                             </div>
 
                             <div class="row">
@@ -147,7 +157,7 @@
                                         <span class="nav-tabs-title">Aulas Disponibles:</span>
                                         <ul class="nav nav-tabs" data-tabs="tabs">
                                           <li class="nav-item">
-                                            <a class="nav-link active" href="" data-toggle="tab">
+                                            <a class="nav-link active" data-toggle="modal"  data-target="#ModalPermutacion" >
                                               <i class="material-icons">view_in_ar</i> Generar Permutaciones
                                               <div class="ripple-container"></div>
                                             </a>
@@ -162,23 +172,20 @@
                                       <div class="tab-pane active" id="profile">
                                         <table class="table">
                                             <thead>
-                                                <th>#</th>
                                                 <th>Aulas Sugeridas</th>
+                                                <th>Total</th>
                                                 <th class="text-center">Seleccionar</th>
                                             </thead>
                                           <tbody>
-                                            <tr>
-                                              <td>1</td>
-                                              <td>622-623-624</td>
-                                              <td width=30><button class="btn btn-outline-success">Seleccionar</button></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>691a-691b-691g</td>
-                                                <td width=30><button class="btn btn-outline-success">Seleccionar</button></td>
-                                            </tr>
-
-
+                                            @if (session('aulas'))
+                                                @foreach ( session('aulas') as $aulas)
+                                                <tr>
+                                                    <td>{{$aulas['aulas']}}</td>
+                                                    <td>{{$aulas['total']}}</td>
+                                                    <td><button class="btn btn-outline-success">Seleccionar</button> </td>
+                                                </tr>
+                                                @endforeach
+                                            @endif
                                           </tbody>
                                         </table>
                                       </div>
@@ -224,11 +231,44 @@
   </div>
 
 
+
   <script type="text/javascript">
         let horas = ['06:45','07:30','08:15','09:00','09:45','10:30','11:15','12:00','12:45','13:30','14:15','15:00','15:45','16:30','17:15','18:00','18:45','19:30','20:15','21:00','21:45']
 
         let inicio =  document.getElementById("hora_inicio");
         let fin =  document.getElementById("hora_final");
+
+
+        let s_ubicacion=document.getElementById("select_ubicacion");
+        let s_planta=document.getElementById("select_planta");
+
+        //var mat = JSON.stringify(@json($plantas));
+
+       /* for (var valor of mat) {
+        console.log("Valor: " + valor);
+        }
+*/
+
+        s_ubicacion.addEventListener('change',
+            function() {
+                removeOptions(s_planta);
+                        option = document.createElement("option");
+                        option.value = 0;
+                        option.text ="Todos";
+                        s_planta.appendChild(option);
+                @foreach ($plantas as $planta)
+                    if ({{ $planta->ubicacion }}==s_ubicacion.value){
+                        option = document.createElement("option");
+                        option.value = {{$planta->id}};
+                        option.text ="{{$planta->planta}}";
+                        s_planta.appendChild(option);
+                    }
+
+                @endforeach
+
+            });
+
+
 
         cargar_select(inicio,0,true,0);
 
@@ -278,7 +318,10 @@
 
         function removeOptions(selectbox) { var i; for(i=selectbox.options.length-1;i>=0;i--) { selectbox.remove(i); } }
 
+        let input_total =  document.getElementById('input_total');
+        let auxi =  document.getElementById('total_td');
 
+        let hidden_alumnos = document.getElementById('hidden_alumnos');
 
         function calcular(){
             var total=0;
@@ -287,15 +330,18 @@
                     //cada elemento seleccionado
                    total = total +  parseInt($(this).val());
                 });
-               let input_total =  document.getElementById('input_total');
-               let auxi =  document.getElementById('total_td');
 
+                hidden_alumnos.value=total;
                input_total.value=total;
                auxi.innerHTML="<b>" + total + "</b>";
             });
         }
 
 
+input_total.addEventListener('change', changevalue);
+            function changevalue(e) {
+                hidden_alumnos.value=input_total.value;
+            }
 
 </script>
 @endsection

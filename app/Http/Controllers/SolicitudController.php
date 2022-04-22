@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Solicitud;
 use App\Http\Controllers\Controller;
 use App\Models\Gestion;
+
 use App\Models\Planta;
 use App\Models\Ubicacion;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 
 class SolicitudController extends Controller
 {
@@ -18,7 +22,6 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -28,9 +31,10 @@ class SolicitudController extends Controller
      */
     public function create()
     {
-        $gestion=Gestion::where('estado','=',1)->first();
-
-        return view('Solicitud.create',compact('gestion'));
+        $gestion = Gestion::where('estado', '=', 1)->first();
+        $ubicaciones = Ubicacion::all();
+        $plantas = Planta::all();
+        return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas'));
     }
 
     /**
@@ -92,43 +96,63 @@ class SolicitudController extends Controller
     public function permutaciones(Request $request)
     {
         //en request vienen los parametros
-        $ubicaciones=Ubicacion::all()->first();
+        //dd($request);
+
+
+        $ubicaciones = Ubicacion::all();
         //dd($ubicacion->relacion_planta['ubicacion']);
-        $alumnos=220;
-        foreach( $ubicaciones->relacion_plantas as $plantas){
-            //dd($ubi['planta']);
-            foreach($plantas->relacion_aulas as $aulas){
-               //echo($aulas['nombre'].$aulas['capacidad']);
-               echo('{erick}');
-               $total=0;
-               while($aulas != null){
+        $alumnos = $request['alumnos'];
+        $aforo = ($request['capacidad'] / 100);
+        $resultado=collect();
 
-                    $total+=($aulas['capacidad']*0.5);
-                    echo($aulas['nombre']."+".$aulas['capacidad']." - ");
-                    if($total>=($alumnos*0.9) && $total<=$alumnos*1.1){
-                        //ya se cumplio la cuota
-                        //escribimos las aulas
-                        //guardamos la tupla
-                        //ANTES DE GUARDAR->MANDAMOS EL AULA A UN METODO PARA VERIFICAR SI PARA LA FECHA SOLICITADA YA ESTA RESERVADA
-                        //->ENCASO DE QUE ESTE RESERVADO -> SALIR INMEDIATAMENTE
-                        //SINO->CONTINUE
-                        echo(' *GUARDADO* ');
-                        //salimos del while
-                        $aulas=null;
-                    }else{
-                        $aulas=$aulas->relacion_aulasig;
+        foreach ($ubicaciones as $ubicacion) {
+            foreach ($ubicacion->relacion_plantas as $plantas) {
+                //dd($ubi['planta']);
+                foreach ($plantas->relacion_aulas as $aulas) {
+                    //echo($aulas['nombre'].$aulas['capacidad']);
+                    //echo ('{erick}');
+                    $tupla="";
+                    $total = 0;
+                    while ($aulas != null) {
+                        $total += ($aulas['capacidad'] * $aforo);
+                        //echo ($aulas['nombre'] . "+" . $aulas['capacidad'] . " - ");
+                        $tupla.=$aulas['nombre'] . "[" . $aulas['capacidad'] . "]";
+                        if ($total >= ($alumnos * 0.9)) {
 
+                            //ya se cumplio la cuota
+                            //escribimos las aulas
+                            //guardamos la tupla
+                            //ANTES DE GUARDAR->MANDAMOS EL AULA A UN METODO PARA VERIFICAR SI PARA LA FECHA SOLICITADA YA ESTA RESERVADA
+                            //->ENCASO DE QUE ESTE RESERVADO -> SALIR INMEDIATAMENTE
+                            //SINO->CONTINUE
+                            //echo (' *GUARDADO* ');
+                            $tupla=["aulas" => $tupla];
+                            $resultado->push(collect(Arr::add($tupla, 'total', (int) $total )));
+
+                            //echo $resultado['aulas'] . "{" . $resultado['total'] . "}";
+                            //salimos del while
+                            $aulas = null;
+                        } else {
+                            $tupla.=" - ";
+                            $aulas = $aulas->relacion_aulasig;
+                        }
                     }
-
-
-
-               }
-
-
+                }
             }
         }
 
+        //dd($resultado);
+        Return back()->with('aulas',$resultado);
+        //volvemos atras y mandamos la coleccion como mensaje de sesion
 
+    }
 
+    private function verificar_reserva($aula)
+    {
+        //buscamos en la bd reserva
+        //necesitamos fecha y rango de horas()
+
+        //devolvemos true o false
+        return false;
     }
 }
