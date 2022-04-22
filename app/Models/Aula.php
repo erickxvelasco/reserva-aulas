@@ -13,11 +13,15 @@ class Aula extends Model
     protected $fillable = [
         'nombre',
         'capacidad',
-        'aulaant',
+        'aulasig',
         'planta',
         'detalle'
     ];
     public function relacion_planta() {
         return $this->hasOne(Planta::class,'id','planta');
+    }
+
+    public function relacion_aulasig() {
+        return $this->hasOne(Aula::class,'id','aulasig');
     }
 }

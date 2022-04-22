@@ -14,8 +14,10 @@ class Ubicacion extends Model
         'ubicacion',
         'detalle'
     ];
+
     public function relacion_plantas() {
         $aux=$this->hasmany(Planta::class,'ubicacion','id');
+        //dd($aux);
         return $aux;
     }
 }

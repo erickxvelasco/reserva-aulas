@@ -92,11 +92,39 @@ class SolicitudController extends Controller
     public function permutaciones(Request $request)
     {
         //en request vienen los parametros
-        foreach(Ubicacion::all() as $ubi){
-            foreach($ubi->relacion_plantas() as $plantas){
-                foreach($plantas->relacion_aulas() as $aulas ){
-                    echo($aulas->nombre);
-                }
+        $ubicaciones=Ubicacion::all()->first();
+        //dd($ubicacion->relacion_planta['ubicacion']);
+        $alumnos=220;
+        foreach( $ubicaciones->relacion_plantas as $plantas){
+            //dd($ubi['planta']);
+            foreach($plantas->relacion_aulas as $aulas){
+               //echo($aulas['nombre'].$aulas['capacidad']);
+               echo('{erick}');
+               $total=0;
+               while($aulas != null){
+
+                    $total+=($aulas['capacidad']*0.5);
+                    echo($aulas['nombre']."+".$aulas['capacidad']." - ");
+                    if($total>=($alumnos*0.9) && $total<=$alumnos*1.1){
+                        //ya se cumplio la cuota
+                        //escribimos las aulas
+                        //guardamos la tupla
+                        //ANTES DE GUARDAR->MANDAMOS EL AULA A UN METODO PARA VERIFICAR SI PARA LA FECHA SOLICITADA YA ESTA RESERVADA
+                        //->ENCASO DE QUE ESTE RESERVADO -> SALIR INMEDIATAMENTE
+                        //SINO->CONTINUE
+                        echo(' *GUARDADO* ');
+                        //salimos del while
+                        $aulas=null;
+                    }else{
+                        $aulas=$aulas->relacion_aulasig;
+
+                    }
+
+
+
+               }
+
+
             }
         }
 

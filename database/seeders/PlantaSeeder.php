@@ -15,13 +15,13 @@ class PlantaSeeder extends Seeder
     {
         $data=[
             //edificio nuevo
-            ['planta'=>'planta baja','ubicacion'=>'1','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['planta'=>'planta 1','ubicacion'=>'1','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['planta'=>'planta 2','ubicacion'=>'1','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['planta'=>'planta 3','ubicacion'=>'1','detalle'=>'null','created_at' => now(),'updated_at' => now()],
+            ['planta'=>'planta baja','ubicacion'=>1,'detalle'=>'null','created_at' => now(),'updated_at' => now()],
+            ['planta'=>'planta 1','ubicacion'=>1,'detalle'=>'null','created_at' => now(),'updated_at' => now()],
+            ['planta'=>'planta 2','ubicacion'=>1,'detalle'=>'null','created_at' => now(),'updated_at' => now()],
+            ['planta'=>'planta 3','ubicacion'=>1,'detalle'=>'null','created_at' => now(),'updated_at' => now()],
             //edificio industrial
-            ['planta'=>'planta baja(depto industrial)','ubicacion'=>'2','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['planta'=>'planta 1','ubicacion'=>'2','detalle'=>'null','created_at' => now(),'updated_at' => now()],
+            ['planta'=>'planta baja(depto industrial)','ubicacion'=>2,'detalle'=>'null','created_at' => now(),'updated_at' => now()],
+            ['planta'=>'planta 1','ubicacion'=>2,'detalle'=>'null','created_at' => now(),'updated_at' => now()],
             //trencito
             ['planta'=>'planta baja','ubicacion'=>'3','detalle'=>'null','created_at' => now(),'updated_at' => now()],
             //edificio elektro
