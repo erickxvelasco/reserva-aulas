@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Solicitud;
 use App\Http\Controllers\Controller;
+use App\Models\Gestion;
+use App\Models\Planta;
+use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 
 class SolicitudController extends Controller
@@ -25,7 +28,9 @@ class SolicitudController extends Controller
      */
     public function create()
     {
-        return view('Solicitud.create');
+        $gestion=Gestion::where('estado','=',1)->first();
+
+        return view('Solicitud.create',compact('gestion'));
     }
 
     /**
@@ -82,5 +87,20 @@ class SolicitudController extends Controller
     public function destroy(Solicitud $solicitud)
     {
         //
+    }
+
+    public function permutaciones(Request $request)
+    {
+        //en request vienen los parametros
+        foreach(Ubicacion::all() as $ubi){
+            foreach($ubi->relacion_plantas() as $plantas){
+                foreach($plantas->relacion_aulas() as $aulas ){
+                    echo($aulas->nombre);
+                }
+            }
+        }
+
+
+
     }
 }

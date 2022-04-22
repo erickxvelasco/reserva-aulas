@@ -18,4 +18,8 @@ class Planta extends Model
     public function relacion_ubicacion() {
         return $this->hasOne(Ubicacion::class,'id','ubicacion');
     }
+    public function relacion_aulas() {
+        $aux=$this->hasmany(Aula::class,'planta','id');
+        return $aux;
+    }
 }
