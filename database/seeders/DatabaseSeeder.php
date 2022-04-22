@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call([GestionSeeder::class]);
         $this->call([UbicacionSeeder::class]);
         $this->call([PlantaSeeder::class]);
+        $this->call([AulaSeeder::class]);
 
     }
 }

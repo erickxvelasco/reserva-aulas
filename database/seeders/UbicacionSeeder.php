@@ -17,7 +17,7 @@ class UbicacionSeeder extends Seeder
             ['ubicacion'=>'edificio nuevo','detalle'=>'null','created_at' => now(),'updated_at' => now()],
             ['ubicacion'=>'edificio industrial','detalle'=>'null','created_at' => now(),'updated_at' => now()],
             ['ubicacion'=>'trencito','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['ubicacion'=>'edificio electrica','detalle'=>'null','created_at' => now(),'updated_at' => now()],
+            ['ubicacion'=>'edificio elektro','detalle'=>'null','created_at' => now(),'updated_at' => now()],
             ['ubicacion'=>'edificio antiguo','detalle'=>'null','created_at' => now(),'updated_at' => now()]
         ];
         DB::table('ubicaciones')->insert($data);
