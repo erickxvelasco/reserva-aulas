@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 <div class="container" style="height: auto;">
   <div class="row align-items-center">
@@ -8,7 +6,7 @@
         <?php echo csrf_field(); ?>
 
         <div class="card card-login card-hidden mb-3">
-          <div class="card-header card-header-warning text-center">
+          <div class="card-header card-header-rose text-center">
             <h4 class="card-title"><strong><?php echo e(__('Iniciar Sesión')); ?></strong></h4>
           </div>
           <div class="card-body">
@@ -17,7 +15,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons">email</i>
+                    <i class="material-icons text-rose">email</i>
                   </span>
                 </div>
                 <?php if(session()->has('abc')): ?>
@@ -35,7 +33,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
+                    <i class="material-icons text-rose">lock_outline</i>
                   </span>
                 </div>
                 <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo e(__('Password...')); ?>" value="<?php echo e(!$errors->has('password') ? "secret" : ""); ?>" required>
@@ -57,7 +55,7 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-warning btn-link btn-lg"><?php echo e(__('Ingresar')); ?></button>
+            <button type="submit" class="btn btn-rose btn-link btn-lg"><?php echo e(__('Ingresar')); ?></button>
           </div>
         </div>
       </form>

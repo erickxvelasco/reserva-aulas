@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <title><?php echo e(__('Reserva de Aulas')); ?></title>
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo e(asset('material')); ?>/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="<?php echo e(asset('material')); ?>/img/favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo e(asset('material')); ?>/img/sansi.png">
 
 
 
