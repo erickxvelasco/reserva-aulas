@@ -30,7 +30,11 @@
                     <tr>
                         <td>{{$aulas['aulas']}}</td>
                         <td>{{$aulas['total']}}</td>
-                        <td><button class="btn btn-outline-success">Seleccionar</button> </td>
+                        <td class="text-center" width=15>
+                            <button class="btn btn-success btn-fab btn-fab-mini btn-round">
+                                <i class="material-icons">check</i>
+                              </button>
+                        </td>
                     </tr>
                     @empty
             <h1 class="text-danger display-3">No se encontraron Aulas disponibles para la capacidad solicitada</h1>
@@ -43,9 +47,8 @@
 </div>
 
 </div>
-<div class="modal-footer">
+<div class="modal-footer text-center">
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-  <button type="submit" class="btn btn-success active">Generar</button>
 </div>
 </form>
 </div>

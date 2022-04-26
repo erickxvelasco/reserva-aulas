@@ -15,7 +15,7 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item<?php echo e($activePage == 'solicitud.create' ? ' active' : ''); ?>">
-        <a class="nav-link" href="<?php echo e(route('solicitud.create')); ?>"> 
+        <a class="nav-link" href="<?php echo e(route('solicitud.create')); ?>" name="NuevaSolicitud"> 
           <i class="material-icons">add_box</i>
             <p><?php echo e(__('Nueva Solicitud')); ?></p>
         </a>

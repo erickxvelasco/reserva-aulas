@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-rose btn-link btn-lg"><?php echo e(__('Ingresar')); ?></button>
+            <button type="submit" class="btn btn-rose btn-link btn-lg" name="acceder"><?php echo e(__('Ingresar')); ?></button>
           </div>
         </div>
       </form>

@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav bg-white">
         <li class="nav-item">
-          <a href="<?php echo e(route('login')); ?>" class="nav-link active border border-dark text-dark ">
+          <a href="<?php echo e(route('login')); ?>" class="nav-link active border border-dark text-dark "name="login">
             <i class="material-icons text-rose">fingerprint</i> <?php echo e(__('Acceder')); ?>
 
           </a>
