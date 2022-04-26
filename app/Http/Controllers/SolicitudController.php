@@ -41,17 +41,21 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($data=null)
     {
         $gestion = Gestion::where('estado', '=', 1)->first();
         $ubicaciones = Ubicacion::all();
         $plantas = Planta::all();
 
 
+        if ($data==null){
+            $fecha_actual=Carbon::now();
+            $fecha_actual=$fecha_actual->format('Y-m-d');
+            $data=["total"=>"0","fecha"=>$fecha_actual,"motivo"=>'',"hora_inicio"=>1,"hora_final"=>2,"ubicacion"=>0,"planta"=>0,"capacidad"=>50];
 
-        $fecha_actual=Carbon::now();
-        $fecha_actual=$fecha_actual->format('Y-m-d');
-        $data=["total"=>"0","fecha"=>$fecha_actual,"motivo"=>'',"hora_inicio"=>1,"hora_final"=>2,"ubicacion"=>0,"planta"=>0,"capacidad"=>50];
+        }else{
+            dd($data);
+        }
 
         return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas','data'));
     }
@@ -172,7 +176,10 @@ class SolicitudController extends Controller
         $data=$request;
         $sessionManager->flash('aulas', $resultado );
 
-        return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas','data'))->with('aulas',$resultado);
+        //route('solicitud.create');
+
+        return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas','data'));
+        //return redirect()->route('solicitud.create',$data);
 
 
         //Return back()->with('aulas',$resultado);

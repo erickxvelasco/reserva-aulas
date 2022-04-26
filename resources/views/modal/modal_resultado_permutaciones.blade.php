@@ -1,5 +1,5 @@
 <div class="modal fade" id="ModalPermutacion" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down" >
+    <div class="modal-dialog bd-example-modal-lg" >
      <div class="modal-content">
        <div class="modal-header bg-success">
          <h4 class="modal-title text-white" id="exampleModalLongTitle">Aulas Disponibles : </h4>

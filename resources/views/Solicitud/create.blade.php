@@ -87,7 +87,7 @@
                             <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Total alumnos ') }}</label>
                             <div class="col-sm-6">
                               <div class="form-group{{ $errors->has('total') ? ' has-danger' : '' }}">
-                                <input autocomplete="off" class="form-control{{ $errors->has('total') ? ' is-invalid' : '' }}" name="total" id="total" type="number" placeholder="{{ __('Total alumnos') }}" value="{{ old('total',$data['total']) }}" required="true" />
+                                <input autocomplete="off" class="form-control{{ $errors->has('total') ? ' is-invalid' : '' }}" name="total" id="total" type="number" placeholder="{{ __('Total alumnos') }}" value="{{ old('total',$data['total']==0?$total:$data['total']) }}" required="true" />
                                 @if ($errors->has('total'))
                                   <span id="name-error" class="error text-danger" for="total">{{ $errors->first('total') }}</span>
                                 @endif
