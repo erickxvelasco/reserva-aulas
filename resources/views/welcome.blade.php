@@ -2,8 +2,17 @@
 
 @section('content')
     @auth
+
+
+
+
+
+
         @if (auth()->user()->estado==2)
-            {{ session()->get('abc','hello world') }}
+
+        {{Session::flash('abc', 'la cuenta se esta deshabilitada, pongase en contacto con un administrador*' );}}
+
+            {{-- session()->get('abc','hello world') --}}
            {{ auth()->logout() }}
 
             {{--redirect()->route('login')->with('status','Usuario Modificado con Exito!!!') --}}

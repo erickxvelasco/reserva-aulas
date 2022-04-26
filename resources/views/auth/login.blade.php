@@ -20,11 +20,13 @@
                     <i class="material-icons text-rose">email</i>
                   </span>
                 </div>
-                @if (session()->has('abc'))
-                    {{ session()->get('abc') }}// si existe imprime el valor de la variable mensaje
-                @endif
                 <input type="email" name="email" class="form-control" placeholder="{{ __('Email...') }}" value="{{ old('email', 'erick@sitic.com') }}" required>
               </div>
+              @if (session()->has('abc'))
+              <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
+                <strong>{{ session()->get('abc') }}</strong>
+              </div>
+                @endif
               @if ($errors->has('email'))
                 <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
                   <strong>{{ $errors->first('email') }}</strong>

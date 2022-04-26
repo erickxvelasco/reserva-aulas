@@ -30,7 +30,7 @@
 
         <li class="nav-item <?php echo e((!strpos($activePage,'user')) ? ' active' : ''); ?>" >
             
-            <a class="nav-link" data-toggle="collapse" href="#usercollapse" aria-expanded="false">
+            <a class="nav-link" data-toggle="collapse" href="#usercollapse" aria-expanded="false" name="usuario">
               <i class="material-icons">manage_accounts</i>
               <p><?php echo e(__('Usuarios')); ?>
 
@@ -40,13 +40,13 @@
             <div class="collapse <?php echo e((!strpos($activePage,'user')) ? ' show' : ''); ?>" id="usercollapse">
               <ul class="nav">
                 <li class="nav-item<?php echo e(($activePage == 'user.index'|| $activePage == 'user.edit') ? ' active' : ''); ?>">
-                  <a class="nav-link" href="<?php echo e(route('user.index')); ?>">
+                  <a class="nav-link" href="<?php echo e(route('user.index')); ?>" name="listarusuario">
                     <i class="material-icons">list_alt</i>
                     <span class="sidebar-normal"><?php echo e(__('Listar Usuarios')); ?> </span>
                   </a>
                 </li>
                 <li class="nav-item <?php echo e($activePage == 'user.create' ? ' active' : ''); ?>">
-                    <a class="nav-link" href="<?php echo e(route('user.create')); ?>">
+                    <a class="nav-link" href="<?php echo e(route('user.create')); ?>" name="registrarusuario">
                     <i class="material-icons">person_add_alt</i>
                     <span class="sidebar-normal"> <?php echo e(__('Registrar Usuario')); ?> </span>
                   </a>

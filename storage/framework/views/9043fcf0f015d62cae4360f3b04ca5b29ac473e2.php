@@ -1,8 +1,17 @@
 <?php $__env->startSection('content'); ?>
     <?php if(auth()->guard()->check()): ?>
-        <?php if(auth()->user()->estado==2): ?>
-            <?php echo e(session()->get('abc','hello world')); ?>
 
+
+
+
+
+
+        <?php if(auth()->user()->estado==2): ?>
+
+        <?php echo e(Session::flash('abc', 'la cuenta se esta deshabilitada, pongase en contacto con un administrador*' )); ?>
+
+
+            
            <?php echo e(auth()->logout()); ?>
 
 
