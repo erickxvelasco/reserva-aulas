@@ -10,7 +10,7 @@
 
         @if (auth()->user()->estado==2)
 
-        {{Session::flash('abc', 'la cuenta se esta deshabilitada, pongase en contacto con un administrador*' );}}
+        {{Session::flash('abc', 'la cuenta esta deshabilitada, pongase en contacto con un administrador*' );}}
 
             {{-- session()->get('abc','hello world') --}}
            {{ auth()->logout() }}
