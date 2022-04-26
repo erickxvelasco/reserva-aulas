@@ -1,6 +1,9 @@
 <?php
 
+
 namespace App\Http\Controllers;
+
+use Helpers\Codifica;//helpers
 
 use App\Models\Solicitud;
 use App\Http\Controllers\Controller;
@@ -8,10 +11,16 @@ use App\Models\Gestion;
 
 use App\Models\Planta;
 use App\Models\Ubicacion;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+
+use Illuminate\Session\SessionManager;
+
+
+use App\Http\Requests\SolicitudRequest;
 
 class SolicitudController extends Controller
 {
@@ -20,6 +29,9 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function index()
     {
     }
@@ -34,7 +46,14 @@ class SolicitudController extends Controller
         $gestion = Gestion::where('estado', '=', 1)->first();
         $ubicaciones = Ubicacion::all();
         $plantas = Planta::all();
-        return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas'));
+
+
+
+        $fecha_actual=Carbon::now();
+        $fecha_actual=$fecha_actual->format('Y-m-d');
+        $data=["total"=>"0","fecha"=>$fecha_actual,"motivo"=>'',"hora_inicio"=>1,"hora_final"=>2,"ubicacion"=>0,"planta"=>0,"capacidad"=>50];
+
+        return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas','data'));
     }
 
     /**
@@ -93,7 +112,7 @@ class SolicitudController extends Controller
         //
     }
 
-    public function permutaciones(Request $request)
+    public function permutaciones(SolicitudRequest $request, SessionManager $sessionManager)
     {
         //en request vienen los parametros
         //dd($request);
@@ -101,7 +120,7 @@ class SolicitudController extends Controller
 
         $ubicaciones = Ubicacion::all();
         //dd($ubicacion->relacion_planta['ubicacion']);
-        $alumnos = $request['alumnos'];
+        $alumnos = $request['total'];
         $aforo = ($request['capacidad'] / 100);
         $resultado=collect();
 
@@ -142,7 +161,21 @@ class SolicitudController extends Controller
         }
 
         //dd($resultado);
-        Return back()->with('aulas',$resultado);
+
+        $gestion = Gestion::where('estado', '=', 1)->first();
+        $ubicaciones = Ubicacion::all();
+        $plantas = Planta::all();
+
+
+
+
+        $data=$request;
+        $sessionManager->flash('aulas', $resultado );
+
+        return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas','data'))->with('aulas',$resultado);
+
+
+        //Return back()->with('aulas',$resultado);
         //volvemos atras y mandamos la coleccion como mensaje de sesion
 
     }
@@ -155,4 +188,8 @@ class SolicitudController extends Controller
         //devolvemos true o false
         return false;
     }
+
+
+
+
 }

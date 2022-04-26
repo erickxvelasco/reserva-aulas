@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <title><?php echo e(__('Reserva de Aulas')); ?></title>
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo e(asset('material')); ?>/img/apple-icon.png">
+
     <link rel="icon" type="image/png" href="<?php echo e(asset('material')); ?>/img/sansi.png">
 
 
@@ -22,6 +22,7 @@
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body class="<?php echo e($class ?? ''); ?>">
         <?php if(auth()->guard()->check()): ?>

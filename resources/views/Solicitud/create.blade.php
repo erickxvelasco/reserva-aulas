@@ -1,15 +1,22 @@
 @extends('layouts.app', ['activePage' => 'solicitud.create', 'titlePage' => __(' Nueva Solicitud')])
-@include('modal.modal_configure_perm')
+
+
+
 @section('content')
+@include('modal.modal_resultado_permutaciones')
+
+
+{{-- contenido pagina --}}
+{{-- dd($data) --}}
+
   <div class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="post" action="" autocomplete="off" class="form-horizontal" name="form">
+          <form method="post" action="{{ route('aulas.permulaciones') }}" autocomplete="off" class="form-horizontal" name="form" >
             @csrf
             @method('post')
             {{--  <h1>{{$errors}}}</h1> --}}
-
 
             <div class="card ">
               <div class="card-header card-header-default bg-dark ">
@@ -19,7 +26,7 @@
               <div class="card-body " >
                 <div class="row d-block">
 
-                            <div class="px-3 col-xl-4 float-right bg-default text-dark" style="background-color: rgb(245, 245, 245)">
+                            <div class="px-1 col-xl-4 float-right bg-default text-dark" style="background-color: rgb(245, 245, 245)">
 
 
                               <table class="table " style="">
@@ -58,7 +65,6 @@
                                     </tr>
                                     @endforeach
 
-
                                 </tbody>
 
                               </table>
@@ -66,10 +72,7 @@
                                 <label class="text-right display-4">Total :</label>
 
                                 <label id="total_td" class="text-primary display-4">{{ $total }}</label>
-                                <script>
-                                    abc=document.getElementById("hidden_alumnos");
-                                    abc.value={{$total}}
-                                </script>
+
 
                             </div>
                             <br>
@@ -83,10 +86,10 @@
                         <div class="row">
                             <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Total alumnos ') }}</label>
                             <div class="col-sm-6">
-                              <div class="form-group{{ $errors->has('input_total') ? ' has-danger' : '' }}">
-                                <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="input_total" id="input_total" type="number" placeholder="{{ __('Total alumnos') }}" value="{{ old('input_total',$total) }}" required="true" />
-                                @if ($errors->has('input_total'))
-                                  <span id="name-error" class="error text-danger" for="input_total">{{ $errors->first('input_total') }}</span>
+                              <div class="form-group{{ $errors->has('total') ? ' has-danger' : '' }}">
+                                <input autocomplete="off" class="form-control{{ $errors->has('total') ? ' is-invalid' : '' }}" name="total" id="total" type="number" placeholder="{{ __('Total alumnos') }}" value="{{ old('total',$data['total']) }}" required="true" />
+                                @if ($errors->has('total'))
+                                  <span id="name-error" class="error text-danger" for="total">{{ $errors->first('total') }}</span>
                                 @endif
                               </div>
                             </div>
@@ -95,9 +98,9 @@
 
                         <div class="row">
                             <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Motivo ') }}</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-10">
                               <div class="form-group{{ $errors->has('motivo') ? ' has-danger' : '' }}">
-                                <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="motivo" id="id_motivo" type="text" placeholder="{{ __('Motivo') }}" value="{{ old('motivo') }}" required="true" />
+                                <input autocomplete="off" class="form-control{{ $errors->has('motivo') ? ' is-invalid' : '' }}" name="motivo" id="id_motivo" type="text" placeholder="{{ __('Motivo') }}" value="{{ old('motivo',$data['motivo']) }}" required="true" />
                                 @if ($errors->has('motivo'))
                                   <span id="name-error" class="error text-danger" for="id_motivo">{{ $errors->first('motivo') }}</span>
                                 @endif
@@ -108,24 +111,28 @@
                           <div class="row">
                               <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Fecha ') }}</label>
                               <div class="col-sm-6">
-                                <div class="form-group{{ $errors->has('nombres') ? ' has-danger' : '' }}">
-                                  <input class="form-control{{ $errors->has('nombres') ? ' is-invalid' : '' }}" name="nombres" id="id_nombre" type="date" placeholder="sss" value="{{ old('nombres', Carbon\Carbon::now()->format('d-m-Y')) }}" required="true" />
-                                  @if ($errors->has('nombres'))
-                                    <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('nombres') }}</span>
+                                <div class="form-group{{ $errors->has('fecha') ? ' has-danger' : '' }}">
+                                  <input class="form-control{{ $errors->has('fecha') ? ' is-invalid' : '' }}" name="fecha" id="id_fecha" type="date" placeholder="sss" value="{{ old('fecha',$data['fecha']) }}" min="{{ $data['fecha'] }}" max="{{ $gestion['final'] }}" required="true"/>
+                                  @if ($errors->has('fecha'))
+                                    <span id="name-error" class="error text-danger" for="id_fecha">{{ $errors->first('fecha') }}</span>
                                   @endif
                                 </div>
                               </div>
                               @php
 
-                                  //$inicio= Carbon\Carbon::parse($gestion['inicio']);
-                                  //$incio=$incio ->format('d-m-y');
+                                  $_inicio= Carbon\Carbon::parse($gestion['inicio']);
+                                  $_inicio=$_inicio->format('d/m/y');
+
+                                  $_final= Carbon\Carbon::parse($gestion['final']);
+                                  $_final=$_final->format('d/m/y');
+
                               @endphp
-                              <label class="col-sm-4 pt-3 col-form-label text-primary"><b> {{$gestion['detalle']." [". $gestion['inicio']." - " . $gestion['final']."]"}} </b></label>
+                              <label class="col-sm-4 pt-3 col-form-label text-primary"><b> {{$gestion['detalle']." [". $_inicio." - " . $_final."]"}} </b></label>
                             </div>
 
                             <div class="row">
                               <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Rango de Horas ') }}</label>
-                              <div class="col-sm-4">
+                              <div class="col-sm-5">
                                   <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
                                       <select id="hora_inicio" name="hora_inicio" class="form-control " style="position: relative;top: -5px;">
 
@@ -136,7 +143,7 @@
                                   </div>
                                 </div>
 
-                              <div class="col-sm-4">
+                              <div class="col-sm-5">
                                   <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
                                       <select id="hora_final" name="hora_final" class="form-control " style="position: relative;top: -5px;">
 
@@ -148,76 +155,74 @@
                                 </div>
 
                             </div>
-
-                            <div class="col-12 cleafix">
-                                <div class="card cleafix">
-                                  <div class="card-header card-header-tabs card-header-success">
-                                    <div class="nav-tabs-navigation">
-                                      <div class="nav-tabs-wrapper">
-                                        <span class="nav-tabs-title">Aulas Disponibles:</span>
-                                        <ul class="nav nav-tabs" data-tabs="tabs">
-                                          <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="modal"  data-target="#ModalPermutacion" >
-                                              <i class="material-icons">view_in_ar</i> Generar Permutaciones
-                                              <div class="ripple-container"></div>
-                                            </a>
-                                          </li>
-
-                                        </ul>
-                                      </div>
+                            <hr class="bg-warning">
+                            {{-- Generar permutaciones --}}
+                            <div class="row">
+                                <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Buscar Aulas en') }}</label>
+                                <div class="col-sm-5">
+                                    <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
+                                        <select  class="form-control " id="select_ubicacion" name="ubicacion">
+                                            <option value="0" >Todos</option>
+                                            @foreach ($ubicaciones as $ubicacion)
+                                            @if ($data['ubicacion']==$ubicacion->id)
+                                            <option value="{{ $ubicacion->id }}" selected >{{ $ubicacion->ubicacion}}</option>
+                                            @else
+                                            <option value="{{ $ubicacion->id }}" >{{ $ubicacion->ubicacion}}</option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                       @if ($errors->has('expedido'))
+                                        <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('expedido') }}</span>
+                                      @endif
                                     </div>
                                   </div>
-                                  <div class="card-body">
-                                    <div class="tab-content">
-                                      <div class="tab-pane active" id="profile">
-                                        <table class="table">
-                                            <thead>
-                                                <th>Aulas Sugeridas</th>
-                                                <th>Total</th>
-                                                <th class="text-center">Seleccionar</th>
-                                            </thead>
-                                          <tbody>
-                                            @if (session('aulas'))
-                                                @foreach ( session('aulas') as $aulas)
-                                                <tr>
-                                                    <td>{{$aulas['aulas']}}</td>
-                                                    <td>{{$aulas['total']}}</td>
-                                                    <td><button class="btn btn-outline-success">Seleccionar</button> </td>
-                                                </tr>
-                                                @endforeach
-                                            @endif
-                                          </tbody>
-                                        </table>
-                                      </div>
 
-
+                                <div class="col-sm-5">
+                                    <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
+                                        <select class="form-control" id="select_planta" name="planta">
+                                            <option value="0">Todos</option>
+                                        </select>
+                                       @if ($errors->has('expedido'))
+                                        <span id="name-error" class="error text-danger" for="id_nombre">{{ $errors->first('expedido') }}</span>
+                                      @endif
                                     </div>
+                                  </div>
+
+                              </div>
+                              <div class="row">
+                                <label class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Capacidad Aulas ') }}</label>
+                                <div class="col-11 col-sm-6 ">
+                                  <div class="form-group{{ $errors->has('capacidad') ? ' has-danger' : '' }}">
+                                    <input type="number" class="form-control" placeholder="Inscritos" value="{{ old('capacidad',$data['capacidad']) }}" name='capacidad'>
+
+                                    @if ($errors->has('capacidad'))
+                                      <span id="name-error" class="error text-danger" for="capacidad">{{ $errors->first('capacidad') }}</span>
+                                    @endif
                                   </div>
                                 </div>
+                                <label for="" class="text-danger" style="position: relative;top:20px;">%</label>
+                            </div>
+
+                            {{-- permutaciones --}}
+
+                            <div class="text-center" style="background-color:rgb(242, 239, 239);">
+                                <br><input type="submit" class="btn btn-dark active btn-lg" value='Consultar Aulas Disponibles' /><br><br>
                               </div>
-
-
-
 
                     </div>
                   </div>
 
-
-
-
-
-
-
-                  <br>
                 </div>{{--end cardbody--}}
 
 
-                <div class="text-center" style="background-color:rgb(242, 239, 239);">
-                    <br><input type="submit" class="btn btn-dark active btn-lg" value='Enviar Solicitud' /><br><br>
-                  </div>
             </div>
 
-          </form>
+
+    </form>
+
+    <button id="erick" type="button" data-toggle="modal" data-target="#ModalPermutacion" data-backdrop="static"  hidden>
+
+    </button>
 
 
         </div>
@@ -233,6 +238,20 @@
 
 
   <script type="text/javascript">
+   @if (session('aulas'))
+   $(document).ready(function(){
+   $("#ModalPermutacion").modal();
+});
+
+  let erick = document.getElementById("erick");
+                  console.log(erick);
+                  erick.click();
+
+  //presionar_click();
+
+
+@endif
+
         let horas = ['06:45','07:30','08:15','09:00','09:45','10:30','11:15','12:00','12:45','13:30','14:15','15:00','15:45','16:30','17:15','18:00','18:45','19:30','20:15','21:00','21:45']
 
         let inicio =  document.getElementById("hora_inicio");
@@ -318,10 +337,9 @@
 
         function removeOptions(selectbox) { var i; for(i=selectbox.options.length-1;i>=0;i--) { selectbox.remove(i); } }
 
-        let input_total =  document.getElementById('input_total');
+        let input_total =  document.getElementById('total');
         let auxi =  document.getElementById('total_td');
 
-        let hidden_alumnos = document.getElementById('hidden_alumnos');
 
         function calcular(){
             var total=0;
@@ -331,17 +349,21 @@
                    total = total +  parseInt($(this).val());
                 });
 
-                hidden_alumnos.value=total;
+
                input_total.value=total;
                auxi.innerHTML="<b>" + total + "</b>";
             });
         }
 
 
-input_total.addEventListener('change', changevalue);
-            function changevalue(e) {
-                hidden_alumnos.value=input_total.value;
-            }
+    function presionar_click(){
+        let erick = document.getElementById("erick");
+                    console.log(erick);
+                    erick.click();
+    }
 
 </script>
 @endsection
+
+
+

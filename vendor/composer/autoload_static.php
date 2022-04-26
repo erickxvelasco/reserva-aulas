@@ -137,6 +137,10 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
             'Illuminate\\Database\\Eloquent\\' => 29,
             'Illuminate\\' => 11,
         ),
+        'H' => 
+        array (
+            'Helpers\\' => 8,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -437,6 +441,10 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Helpers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/helpers',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -600,6 +608,7 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\PasswordRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PasswordRequest.php',
         'App\\Http\\Requests\\ProfileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileRequest.php',
+        'App\\Http\\Requests\\SolicitudRequest' => __DIR__ . '/../..' . '/app/Http/Requests/SolicitudRequest.php',
         'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
         'App\\Models\\Aula' => __DIR__ . '/../..' . '/app/Models/Aula.php',
         'App\\Models\\Cargo' => __DIR__ . '/../..' . '/app/Models/Cargo.php',

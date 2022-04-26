@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="orange" data-background-color="white" data-image="<?php echo e(asset('material')); ?>/img/sansi.png">
+<div class="sidebar" data-color="orange" data-background-color="rose" data-image="<?php echo e(asset('material')); ?>/img/sansi.png">
   <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 

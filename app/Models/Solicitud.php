@@ -11,6 +11,14 @@ class Solicitud extends Model
     protected $table = 'solicitudes';
 
     protected $fillable = [
-        'lugar'
+        'gestion',
+        'usuario',
+        'estado',
+        'mensaje',
+        'admin',
+        'motivo',
+        'fecha',
+        'inicio',
+        'fin'
     ];
 }
