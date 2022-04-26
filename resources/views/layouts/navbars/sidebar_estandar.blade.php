@@ -14,7 +14,7 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item{{ $activePage == 'solicitud.create' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('solicitud.create') }}"> {{--href="{{ route('home') }}">--}}
+        <a class="nav-link" href="{{ route('solicitud.create') }}" name="NuevaSolicitud"> {{--href="{{ route('home') }}">--}}
           <i class="material-icons">add_box</i>
             <p>{{ __('Nueva Solicitud') }}</p>
         </a>

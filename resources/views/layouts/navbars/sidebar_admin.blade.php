@@ -29,7 +29,7 @@
 
         <li class="nav-item {{ (!strpos($activePage,'user')) ? ' active' : '' }}" >
             {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
-            <a class="nav-link" data-toggle="collapse" href="#usercollapse" aria-expanded="false">
+            <a class="nav-link" data-toggle="collapse" href="#usercollapse" aria-expanded="false" name="usuario">
               <i class="material-icons">manage_accounts</i>
               <p>{{ __('Usuarios') }}
                 <b class="caret"></b>
@@ -38,13 +38,13 @@
             <div class="collapse {{ (!strpos($activePage,'user')) ? ' show' : '' }}" id="usercollapse">
               <ul class="nav">
                 <li class="nav-item{{ ($activePage == 'user.index'|| $activePage == 'user.edit') ? ' active' : '' }}">
-                  <a class="nav-link" href="{{ route('user.index') }}">
+                  <a class="nav-link" href="{{ route('user.index') }}" name="listarusuario">
                     <i class="material-icons">list_alt</i>
                     <span class="sidebar-normal">{{ __('Listar Usuarios') }} </span>
                   </a>
                 </li>
                 <li class="nav-item {{ $activePage == 'user.create' ? ' active' : '' }}">
-                    <a class="nav-link" href="{{ route('user.create') }}">
+                    <a class="nav-link" href="{{ route('user.create') }}" name="registrarusuario">
                     <i class="material-icons">person_add_alt</i>
                     <span class="sidebar-normal"> {{ __('Registrar Usuario') }} </span>
                   </a>
