@@ -7,6 +7,7 @@
  */
 use App\Models\Solicitud;
 $array_aulas=array();
+if(!function_exists('cargar_array_aulas')){
 function cargar_array_aulas($date,$inicio,$final){
     $solicitudes=Solicitud::where('fecha',$date)
                             ->where('estado',0)//esta aceptado ya es una reserva
@@ -31,6 +32,7 @@ function cargar_array_aulas($date,$inicio,$final){
         //devolver array
 
     }
+}
 }
 function verificar_existe_aula($id_aula){
     global $array_aulas;
