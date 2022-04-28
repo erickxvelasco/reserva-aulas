@@ -60,7 +60,8 @@ Route::group(['middleware' => 'auth'], function () {
     //route::get('solicitud/create/{data}', 'App\Http\Controllers\SolicitudController@create')->name('solicitud.create');
     route::post('user/{user}/asignature','App\Http\Controllers\UserController@asignature')->name('user.asignature');
 
-    route::post('/perm','App\Http\Controllers\SolicitudController@permutaciones')->name('aulas.permulaciones');
+    route::post('/permutaciones','App\Http\Controllers\SolicitudController@permutaciones')->name('aulas.permulaciones');
+
 
 
     /*

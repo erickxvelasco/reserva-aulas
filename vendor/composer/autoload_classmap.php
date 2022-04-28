@@ -45,6 +45,8 @@ return array(
     'App\\Models\\Materia' => $baseDir . '/app/Models/Materia.php',
     'App\\Models\\Planta' => $baseDir . '/app/Models/Planta.php',
     'App\\Models\\Solicitud' => $baseDir . '/app/Models/Solicitud.php',
+    'App\\Models\\Solicitud_Aula' => $baseDir . '/app/Models/Solicitud_Aula.php',
+    'App\\Models\\Solicitud_Grupo' => $baseDir . '/app/Models/Solicitud_Grupo.php',
     'App\\Models\\Ubicacion' => $baseDir . '/app/Models/Ubicacion.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

@@ -18863,3 +18863,11 @@ Copyright (c) 2015 Daniel Eden
     list-style: none;
 }
 }
+
+
+.divtablita{
+    overflow-x:hidden;
+    overflow-y:scroll;
+    height: 392px;
+
+}

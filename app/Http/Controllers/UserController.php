@@ -77,6 +77,7 @@ class UserController extends Controller
         //$validated['password']= Hash::make($validated['password']);
         //dd($validated);
         $user->update($validated);
+
         Return redirect()->route('user.index')->with('status','Usuario Modificado con Exito!!!');
 
     }

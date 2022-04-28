@@ -19,6 +19,17 @@ class Solicitud extends Model
         'motivo',
         'fecha',
         'inicio',
-        'fin'
+        'final'
     ];
+
+    public function relacion_aulas() {
+        $aux=$this->hasmany(Solicitud_Aula::class,'solicitud','id');
+        //dd($aux);
+        return $aux;
+    }
+    public function relacion_grupo() {
+        $aux=$this->hasmany(Solicitud_Grupo::class,'solicitud','id');
+        //dd($aux);
+        return $aux;
+    }
 }

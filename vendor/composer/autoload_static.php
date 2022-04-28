@@ -37,6 +37,7 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -136,10 +137,6 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
             'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\Database\\Eloquent\\' => 29,
             'Illuminate\\' => 11,
-        ),
-        'H' => 
-        array (
-            'Helpers\\' => 8,
         ),
         'G' => 
         array (
@@ -441,10 +438,6 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
-        'Helpers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/helpers',
-        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -617,6 +610,8 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         'App\\Models\\Materia' => __DIR__ . '/../..' . '/app/Models/Materia.php',
         'App\\Models\\Planta' => __DIR__ . '/../..' . '/app/Models/Planta.php',
         'App\\Models\\Solicitud' => __DIR__ . '/../..' . '/app/Models/Solicitud.php',
+        'App\\Models\\Solicitud_Aula' => __DIR__ . '/../..' . '/app/Models/Solicitud_Aula.php',
+        'App\\Models\\Solicitud_Grupo' => __DIR__ . '/../..' . '/app/Models/Solicitud_Grupo.php',
         'App\\Models\\Ubicacion' => __DIR__ . '/../..' . '/app/Models/Ubicacion.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

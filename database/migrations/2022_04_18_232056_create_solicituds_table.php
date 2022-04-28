@@ -19,15 +19,14 @@ class CreateSolicitudsTable extends Migration
             $table->foreign('gestion')->references('id')->on('gestiones');
             $table->tinyinteger('usuario');//llave foranea
             $table->foreign('usuario')->references('id')->on('users');
-            $table->tinyInteger('estado'); //1.-en proceso;2.-aceptado;3.-rechazado
+            $table->tinyInteger('estado'); //0.-en proceso;1.-aceptado;2.-rechazado
             $table->string('mensaje')->nullable();//mensaje mandado desde el admin
             $table->tinyinteger('admin');//llave foranea a admin
             $table->foreign('admin')->references('id')->on('users');
             $table->string('motivo');
             $table->date('fecha');
-            $table->dateTime('inicio');
-            $table->dateTime('fin');
-
+            $table->tinyInteger('inicio');
+            $table->tinyInteger('final');
             $table->timestamps();
 
             //tablas intermedias
