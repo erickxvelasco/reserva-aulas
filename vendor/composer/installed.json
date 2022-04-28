@@ -86,21 +86,6 @@
                 "phpunit/phpunit": "^7.0| ^8.0",
                 "spatie/phpunit-snapshot-assertions": "^1.3"
             },
-            "time": "2020-10-08T13:41:25+00:00",
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "BeyondCode\\ErdGenerator\\ErdGeneratorServiceProvider"
-                    ]
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "BeyondCode\\ErdGenerator\\": "src"
-                }
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"

@@ -180,7 +180,6 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         'B' => 
         array (
             'Brick\\Math\\' => 11,
-            'BeyondCode\\ErdGenerator\\' => 24,
         ),
         'A' => 
         array (
@@ -538,10 +537,6 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
-        'BeyondCode\\ErdGenerator\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src',
-        ),
         'Asm89\\Stack\\' => 
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
@@ -623,14 +618,6 @@ class ComposerStaticInit9a4b4c88e481d25c38aa6d37d3e66502
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'BeyondCode\\ErdGenerator\\Edge' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/Edge.php',
-        'BeyondCode\\ErdGenerator\\ErdGeneratorServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/ErdGeneratorServiceProvider.php',
-        'BeyondCode\\ErdGenerator\\GenerateDiagramCommand' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/GenerateDiagramCommand.php',
-        'BeyondCode\\ErdGenerator\\GraphBuilder' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/GraphBuilder.php',
-        'BeyondCode\\ErdGenerator\\Model' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/Model.php',
-        'BeyondCode\\ErdGenerator\\ModelFinder' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/ModelFinder.php',
-        'BeyondCode\\ErdGenerator\\ModelRelation' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/ModelRelation.php',
-        'BeyondCode\\ErdGenerator\\RelationFinder' => __DIR__ . '/..' . '/beyondcode/laravel-er-diagram-generator/src/RelationFinder.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
