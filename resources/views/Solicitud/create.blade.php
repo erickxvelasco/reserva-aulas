@@ -314,7 +314,7 @@
         cargar_select(inicio,0,true,0);
 
         removeOptions(fin);
-        cargar_select(fin,1,false,5);
+        cargar_select(fin,1,false,6);
 
             inicio.addEventListener('change', updateValue);
             function updateValue(e) {

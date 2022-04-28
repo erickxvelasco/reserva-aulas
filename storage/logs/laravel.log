@@ -55,3 +55,91 @@
 [stacktrace]
 #0 {main}
 "} 
+[2022-04-28 19:28:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:29:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:30:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:31:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:32:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:33:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:34:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:35:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:36:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:37:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:38:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:39:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:40:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:41:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:42:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:43:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:44:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:45:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:46:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:47:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:48:41] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
+[2022-04-28 19:49:40] local.ERROR: Cannot redeclare verificar_existe_aula() (previously declared in C:\Users\Usuario\Desktop\reserva-aulas\app\helpers.php:37) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare verificar_existe_aula() (previously declared in C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37) at C:\\Users\\Usuario\\Desktop\eserva-aulas\\app\\helpers.php:37)
+[stacktrace]
+#0 {main}
+"} 
