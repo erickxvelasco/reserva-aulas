@@ -27,6 +27,7 @@ class CreateSolicitudsTable extends Migration
             $table->date('fecha');
             $table->tinyInteger('inicio');
             $table->tinyInteger('final');
+            $table->Integer('total');
             $table->timestamps();
 
             //tablas intermedias

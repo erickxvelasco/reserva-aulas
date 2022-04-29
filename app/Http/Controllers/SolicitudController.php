@@ -38,6 +38,10 @@ class SolicitudController extends Controller
 
     public function index()
     {
+        //si solo es gestion actual hacr otro where
+        $solicitudes = Solicitud::where('usuario', auth()->user()->id)->orderby('created_at', 'desc')->paginate(8);
+
+        return view('solicitud.index', compact('solicitudes'));
     }
 
     /**
@@ -83,6 +87,7 @@ class SolicitudController extends Controller
         $reserva->fecha = $request['fecha'];
         $reserva->inicio = $request['hora_inicio'];
         $reserva->final = $request['hora_final'];
+        $reserva->total = $request['total'];
         $reserva->save();
         //guardar reserva_aulas
         foreach ($request['aula'] as $item) {
@@ -103,7 +108,7 @@ class SolicitudController extends Controller
         //guardar reserva_grupos
 
         //dd($reserva);
-        return redirect()->back();
+        return redirect()->route('solicitud.index')->with('status', 'Solicitud enviada con Exito!!!');
     }
 
     /**
@@ -166,23 +171,116 @@ class SolicitudController extends Controller
         if ($request['ubicacion'] == 0) {
             //buscar en todo
             $ubicaciones = Ubicacion::all();
+            foreach ($ubicaciones as $ubicacion) {
+                foreach ($ubicacion->relacion_plantas as $plantas) {
+                    //dd($ubi['planta']);
+                    foreach ($plantas->relacion_aulas as $aulas) {
+                        //echo($aulas['nombre'].$aulas['capacidad']);
+                        //echo ('{erick}');
+                        $tupla = "";
+                        $total = 0;
+                        $id = array();
+                        while ($aulas != null) {
+                            $total += ($aulas['capacidad'] * $aforo);
+                            //echo ($aulas['nombre'] . "+" . $aulas['capacidad'] . " - ");
+                            $tupla .= $aulas['nombre'] . "[" . $aulas['capacidad'] . "]";
+                            $id[] = $aulas['id'];
+                            if (verificar_existe_aula($aulas['id'])) {
+                                //es true existe entonces tenemos que limpiar las variables
+                                $aulas = null;
+                                $id = [];
+                            } else {
+                                //$tupla=$aulas;
+                                if ($total >= ($alumnos * 0.9)) {
+
+                                    //ya se cumplio la cuota
+                                    //escribimos las aulas
+                                    //guardamos la tupla
+                                    //ANTES DE GUARDAR->MANDAMOS EL AULA A UN METODO PARA VERIFICAR SI PARA LA FECHA SOLICITADA YA ESTA RESERVADA
+                                    //->ENCASO DE QUE ESTE RESERVADO -> SALIR INMEDIATAMENTE
+                                    //SINO->CONTINUE
+                                    //echo (' *GUARDADO* ');
+                                    //dd($id);
+                                    $tupla = ["aulas" => $tupla];
+                                    //$id=["id" => $id];
+
+                                    $tupla = Arr::add($tupla, 'id', $id);
+
+                                    $resultado->push(collect(Arr::add($tupla, 'total', (int) $total)));
+
+                                    //$resultado->push(collect(Arr::add($tupla, 'total', (int) $total,'id',$id )));
+
+                                    //echo $resultado['aulas'] . "{" . $resultado['total'] . "}";
+                                    //salimos del while
+                                    $aulas = null;
+                                    $id = [];
+                                } else {
+                                    $tupla .= " - ";
+                                    $aulas = $aulas->relacion_aulasig;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         } else {
             if ($request['planta'] == 0) {
                 //recorremos desde el segundo foreach
-                $ubicacion = Ubicacion::findbyid($request['ubicacion']);
+                $ubicacion = Ubicacion::where('id',$request['ubicacion'])->first();
+                foreach ($ubicacion->relacion_plantas as $plantas) {
+                    //dd($ubi['planta']);
+                    foreach ($plantas->relacion_aulas as $aulas) {
+                        //echo($aulas['nombre'].$aulas['capacidad']);
+                        //echo ('{erick}');
+                        $tupla = "";
+                        $total = 0;
+                        $id = array();
+                        while ($aulas != null) {
+                            $total += ($aulas['capacidad'] * $aforo);
+                            //echo ($aulas['nombre'] . "+" . $aulas['capacidad'] . " - ");
+                            $tupla .= $aulas['nombre'] . "[" . $aulas['capacidad'] . "]";
+                            $id[] = $aulas['id'];
+                            if (verificar_existe_aula($aulas['id'])) {
+                                //es true existe entonces tenemos que limpiar las variables
+                                $aulas = null;
+                                $id = [];
+                            } else {
+                                //$tupla=$aulas;
+                                if ($total >= ($alumnos * 0.9)) {
+
+                                    //ya se cumplio la cuota
+                                    //escribimos las aulas
+                                    //guardamos la tupla
+                                    //ANTES DE GUARDAR->MANDAMOS EL AULA A UN METODO PARA VERIFICAR SI PARA LA FECHA SOLICITADA YA ESTA RESERVADA
+                                    //->ENCASO DE QUE ESTE RESERVADO -> SALIR INMEDIATAMENTE
+                                    //SINO->CONTINUE
+                                    //echo (' *GUARDADO* ');
+                                    //dd($id);
+                                    $tupla = ["aulas" => $tupla];
+                                    //$id=["id" => $id];
+
+                                    $tupla = Arr::add($tupla, 'id', $id);
+
+                                    $resultado->push(collect(Arr::add($tupla, 'total', (int) $total)));
+
+                                    //$resultado->push(collect(Arr::add($tupla, 'total', (int) $total,'id',$id )));
+
+                                    //echo $resultado['aulas'] . "{" . $resultado['total'] . "}";
+                                    //salimos del while
+                                    $aulas = null;
+                                    $id = [];
+                                } else {
+                                    $tupla .= " - ";
+                                    $aulas = $aulas->relacion_aulasig;
+                                }
+                            }
+                        }
+                    }
+                }
             } else {
-                $planta = Planta::findbyid($request['planta']);
+                $planta = Planta::where('id',$request['planta'])->first();
                 //recorremos solo el ultimo foreach
-
-
-            }
-        }
-
-
-        foreach ($ubicaciones as $ubicacion) {
-            foreach ($ubicacion->relacion_plantas as $plantas) {
-                //dd($ubi['planta']);
-                foreach ($plantas->relacion_aulas as $aulas) {
+                foreach ($planta->relacion_aulas as $aulas) {
                     //echo($aulas['nombre'].$aulas['capacidad']);
                     //echo ('{erick}');
                     $tupla = "";
@@ -231,6 +329,9 @@ class SolicitudController extends Controller
                 }
             }
         }
+
+
+
 
         //dd($resultado);
 

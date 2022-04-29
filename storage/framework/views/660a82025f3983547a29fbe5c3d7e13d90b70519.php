@@ -20,8 +20,8 @@
             <p><?php echo e(__('Nueva Solicitud')); ?></p>
         </a>
       </li>
-      <li class="nav-item<?php echo e($activePage == 'table' ? ' active' : ''); ?>">
-        <a class="nav-link" href="">
+      <li class="nav-item<?php echo e($activePage == 'solicitud.index' ? ' active' : ''); ?>">
+        <a class="nav-link" href="<?php echo e(route('solicitud.index')); ?>">
           <i class="material-icons">work_history</i>
             <p><?php echo e(__('Historial')); ?></p>
         </a>

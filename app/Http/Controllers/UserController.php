@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::paginate(10);
+        $users=User::orderby('apellidos','asc')->paginate(8);
 
        return view('users.index', compact('users'));
          // $user=User::find(1)->expedid_o;

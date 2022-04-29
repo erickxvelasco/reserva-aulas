@@ -19,7 +19,8 @@ class Solicitud extends Model
         'motivo',
         'fecha',
         'inicio',
-        'final'
+        'final',
+        'total'
     ];
 
     public function relacion_aulas() {
@@ -31,5 +32,12 @@ class Solicitud extends Model
         $aux=$this->hasmany(Solicitud_Grupo::class,'solicitud','id');
         //dd($aux);
         return $aux;
+    }
+
+    public function relacion_admin() {
+        return $this->hasOne(User::class,'id','admin');
+    }
+    public function relacion_gestion() {
+        return $this->hasOne(Gestion::class,'id','gestion');
     }
 }
