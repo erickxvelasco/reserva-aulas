@@ -57,16 +57,20 @@
                         <a type="button"rel="tooltip" title="Editar Informacion" class="btn btn-primary btn-sm" href="{{ route('user.edit', $dato->id) }}">
                         <i class="material-icons">edit</i></a>
                         </td>
+                        @if($dato['tipo']==2 && $dato['id']==auth()->user()->id)
+                            <td width=5>
+                            </td>
+                        @else
+                            <td width=5>
+                                <form action="{{ route('user.destroy', $dato->id) }}" method ="POST" >
+                                    @csrf
+                                    {{ method_field('DELETE') }}
 
-                        <td width=5>
-                            <form action="{{ route('user.destroy', $dato->id) }}" method ="POST" >
-                                @csrf
-                                {{ method_field('DELETE') }}
-
-                                <button type="submit" rel="tooltip" title="{{$dato['estado']==1 ? 'Desactivar':'Activar'}} cuenta" class="btn btn-{{$dato['estado']==1 ? 'danger':'success'}} btn-sm" >
-                                <i class="material-icons">{{$dato['estado']==1 ? 'delete':'sync'}}</i></button>
-                            </form>
-                        </td>
+                                    <button type="submit" rel="tooltip" title="{{$dato['estado']==1 ? 'Desactivar':'Activar'}} cuenta" class="btn btn-{{$dato['estado']==1 ? 'danger':'success'}} btn-sm" >
+                                    <i class="material-icons">{{$dato['estado']==1 ? 'delete':'sync'}}</i></button>
+                                </form>
+                            </td>
+                        @endif
 
 
                   </tr>

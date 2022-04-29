@@ -18,7 +18,7 @@
                     <i class="material-icons text-rose">email</i>
                   </span>
                 </div>
-                <input type="email" name="email" class="form-control" placeholder="<?php echo e(__('Email...')); ?>" value="<?php echo e(old('email', 'erick@sitic.com')); ?>" required>
+                <input type="email" name="email" class="form-control" placeholder="<?php echo e(__('Email...')); ?>" value="<?php echo e(old('email')); ?>" required>
               </div>
               <?php if(session()->has('abc')): ?>
               <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
@@ -38,7 +38,7 @@
                     <i class="material-icons text-rose">lock_outline</i>
                   </span>
                 </div>
-                <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo e(__('Password...')); ?>" value="<?php echo e(!$errors->has('password') ? "secret" : ""); ?>" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="<?php echo e(__('Password...')); ?>" value="<?php echo e(!$errors->has('password') ? "" : ""); ?>" required>
               </div>
               <?php if($errors->has('password')): ?>
                 <div id="password-error" class="error text-danger pl-3" for="password" style="display: block;">

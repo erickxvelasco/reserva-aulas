@@ -56,17 +56,21 @@
                         <a type="button"rel="tooltip" title="Editar Informacion" class="btn btn-primary btn-sm" href="<?php echo e(route('user.edit', $dato->id)); ?>">
                         <i class="material-icons">edit</i></a>
                         </td>
+                        <?php if($dato['tipo']==2 && $dato['id']==auth()->user()->id): ?>
+                            <td width=5>
+                            </td>
+                        <?php else: ?>
+                            <td width=5>
+                                <form action="<?php echo e(route('user.destroy', $dato->id)); ?>" method ="POST" >
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo e(method_field('DELETE')); ?>
 
-                        <td width=5>
-                            <form action="<?php echo e(route('user.destroy', $dato->id)); ?>" method ="POST" >
-                                <?php echo csrf_field(); ?>
-                                <?php echo e(method_field('DELETE')); ?>
 
-
-                                <button type="submit" rel="tooltip" title="<?php echo e($dato['estado']==1 ? 'Desactivar':'Activar'); ?> cuenta" class="btn btn-<?php echo e($dato['estado']==1 ? 'danger':'success'); ?> btn-sm" >
-                                <i class="material-icons"><?php echo e($dato['estado']==1 ? 'delete':'sync'); ?></i></button>
-                            </form>
-                        </td>
+                                    <button type="submit" rel="tooltip" title="<?php echo e($dato['estado']==1 ? 'Desactivar':'Activar'); ?> cuenta" class="btn btn-<?php echo e($dato['estado']==1 ? 'danger':'success'); ?> btn-sm" >
+                                    <i class="material-icons"><?php echo e($dato['estado']==1 ? 'delete':'sync'); ?></i></button>
+                                </form>
+                            </td>
+                        <?php endif; ?>
 
 
                   </tr>

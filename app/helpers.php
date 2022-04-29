@@ -34,7 +34,8 @@ function cargar_array_aulas($date,$inicio,$final){
     }
 }
 }
-function verificar_existe_aula($id_aula){
+if(!function_exists('verificar_existe_aula')){
+    function verificar_existe_aula($id_aula){
     global $array_aulas;
     $rpta=false;
     foreach($array_aulas as $aula){
@@ -44,7 +45,8 @@ function verificar_existe_aula($id_aula){
     }
     return $rpta;
 }
-
+}
+if(!function_exists('devolver_hora')){
 function devolver_hora($indice){
     $horas = ['06:45','07:30','08:15','09:00','09:45','10:30','11:15','12:00','12:45','13:30','14:15','15:00','15:45','16:30','17:15','18:00','18:45','19:30','20:15','21:00','21:45'];
 
@@ -52,4 +54,5 @@ function devolver_hora($indice){
     $dt=new DateTime($horas[$indice]);
 
     return $dt->format('H:i:s');
+}
 }
