@@ -65,14 +65,14 @@ class UserRequest extends FormRequest
         switch ($this->method()) {
             case "POST": {
                $reglas['password'] = ['required','min:6','max:10'];
-               //$reglas['email'] = ['required', 'email', 'unique:users'];
+               $reglas['email'] = ['required', 'email', 'unique:users'];
             }
             case "PATCH":{
                 $reglas['password']= ['nullable','min:6','max:10'];
                 $reglas['email'] = ['required', 'email', 'unique:users,email,'.$this->route('user.id')];
             }
         }
-        //dd($reglas);
+        dd($reglas);
         return $reglas;
     }
 }
