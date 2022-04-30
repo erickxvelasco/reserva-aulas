@@ -33,14 +33,10 @@ class SolicitudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function index()
     {
         //si solo es gestion actual hacr otro where
         $solicitudes = Solicitud::where('usuario', auth()->user()->id)->orderby('created_at', 'desc')->paginate(8);
-
         return view('solicitud.index', compact('solicitudes'));
     }
 
@@ -54,14 +50,12 @@ class SolicitudController extends Controller
         $gestion = Gestion::where('estado', '=', 1)->first();
         $ubicaciones = Ubicacion::all();
         $plantas = Planta::all();
-
-
         if ($data == null) {
             $fecha_actual = Carbon::now();
             $fecha_actual = $fecha_actual->format('Y-m-d');
             $data = ["total" => "0", "fecha" => $fecha_actual, "motivo" => '', "hora_inicio" => 1, "hora_final" => 2, "ubicacion" => 0, "planta" => 0, "capacidad" => 50];
         } else {
-            dd($data);
+            //dd($data);
         }
 
         return view('Solicitud.create', compact('gestion', 'ubicaciones', 'plantas', 'data'));
