@@ -56,7 +56,7 @@ class UserRequest extends FormRequest
             'between:1,2'
             ],
             'email' => [
-                'required', 'email', 'unique:users,email,'.$this->route('user.id') //((new User)->getTable())->ignore($this->route()->user->id ?? null)
+                '' //((new User)->getTable())->ignore($this->route()->user->id ?? null)
             ],
             'password' => [
                 ''
@@ -65,9 +65,11 @@ class UserRequest extends FormRequest
         switch ($this->method()) {
             case "POST": {
                $reglas['password'] = ['required','min:6'];
+               $reglas['email'] = ['required', 'email', 'unique:users,email'];
             }
             case "PATCH":{
                 $reglas['password']= ['nullable','min:6'];
+                $reglas['email'] = ['required', 'email', 'unique:users,email,'.$this->route('user.id')];
             }
         }
         //dd($reglas);
