@@ -75,7 +75,7 @@ class UserRequest extends FormRequest
             }
         }
         //dd($this->method());
-        dd($reglas);
+        //dd($reglas);
         return $reglas;
     }
 }

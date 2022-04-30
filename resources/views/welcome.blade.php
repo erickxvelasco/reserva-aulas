@@ -3,11 +3,6 @@
 @section('content')
     @auth
 
-
-
-
-
-
         @if (auth()->user()->estado==2)
 
         {{Session::flash('abc', 'la cuenta esta deshabilitada, pongase en contacto con un administrador*' );}}
