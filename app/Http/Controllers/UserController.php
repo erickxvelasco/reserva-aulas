@@ -51,7 +51,7 @@ class UserController extends Controller
     }
     public function store(UserRequest $request)
     {
-        //dd($request->validated());
+        dd($request);
         //
         $validated = $request->validated();
         $validated['password']= Hash::make($validated['password']);
