@@ -55,8 +55,11 @@ class UserController extends Controller
         //
         $validated = $request->validated();
         $validated['password']= Hash::make($validated['password']);
-        User::create($validated);
-        Return redirect()->route('user.index')->with('status','Usuario Registado con Exito!!!');
+        //User::create($validated);
+        $usuario = new User();
+        $usuario->fill($validated);
+        $usuario->save();
+        return redirect()->route('user.index')->with('status','Usuario Registado con Exito!!!');
 
     }
     public function show($id)
@@ -90,7 +93,7 @@ class UserController extends Controller
         //dd($validated);
         $user->update($validated);
 
-        Return redirect()->route('user.index')->with('status','Usuario Modificado con Exito!!!');
+        return redirect()->route('user.index')->with('status','Usuario Modificado con Exito!!!');
 
     }
 
@@ -101,7 +104,7 @@ class UserController extends Controller
 
         $registro->estado=$estado;
         $registro->save();
-        Return redirect()->route('user.index')->with('status','Listado Actualizado de usuarios');
+        return redirect()->route('user.index')->with('status','Listado Actualizado de usuarios');
 
         //echo("eliminar" . $id);
     }
