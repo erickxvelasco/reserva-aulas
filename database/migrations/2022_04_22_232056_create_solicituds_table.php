@@ -22,7 +22,7 @@ class CreateSolicitudsTable extends Migration
             $table->tinyInteger('estado'); //0.-en proceso;1.-aceptado;2.-rechazado
             $table->string('mensaje')->nullable();//mensaje mandado desde el admin
             $table->tinyinteger('admin');//llave foranea a admin
-            $table->foreign('admin')->references('id')->on('users');
+            //$table->foreign('admin')->references('id')->on('users');
             $table->string('motivo');
             $table->date('fecha');
             $table->tinyInteger('inicio');
