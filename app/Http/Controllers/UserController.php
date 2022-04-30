@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Expedido;
+use App\Models\expedido;
 
 use App\Models\Cargo;
 
@@ -32,7 +32,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $expedidos=Expedido::all();
+        $expedidos=expedido::all();
 /*
         $expedidos = [['id' =>1, 'lugar'=>'cochabamba'],
             ['id' => 2, 'lugar'=>'La paz'],
@@ -65,7 +65,7 @@ class UserController extends Controller
     }
     public function edit($id)
     {
-        $expedidos=Expedido::all();
+        $expedidos=expedido::all();
         $registro = User::whereId($id)->firstOrFail();
         $cargos=Cargo::orderBy('descripcion','asc')->get();
         //dd($registro);
