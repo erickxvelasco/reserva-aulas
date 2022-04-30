@@ -14,6 +14,7 @@ class CreateSolicitudAulasTable extends Migration
     public function up()
     {
         Schema::create('solicitud_aulas', function (Blueprint $table) {
+            $table->id();
             $table->integer('solicitud');
             $table->foreign('solicitud')->references('id')->on('solicitudes');
             $table->integer('aula');

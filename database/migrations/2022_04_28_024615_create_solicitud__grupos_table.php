@@ -14,6 +14,7 @@ class CreateSolicitudGruposTable extends Migration
     public function up()
     {
         Schema::create('solicitud_grupos', function (Blueprint $table) {
+            $table->id();
             $table->integer('solicitud');
             $table->foreign('solicitud')->references('id')->on('solicitudes');
             $table->integer('grupo');
