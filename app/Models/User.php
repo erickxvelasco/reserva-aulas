@@ -52,18 +52,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function relacion_expedido() {
-        return $this->hasOne(Expedido::class,'id','expedido');
+    public function relacion_expedido()
+    {
+        return $this->hasOne(Expedido::class, 'id', 'expedido');
     }
 
-    public function relacion_cargo() {
-        return $this->hasOne(Cargo::class,'id','cargo');
+    public function relacion_cargo()
+    {
+        return $this->hasOne(Cargo::class, 'id', 'cargo');
     }
 
-    public function relacion_grupos() {
-        $aux=$this->hasmany(Grupo::class,'usuario','id');
+    public function relacion_grupos()
+    {
+        $aux = $this->hasmany(Grupo::class, 'usuario', 'id');
         return $aux;
     }
-
-
 }

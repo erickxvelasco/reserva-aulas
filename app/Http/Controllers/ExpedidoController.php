@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Expedido;
+use App\Models\expedido;
 use Illuminate\Http\Request;
 
 class ExpedidoController extends Controller
