@@ -37,7 +37,7 @@ class SolicitudController extends Controller
     {
         //si solo es gestion actual hacr otro where
         $solicitudes = Solicitud::where('usuario', auth()->user()->id)->orderby('created_at', 'desc')->paginate(8);
-        return view('solicitud.index', compact('solicitudes'));
+        return view('Solicitud.index', compact('solicitudes'));
     }
 
     /**
