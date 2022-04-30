@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Expedido;
+
 use App\Models\Cargo;
 
 use App\Http\Requests\UserRequest;
@@ -31,7 +32,7 @@ class UserController extends Controller
 
     public function create()
     {
-        $expedidos=Expedido::orderBy('lugar','asc')->get();
+        $expedidos=Expedido::all();
         $cargos=Cargo::orderBy('descripcion','asc')->get();
 
         return view('users.create',compact('expedidos','cargos'));
@@ -53,7 +54,7 @@ class UserController extends Controller
     }
     public function edit($id)
     {
-        $expedidos=Expedido::orderBy('lugar','asc')->get();
+        $expedidos=Expedido::all();
         $registro = User::whereId($id)->firstOrFail();
         $cargos=Cargo::orderBy('descripcion','asc')->get();
         //dd($registro);
