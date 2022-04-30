@@ -1390,3 +1390,7 @@
 #43 C:\\Users\\Usuario\\Desktop\\proyectos\eserva-aulas\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #44 {main}
 "} 
+[2022-04-29 22:36:20] local.ERROR: Cannot declare class App\Models\Expedido, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\Expedido, because the name is already in use at C:\\Users\\Usuario\\Desktop\\proyectos\eserva-aulas\\app\\Models\\dsfs.php:8)
+[stacktrace]
+#0 {main}
+"} 
