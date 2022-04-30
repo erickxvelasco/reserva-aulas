@@ -33,6 +33,17 @@ class UserController extends Controller
     public function create()
     {
         $expedidos=Expedido::all();
+/*
+        $expedidos = [['id' =>1, 'lugar'=>'cochabamba'],
+            ['id' => 2, 'lugar'=>'La paz'],
+            ['id' => 3, 'lugar'=>'Santa Cruz'],
+            ['id' => 4, 'lugar'=>'Beni'],
+            ['id' => 5, 'lugar'=>'Oruro'],
+            ['id' => 6, 'lugar'=>'Pando'],
+            ['id' => 7, 'lugar'=>'Tarija'],
+            ['id' => 8, 'lugar'=>'potosi'],
+            ['id' => 9, 'lugar'=>'Chuquisaca']];
+            */
         $cargos=Cargo::orderBy('descripcion','asc')->get();
 
         return view('users.create',compact('expedidos','cargos'));
