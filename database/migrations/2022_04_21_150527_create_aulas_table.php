@@ -18,7 +18,7 @@ class CreateAulasTable extends Migration
             $table->string('nombre');
             $table->integer('capacidad');
             $table->integer('aulasig')->nullable();
-            $table->foreign('aulasig')->references('id')->on('aulas')->nullable();
+            //$table->foreignId('aulasig')->nullable()->constrained('aulas');
             $table->integer('planta');
             $table->foreign('planta')->references('id')->on('plantas');
             $table->string('detalle')->nullable();
