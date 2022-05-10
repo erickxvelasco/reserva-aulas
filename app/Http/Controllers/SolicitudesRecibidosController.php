@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Recibido;
 use App\Models\Solicitud;
 use App\Models\Solicitud_Aula;
 use App\Models\User;
+
+
+use Illuminate\Http\Request;
 class SolicitudesRecibidosController extends Controller
 {
     public function llegada(){
@@ -20,5 +22,15 @@ class SolicitudesRecibidosController extends Controller
         //ordenar por create_at
          $recibidos = Solicitud::where('estado','=','0')->orderby('fecha', 'asc')->paginate(8);
          return view('Solicitud.received',compact('recibidos'));
+     }
+
+     public function update($id,Request $request){
+        //dd($request['estado']);
+        $registro = Solicitud::whereId($id)->firstOrFail();
+
+        $registro->estado=$request['estado'];
+        $registro->save();
+        return redirect()->route('recibido.prioridad')->with('status','la Solicitud fue Actualizada con Exito');
+
      }
 }

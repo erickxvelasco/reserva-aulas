@@ -34,6 +34,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('recibido/llegada','App\Http\Controllers\SolicitudesRecibidosController@llegada')->name('recibido.llegada');
     Route::get('recibido','App\Http\Controllers\SolicitudesRecibidosController@prioridad')->name('recibido.prioridad');
+
+    Route::patch('recibido/{recibido}','App\Http\Controllers\SolicitudesRecibidosController@update')->name('recibido.update');
+
+
+
     //route::get('solicitud/create/{data}', 'App\Http\Controllers\SolicitudController@create')->name('solicitud.create');
     route::post('user/{user}/asignature','App\Http\Controllers\UserController@asignature')->name('user.asignature');
 
