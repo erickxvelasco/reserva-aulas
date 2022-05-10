@@ -24,38 +24,16 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 //Route::get('/usuarios', 'App\Http\Controllers\UserController@index');
 
-Route::group(['middleware' => 'auth'], function () {
-
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
-
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
-
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
-
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
-});
 
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController');
     Route::resource('solicitud', 'App\Http\Controllers\SolicitudController');
-    Route::resource('recibido', 'App\Http\Controllers\SolicitudesRecibidosController');
+    //Route::resource('recibido', 'App\Http\Controllers\SolicitudesRecibidosController');
+
+
+    Route::get('recibido/llegada','App\Http\Controllers\SolicitudesRecibidosController@llegada')->name('recibido.llegada');
+    Route::get('recibido','App\Http\Controllers\SolicitudesRecibidosController@prioridad')->name('recibido.prioridad');
     //route::get('solicitud/create/{data}', 'App\Http\Controllers\SolicitudController@create')->name('solicitud.create');
     route::post('user/{user}/asignature','App\Http\Controllers\UserController@asignature')->name('user.asignature');
 

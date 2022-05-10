@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'recibido.index', 'titlePage' => __(' Historial')])
+@extends('layouts.app', ['activePage' => 'recibido', 'titlePage' => __(' Historial')])
 
 @section('content')
     <div class="content">
@@ -14,8 +14,8 @@
                                 </p>
                             </div>
                             <div class="col-3">
-                                <button class="float-rigth btn btn-warning btn-sm active"id="btn-1"> llegada </button>
-                                <button class="float-rigth btn btn-info btn-sm" id="btn-2"> Prioridad </button>
+                                <a href="{{ route('recibido.llegada') }}" class="float-rigth btn btn-warning btn-sm active"id="btn-1"> llegada </a>
+                                <a href="{{ route('recibido.prioridad')  }}" class="float-rigth btn btn-info btn-sm" id="btn-2"> Prioridad </a>
                             </div>
 
 
@@ -115,25 +115,23 @@
 
 
                                                 <td width=5>
-                                                    <a type="button"rel="tooltip" title="Aceptar" value="Enviar mensaje" class="btn btn-info btn-sm" >
-                                                    <span class="material-icons">
-                                                        done
+                                                    <a type="button"rel="tooltip" title="Aceptar" value="Enviar mensaje" class="btn btn-success btn-sm" >
+                                                    <span class="text-white material-icons">
+                                                        done_outline
                                                         </span></a>
                                                     </td>
-                                                    @if($dato['tipo']==2 && $dato['id']==auth()->user()->id)
-                                                        <td width=5>
-                                                        </td>
-                                                    @else
+
                                                         <td width=5>
 
                                                                 @csrf
                                                                 {{ method_field('DELETE') }}
 
                                                                 <a type="button"  rel="tooltip" title="rechazar" class="btn btn-danger btn-sm" >
-                                                                <i class="material-icons">highlight_off</i></a>
-
+                                                                    <span class="text-white material-icons">
+                                                                        block
+                                                                        </span>
                                                         </td>
-                                                    @endif
+
 
 
                                             </tr>
