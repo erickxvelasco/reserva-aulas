@@ -119,7 +119,7 @@
                                                         @csrf
                                                         @method('patch')
                                                         <input type="hidden" name="estado" value=2>
-                                                    <button type="submit"  rel="tooltip" title="rechazar" class="btn btn-success btn-sm" >
+                                                    <button type="submit"  rel="tooltip" title="Aceptar" class="btn btn-success btn-sm" >
                                                         <span class="text-white material-icons">
                                                             done
                                                             </span>
