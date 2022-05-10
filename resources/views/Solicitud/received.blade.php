@@ -152,6 +152,7 @@
 
                                     </tbody>
                                 </table>
+                                {{ $recibidos->links('paginacion') }}
                             </div>
                         </div>
                     </div>
