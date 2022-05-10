@@ -81,11 +81,7 @@
 
                 </tbody>
               </table>
-              <nav aria-label="Page navigation text-dark">
-                <ul class="pagination justify-content-end text-danger">
-                    {{ $users->links() }}
-                </ul>
-              </nav>
+              {{ $users->links('paginacion') }}
             </div>
           </div>
         </div>
