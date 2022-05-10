@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'recibido.index', 'titlePage' => __(' Historial')])
+@extends('layouts.app', ['activePage' => 'recibido', 'titlePage' => __(' Historial')])
 
 @section('content')
     <div class="content">
@@ -6,13 +6,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-plain">
-                        <div class="card-header card-header-default bg-dark">
-                            <h4 class="card-title mt-0"> Historial de Solicitudes</h4>
-                            <p class="card-category">
-                                {{ auth()->user()->relacion_cargo['descripcion'] .' : ' .auth()->user()->nombres .' ' .auth()->user()->apellidos }}
-                            </p>
-                            <button class="btn btn-success btn-sm"id="btn-1"> llegada </button>
-                            <button class="btn btn-success btn-sm" id="btn-2"> Prioridad </button>
+                        <div class="row card-header card-header-default bg-dark">
+                            <div class="col-9">
+                                <h4 class="card-title mt-0"> Historial de Solicitudes</h4>
+                                <p class="card-category">
+                                    Ordenar Solicitudes de Reserva
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <a href="{{ route('recibido.llegada') }}" class="float-rigth btn btn-warning btn-sm active"id="btn-1"> llegada </a>
+                                <a href="{{ route('recibido.prioridad')  }}" class="float-rigth btn btn-info btn-sm" id="btn-2"> Prioridad </a>
+                            </div>
+
+
                         </div>
                         @if (session('status'))
                             <div class="alert alert-default alert-with-icon bg-success" data-notify="container">
@@ -40,7 +46,6 @@
                                             <th>Aulas</th>
                                             <th>Materia y Grupo</th>
                                             <th colspan="2" class="text-center bg-sucess">Acciones</th>
-
 
                                         </tr>
                                     </thead>
@@ -110,25 +115,23 @@
 
 
                                                 <td width=5>
-                                                    <a type="button"rel="tooltip" title="Aceptar" value="Enviar mensaje" class="btn btn-info btn-sm" >
-                                                    <span class="material-icons">
-                                                        done
+                                                    <a type="button"rel="tooltip" title="Aceptar" value="Enviar mensaje" class="btn btn-success btn-sm" >
+                                                    <span class="text-white material-icons">
+                                                        done_outline
                                                         </span></a>
                                                     </td>
-                                                    @if($dato['tipo']==2 && $dato['id']==auth()->user()->id)
-                                                        <td width=5>
-                                                        </td>
-                                                    @else
+
                                                         <td width=5>
 
                                                                 @csrf
                                                                 {{ method_field('DELETE') }}
 
                                                                 <a type="button"  rel="tooltip" title="rechazar" class="btn btn-danger btn-sm" >
-                                                                <i class="material-icons">highlight_off</i></a>
-
+                                                                    <span class="text-white material-icons">
+                                                                        block
+                                                                        </span>
                                                         </td>
-                                                    @endif
+
 
 
                                             </tr>
