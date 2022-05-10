@@ -16,4 +16,12 @@ class Solicitud_Aula extends Model
         'solicitud',
         'aula'
     ];
+    public function solicitud()
+    {
+        $aux = $this->hasOne(Solicitud::class, 'id', 'solicitud');
+        return $aux;
+    }
+    public function relacion_aula(){
+        return $this->hasOne(Aula::class,'id','aula');
+    }
 }

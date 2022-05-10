@@ -67,4 +67,9 @@ class User extends Authenticatable
         $aux = $this->hasmany(Grupo::class, 'usuario', 'id');
         return $aux;
     }
+    public function solicitud()
+    {
+        $aux = $this->hasMany(Solicitud::class, 'id', 'usuario');
+        return $aux;
+    }
 }

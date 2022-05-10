@@ -14,4 +14,9 @@ class Materia extends Model
         'descripcion',
         'departamento'
     ];
+    public function relacion_grupo()
+    {
+        $aux = $this->hasMany(Grupo::class, 'materia', 'id');
+        return $aux;
+    }
 }

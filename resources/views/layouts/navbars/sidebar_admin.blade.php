@@ -14,7 +14,7 @@
     <div class="sidebar-wrapper">
       <ul class="nav">
         <li class="nav-item{{ $activePage == 'reserva' ? ' active' : '' }}">
-            <a class="nav-link" href=""> {{--href="{{ route('home') }}">--}}
+            <a class="nav-link" href="{{ route('recibido.index') }}">
               <i class="material-icons">all_inbox</i>
                 <p>{{ __('Solicitudes Recibidas') }}</p>
             </a>

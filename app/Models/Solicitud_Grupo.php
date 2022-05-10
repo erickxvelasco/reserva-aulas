@@ -16,4 +16,12 @@ class Solicitud_Grupo extends Model
         'solicitud',
         'grupo'
     ];
+    public function solicitud()
+    {
+        $aux = $this->hasMany(Solicitud::class, 'id', 'solicitud');
+        return $aux;
+    }
+    public function relacion_grupo(){
+        return $this->hasOne(Grupo::class,'id','grupo');
+    }
 }

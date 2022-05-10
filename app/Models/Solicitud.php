@@ -40,4 +40,7 @@ class Solicitud extends Model
     public function relacion_gestion() {
         return $this->hasOne(Gestion::class,'id','gestion');
     }
+    public function user(){
+        return $this->hasOne('App\Models\User','id','usuario');
+    }
 }
