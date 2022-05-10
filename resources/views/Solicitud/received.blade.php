@@ -6,13 +6,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-plain">
-                        <div class="card-header card-header-default bg-dark">
-                            <h4 class="card-title mt-0"> Historial de Solicitudes</h4>
-                            <p class="card-category">
-                                {{ auth()->user()->relacion_cargo['descripcion'] .' : ' .auth()->user()->nombres .' ' .auth()->user()->apellidos }}
-                            </p>
-                            <button class="btn btn-success btn-sm"id="btn-1"> llegada </button>
-                            <button class="btn btn-success btn-sm" id="btn-2"> Prioridad </button>
+                        <div class="row card-header card-header-default bg-dark">
+                            <div class="col-9">
+                                <h4 class="card-title mt-0"> Historial de Solicitudes</h4>
+                                <p class="card-category">
+                                    Ordenar Solicitudes de Reserva
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <button class="float-rigth btn btn-warning btn-sm active"id="btn-1"> llegada </button>
+                                <button class="float-rigth btn btn-info btn-sm" id="btn-2"> Prioridad </button>
+                            </div>
+
+
                         </div>
                         @if (session('status'))
                             <div class="alert alert-default alert-with-icon bg-success" data-notify="container">
@@ -40,7 +46,6 @@
                                             <th>Aulas</th>
                                             <th>Materia y Grupo</th>
                                             <th colspan="2" class="text-center bg-sucess">Acciones</th>
-
 
                                         </tr>
                                     </thead>
