@@ -53,10 +53,10 @@
                                                             Proceso</b></td>
                                                 @else
                                                     @if ($dato->estado == 1)
-                                                        <td class="bg-danger"><b><a href="">Rechazado</a></b></td>
+                                                        <td class="text-danger"><b>Rechazado</b></td>
                                                     @else
                                                         @if ($dato->estado == 2)
-                                                            <td class="bg-success"><b><a href="">Aceptado</a></b></td>
+                                                            <td class="text-success"><b>Aceptado</b></td>
                                                         @endif
                                                     @endif
                                                 @endif
