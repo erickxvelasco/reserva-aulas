@@ -14,7 +14,7 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item<?php echo e($activePage == 'recibido.index' ? ' active' : ''); ?>">
+        <li class="nav-item<?php echo e($activePage == 'recibido' ? ' active' : ''); ?>">
             <a class="nav-link" href="<?php echo e(route('recibido.llegada')); ?>">
               <i class="material-icons">all_inbox</i>
                 <p><?php echo e(__('Solicitudes Recibidas')); ?></p>

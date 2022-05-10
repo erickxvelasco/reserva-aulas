@@ -13,7 +13,7 @@
     </div>
     <div class="sidebar-wrapper">
       <ul class="nav">
-        <li class="nav-item{{ $activePage == 'recibido.index' ? ' active' : '' }}">
+        <li class="nav-item{{ $activePage == 'recibido' ? ' active' : '' }}">
             <a class="nav-link" href="{{ route('recibido.llegada') }}">
               <i class="material-icons">all_inbox</i>
                 <p>{{ __('Solicitudes Recibidas') }}</p>

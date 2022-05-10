@@ -52,7 +52,9 @@ class SolicitudController extends Controller
         $plantas = Planta::all();
         if ($data == null) {
             $fecha_actual = Carbon::now();
+            $fecha_actual=$fecha_actual->addDay(1);
             $fecha_actual = $fecha_actual->format('Y-m-d');
+
             $data = ["total" => "0", "fecha" => $fecha_actual, "motivo" => '', "hora_inicio" => 1, "hora_final" => 2, "ubicacion" => 0, "planta" => 0, "capacidad" => 50];
         } else {
             //dd($data);
