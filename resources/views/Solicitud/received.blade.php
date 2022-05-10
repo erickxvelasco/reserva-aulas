@@ -115,21 +115,30 @@
 
 
                                                 <td width=5>
-                                                    <a type="button"rel="tooltip" title="Aceptar" value="Enviar mensaje" class="btn btn-success btn-sm" >
-                                                    <span class="text-white material-icons">
-                                                        done_outline
-                                                        </span></a>
-                                                    </td>
+                                                    <form method="post" action="{{ route('recibido.update', $dato->id) }}" >
+                                                        @csrf
+                                                        @method('patch')
+                                                        <input type="hidden" name="estado" value=2>
+                                                    <button type="submit"  rel="tooltip" title="rechazar" class="btn btn-success btn-sm" >
+                                                        <span class="text-white material-icons">
+                                                            done
+                                                            </span>
+                                                    </button>
+                                                    </form>
+                                                </td>
 
                                                         <td width=5>
+                                                                <form method="post" action="{{route('recibido.update', $dato->id)}}" >
+                                                                    @csrf
+                                                                    @method('patch')
+                                                                    <input type="hidden" name="estado" value=1>
 
-                                                                @csrf
-                                                                {{ method_field('DELETE') }}
-
-                                                                <a type="button"  rel="tooltip" title="rechazar" class="btn btn-danger btn-sm" >
+                                                                <button type="submit"  rel="tooltip" title="rechazar" class="btn btn-danger btn-sm" >
                                                                     <span class="text-white material-icons">
                                                                         block
                                                                         </span>
+                                                                </button>
+                                                                </form>
                                                         </td>
 
 
