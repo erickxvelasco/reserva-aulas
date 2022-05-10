@@ -41,7 +41,7 @@
                                             <th>Revisado por</th>
                                             <th>Fecha</th>
                                             <th>Aulas</th>
-                                            <th>Materias</th>
+                                            <th>Materias y Grupo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -79,8 +79,40 @@
                                                 @else
                                                     <td class="text-center">-</td>
                                                 @endif
-                                                <td width="6%" class="text-center"><b><a href="">Aulas</a></b></td>
-                                                <td width="6%" class="text-center"><b><a href="">Materias</a></b></td>
+
+                                                @php
+                                                    $concat= "";
+                                                @endphp
+                                                @foreach ($dato->relacion_aulas as $aula )
+                                                @php
+                                                    if(strlen($concat)>0){
+                                                        $concat= $concat."-".$aula->relacion_aula->nombre;
+                                                    }else{
+                                                        $concat=$aula->relacion_aula->nombre;
+                                                    }
+                                                @endphp
+
+                                                @endforeach
+
+                                                <td>{{$concat}}</td>
+
+
+                                                @php
+                                                    $union= "";
+                                                @endphp
+                                                @foreach ($dato->relacion_grupo as $grupo )
+                                                @php
+                                                $_mate=$grupo->relacion_grupo->relacion_materia->descripcion;
+                                                $_grup=$grupo->relacion_grupo->grupo;
+                                                if(strlen($union)>0){
+                                                    $union= $union."-".$_mate." : "."[".$_grup."]";
+                                                    }else{
+                                                        $union=$_mate." : "."[".$_grup."]";
+                                                    }
+
+                                                @endphp
+                                                @endforeach
+                                                <td>{{$union}}</td>
 
 
 
