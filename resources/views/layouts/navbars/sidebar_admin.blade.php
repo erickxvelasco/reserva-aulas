@@ -53,7 +53,7 @@
             </div>
           </li>
 
-          <li class="nav-item " >
+          <li class="nav-item {{ (!strpos($activePage,'materia')) ? ' active' : '' }}" >
             {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
             <a class="nav-link" data-toggle="collapse" href="#materiascollapse" aria-expanded="false">
               <i class="material-icons">table_chart</i>
@@ -61,10 +61,10 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="materiascollapse">
+            <div class="collapse {{ (!strpos($activePage,'materia')) ? ' show' : '' }}" id="materiascollapse">
               <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="">
+                <li class="nav-item {{ ($activePage == 'materia.index'|| $activePage == 'materia.edit' || $activePage == 'materia.create') ? ' active' : '' }}">
+                  <a class="nav-link" href="{{ route('materia.index') }}">
                     <i class="material-icons">science</i>
                     <span class="sidebar-normal">{{ __('Administrar Materias') }} </span>
                   </a>
@@ -82,8 +82,8 @@
           <li class="nav-item " >
             {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
             <a class="nav-link" data-toggle="collapse" href="#aulascollapse" aria-expanded="false">
-              <i class="material-icons">store</i>
-              <p>{{ __('Aulas') }}
+              <i class="material-icons">tune</i>
+              <p>{{ __('Aulas y Ubicaciones') }}
                 <b class="caret"></b>
               </p>
             </a>
@@ -91,14 +91,20 @@
               <ul class="nav">
                 <li class="nav-item">
                   <a class="nav-link" href="">
-                    <i class="material-icons">list_alt</i>
-                    <span class="sidebar-normal">{{ __('Listar Aulas') }} </span>
+                    <i class="material-icons">apartment</i>
+                    <span class="sidebar-normal">{{ __('Administrar Ubicaciones') }} </span>
                   </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="">
-                    <i class="material-icons">add_business</i>
-                    <span class="sidebar-normal"> {{ __('Registrar Aulas') }} </span>
+                    <i class="material-icons">density_medium</i>
+                    <span class="sidebar-normal"> {{ __('Administrar plantas') }} </span>
+                  </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="">
+                    <i class="material-icons">store</i>
+                    <span class="sidebar-normal"> {{ __('Administrar Aulas') }} </span>
                   </a>
                 </li>
               </ul>

@@ -7,9 +7,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form method="POST" action="{{route('user.store')}}" autocomplete="off" class="form-horizontal" name="form">
+          <form method="post" action="{{route('user.store')}}" autocomplete="off" class="form-horizontal" name="form">
             @csrf
-            @method('POST')
+            @method('post')
             {{--  <h1>{{$errors}}}</h1> --}}
 
             <div class="card ">

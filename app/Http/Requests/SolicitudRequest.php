@@ -30,7 +30,7 @@ class SolicitudRequest extends FormRequest
                 'required', 'numeric','between:10,500'
             ],
             'fecha' => [
-                'required', 'date',"after:yesterday"
+                'required', 'date',"after:today"
             ],
             'motivo' => [
                 'required', 'min:5','max:120','regex:/^[\pL\s\-]+$/u'

@@ -81,12 +81,8 @@
 
                 </tbody>
               </table>
-              <nav aria-label="Page navigation text-dark">
-                <ul class="pagination justify-content-end text-danger">
-                    <?php echo e($users->links()); ?>
+              <?php echo e($users->links('paginacion')); ?>
 
-                </ul>
-              </nav>
             </div>
           </div>
         </div>

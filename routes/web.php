@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController');
     Route::resource('solicitud', 'App\Http\Controllers\SolicitudController');
     //Route::resource('recibido', 'App\Http\Controllers\SolicitudesRecibidosController');
+    Route::resource('materia', 'App\Http\Controllers\MateriaController');
+
 
 
     Route::get('recibido/llegada','App\Http\Controllers\SolicitudesRecibidosController@llegada')->name('recibido.llegada');

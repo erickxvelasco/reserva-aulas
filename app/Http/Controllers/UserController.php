@@ -70,13 +70,15 @@ class UserController extends Controller
     {
         $expedidos=expedido::all();
         $registro = User::whereId($id)->firstOrFail();
+
         $cargos=Cargo::orderBy('descripcion','asc')->get();
         //dd($registro);
         return view('users.edit', compact('registro','expedidos','cargos'));
     }
 
-    public function update(User $user, UserRequest $request)
+    public function update( User $user, UserRequest $request)
     {
+        dd($user);
 
         $validated = $request->validated();
         if(strlen($validated['password'])>0){

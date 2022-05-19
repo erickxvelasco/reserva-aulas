@@ -55,7 +55,7 @@
             </div>
           </li>
 
-          <li class="nav-item " >
+          <li class="nav-item <?php echo e((!strpos($activePage,'materia')) ? ' active' : ''); ?>" >
             
             <a class="nav-link" data-toggle="collapse" href="#materiascollapse" aria-expanded="false">
               <i class="material-icons">table_chart</i>
@@ -64,10 +64,10 @@
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="materiascollapse">
+            <div class="collapse <?php echo e((!strpos($activePage,'materia')) ? ' show' : ''); ?>" id="materiascollapse">
               <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="">
+                <li class="nav-item <?php echo e(($activePage == 'materia.index'|| $activePage == 'materia.edit' || $activePage == 'materia.create') ? ' active' : ''); ?>">
+                  <a class="nav-link" href="<?php echo e(route('materia.index')); ?>">
                     <i class="material-icons">science</i>
                     <span class="sidebar-normal"><?php echo e(__('Administrar Materias')); ?> </span>
                   </a>
@@ -85,8 +85,8 @@
           <li class="nav-item " >
             
             <a class="nav-link" data-toggle="collapse" href="#aulascollapse" aria-expanded="false">
-              <i class="material-icons">store</i>
-              <p><?php echo e(__('Aulas')); ?>
+              <i class="material-icons">tune</i>
+              <p><?php echo e(__('Aulas y Ubicaciones')); ?>
 
                 <b class="caret"></b>
               </p>
@@ -95,14 +95,20 @@
               <ul class="nav">
                 <li class="nav-item">
                   <a class="nav-link" href="">
-                    <i class="material-icons">list_alt</i>
-                    <span class="sidebar-normal"><?php echo e(__('Listar Aulas')); ?> </span>
+                    <i class="material-icons">apartment</i>
+                    <span class="sidebar-normal"><?php echo e(__('Administrar Ubicaciones')); ?> </span>
                   </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="">
-                    <i class="material-icons">add_business</i>
-                    <span class="sidebar-normal"> <?php echo e(__('Registrar Aulas')); ?> </span>
+                    <i class="material-icons">density_medium</i>
+                    <span class="sidebar-normal"> <?php echo e(__('Administrar plantas')); ?> </span>
+                  </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="">
+                    <i class="material-icons">store</i>
+                    <span class="sidebar-normal"> <?php echo e(__('Administrar Aulas')); ?> </span>
                   </a>
                 </li>
               </ul>
