@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'grupo.index', 'titlePage' => __(' Grupos')])
+@extends('layouts.app', ['activePage' => 'materia.grupo.index', 'titlePage' => __(' Grupos')])
 
 @section('content')
     <div class="content">

@@ -27,15 +27,15 @@
           </li>
 
 
-        <li class="nav-item {{ (!strpos($activePage,'user')) ? ' active' : '' }}" >
+        <li class="nav-item {{ strpos($activePage,'user') === false ? '':'active' }} " >
             {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
-            <a class="nav-link" data-toggle="collapse" href="#usercollapse" aria-expanded="false" name="usuario">
+            <a class="nav-link border border-default" data-toggle="collapse" href="#usercollapse" aria-expanded="{{ strpos($activePage,'user') === false ? 'false':'true' }}" name="usuario">
               <i class="material-icons">manage_accounts</i>
               <p>{{ __('Usuarios') }}
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse {{ (!strpos($activePage,'user')) ? ' show' : '' }}" id="usercollapse">
+            <div class="px-3 collapse {{ strpos($activePage,'user') === false ? '':'show' }}" id="usercollapse">
               <ul class="nav">
                 <li class="nav-item{{ ($activePage == 'user.index'|| $activePage == 'user.edit') ? ' active' : '' }}">
                   <a class="nav-link" href="{{ route('user.index') }}" name="listarusuario">
@@ -53,23 +53,23 @@
             </div>
           </li>
 
-          <li class="nav-item {{ (!strpos($activePage,'materia')) ? ' active' : '' }}" >
+          <li class="nav-item {{ strpos($activePage,'materia') === false ? '':'active' }}" >
             {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
-            <a class="nav-link" data-toggle="collapse" href="#materiascollapse" aria-expanded="false">
+            <a class="nav-link border border-default" data-toggle="collapse" href="#materiascollapse" aria-expanded="{{ strpos($activePage,'materia') === false ? 'false':'true' }}">
               <i class="material-icons">table_chart</i>
               <p>{{ __('Materias y grupos') }}
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse {{ (!strpos($activePage,'materia')) ? ' show' : '' }}" id="materiascollapse">
+            <div class="px-3 collapse {{ strpos($activePage,'materia') === false ? '':'show' }}" id="materiascollapse">
               <ul class="nav">
-                <li class="nav-item {{ ($activePage == 'materia.index'|| $activePage == 'materia.edit' || $activePage == 'materia.create') ? ' active' : '' }}">
+                <li class="nav-item {{ strpos($activePage,'materia.materia') === false ? '':'active' }}">
                   <a class="nav-link" href="{{ route('materia.index') }}">
                     <i class="material-icons">science</i>
                     <span class="sidebar-normal">{{ __('Administrar Materias') }} </span>
                   </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item {{ strpos($activePage,'materia.grupo') === false ? '':'active' }}">
                     <a class="nav-link" href="{{ route('grupo.index') }}">
                     <i class="material-icons">pages</i>
                     <span class="sidebar-normal"> {{ __('Administrar Grupos') }} </span>
@@ -79,16 +79,16 @@
             </div>
           </li>
 
-          <li class="nav-item " >
+          <li class="nav-item {{ strpos($activePage,'aula') === false ? '':'active' }}" >
             {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
-            <a class="nav-link" data-toggle="collapse" href="#aulascollapse" aria-expanded="false">
+            <a class="nav-link border border-default" data-toggle="collapse" href="#aulascollapse" aria-expanded="{{ strpos($activePage,'materia') === false ? 'false':'true' }}">
               <i class="material-icons">tune</i>
               <p>{{ __('Aulas y Ubicaciones') }}
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="aulascollapse">
-              <ul class="nav">
+            <div class="px-3 collapse {{ strpos($activePage,'aula') === false ? '':'show' }}" id="aulascollapse">
+            <ul class="nav">
                 <li class="nav-item">
                   <a class="nav-link" href="">
                     <i class="material-icons">apartment</i>
@@ -116,13 +116,13 @@
         <hr>
         <li class="nav-item {{ $activePage == 'profile'  ? ' active' : '' }}">
           {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}
-          <a class="nav-link" data-toggle="collapse" href="#cuentacollapse" aria-expanded="false">
+          <a class="nav-link border border-default" data-toggle="collapse" href="#cuentacollapse" aria-expanded="false">
             <i class="material-icons text-rose">perm_contact_calendar</i>
             <p class="text-rose"><b> {{auth()->user()->nombres}}</b>
               <b class="caret"></b>
             </p>
           </a>
-          <div class="collapse " id="cuentacollapse">
+          <div class="px-3 collapse " id="cuentacollapse">
             <ul class="nav">
               <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
                 <a class="nav-link" href="">

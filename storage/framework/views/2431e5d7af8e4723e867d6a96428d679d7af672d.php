@@ -28,16 +28,16 @@
           </li>
 
 
-        <li class="nav-item <?php echo e((!strpos($activePage,'user')) ? ' active' : ''); ?>" >
+        <li class="nav-item <?php echo e(strpos($activePage,'user') === false ? '':'active'); ?> " >
             
-            <a class="nav-link" data-toggle="collapse" href="#usercollapse" aria-expanded="false" name="usuario">
+            <a class="nav-link border border-default" data-toggle="collapse" href="#usercollapse" aria-expanded="<?php echo e(strpos($activePage,'user') === false ? 'false':'true'); ?>" name="usuario">
               <i class="material-icons">manage_accounts</i>
               <p><?php echo e(__('Usuarios')); ?>
 
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse <?php echo e((!strpos($activePage,'user')) ? ' show' : ''); ?>" id="usercollapse">
+            <div class="px-3 collapse <?php echo e(strpos($activePage,'user') === false ? '':'show'); ?>" id="usercollapse">
               <ul class="nav">
                 <li class="nav-item<?php echo e(($activePage == 'user.index'|| $activePage == 'user.edit') ? ' active' : ''); ?>">
                   <a class="nav-link" href="<?php echo e(route('user.index')); ?>" name="listarusuario">
@@ -55,24 +55,24 @@
             </div>
           </li>
 
-          <li class="nav-item <?php echo e((!strpos($activePage,'materia')) ? ' active' : ''); ?>" >
+          <li class="nav-item <?php echo e(strpos($activePage,'materia') === false ? '':'active'); ?>" >
             
-            <a class="nav-link" data-toggle="collapse" href="#materiascollapse" aria-expanded="false">
+            <a class="nav-link border border-default" data-toggle="collapse" href="#materiascollapse" aria-expanded="<?php echo e(strpos($activePage,'materia') === false ? 'false':'true'); ?>">
               <i class="material-icons">table_chart</i>
               <p><?php echo e(__('Materias y grupos')); ?>
 
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse <?php echo e((!strpos($activePage,'materia')) ? ' show' : ''); ?>" id="materiascollapse">
+            <div class="px-3 collapse <?php echo e(strpos($activePage,'materia') === false ? '':'show'); ?>" id="materiascollapse">
               <ul class="nav">
-                <li class="nav-item <?php echo e(($activePage == 'materia.index'|| $activePage == 'materia.edit' || $activePage == 'materia.create') ? ' active' : ''); ?>">
+                <li class="nav-item <?php echo e(strpos($activePage,'materia.materia') === false ? '':'active'); ?>">
                   <a class="nav-link" href="<?php echo e(route('materia.index')); ?>">
                     <i class="material-icons">science</i>
                     <span class="sidebar-normal"><?php echo e(__('Administrar Materias')); ?> </span>
                   </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item <?php echo e(strpos($activePage,'materia.grupo') === false ? '':'active'); ?>">
                     <a class="nav-link" href="<?php echo e(route('grupo.index')); ?>">
                     <i class="material-icons">pages</i>
                     <span class="sidebar-normal"> <?php echo e(__('Administrar Grupos')); ?> </span>
@@ -82,17 +82,17 @@
             </div>
           </li>
 
-          <li class="nav-item " >
+          <li class="nav-item <?php echo e(strpos($activePage,'aula') === false ? '':'active'); ?>" >
             
-            <a class="nav-link" data-toggle="collapse" href="#aulascollapse" aria-expanded="false">
+            <a class="nav-link border border-default" data-toggle="collapse" href="#aulascollapse" aria-expanded="<?php echo e(strpos($activePage,'materia') === false ? 'false':'true'); ?>">
               <i class="material-icons">tune</i>
               <p><?php echo e(__('Aulas y Ubicaciones')); ?>
 
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="aulascollapse">
-              <ul class="nav">
+            <div class="px-3 collapse <?php echo e(strpos($activePage,'aula') === false ? '':'show'); ?>" id="aulascollapse">
+            <ul class="nav">
                 <li class="nav-item">
                   <a class="nav-link" href="">
                     <i class="material-icons">apartment</i>
@@ -120,13 +120,13 @@
         <hr>
         <li class="nav-item <?php echo e($activePage == 'profile'  ? ' active' : ''); ?>">
           
-          <a class="nav-link" data-toggle="collapse" href="#cuentacollapse" aria-expanded="false">
+          <a class="nav-link border border-default" data-toggle="collapse" href="#cuentacollapse" aria-expanded="false">
             <i class="material-icons text-rose">perm_contact_calendar</i>
             <p class="text-rose"><b> <?php echo e(auth()->user()->nombres); ?></b>
               <b class="caret"></b>
             </p>
           </a>
-          <div class="collapse " id="cuentacollapse">
+          <div class="px-3 collapse " id="cuentacollapse">
             <ul class="nav">
               <li class="nav-item<?php echo e($activePage == 'profile' ? ' active' : ''); ?>">
                 <a class="nav-link" href="">

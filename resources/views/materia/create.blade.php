@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'materia.create', 'titlePage' => __(' Registrar Usuario')])
+@extends('layouts.app', ['activePage' => 'materia.materia.create', 'titlePage' => __(' Registrar Usuario')])
 {{-- @include('modal.add_materia') --}}
 
 @section('content')

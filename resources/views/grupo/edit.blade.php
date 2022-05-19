@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'grupo.edit', 'titlePage' => __(' Editar Grupo')])
+@extends('layouts.app', ['activePage' => 'materia.grupo.edit', 'titlePage' => __(' Editar Grupo')])
 {{-- @include('modal.add_materia') --}}
 
 @section('content')

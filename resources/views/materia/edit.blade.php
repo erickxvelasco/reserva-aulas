@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'materia.edit', 'titlePage' => __(' Actualizar Materia')])
+@extends('layouts.app', ['activePage' => 'materia.materia.edit', 'titlePage' => __(' Actualizar Materia')])
 {{-- @include('modal.add_materia') --}}
 
 @section('content')
