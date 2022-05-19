@@ -70,7 +70,7 @@
                   </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ route('grupo.index') }}">
                     <i class="material-icons">pages</i>
                     <span class="sidebar-normal"> {{ __('Administrar Grupos') }} </span>
                   </a>

@@ -73,7 +73,7 @@
                   </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="<?php echo e(route('grupo.index')); ?>">
                     <i class="material-icons">pages</i>
                     <span class="sidebar-normal"> <?php echo e(__('Administrar Grupos')); ?> </span>
                   </a>

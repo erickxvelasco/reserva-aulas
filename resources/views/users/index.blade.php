@@ -29,7 +29,7 @@
                   <th>Cuenta</th>
                   <th>Correo electronico</th>
                   <th>Cargo</th>
-                  <th colspan="3" class="text-center bg-sucess">Acciones</th>
+                  <th colspan="2" class="text-center bg-sucess">Acciones</th>
                 </thead>
                 <tbody>
                    @forelse ($users as $dato )
@@ -40,7 +40,8 @@
                     <td>{{$dato['email']}}</td>
                     <td><b >{{$dato->relacion_cargo['descripcion']}}</b></td>
 
-                        @if($dato['tipo']==1)
+                       {{-- quitamos el icono de materias
+                         @if($dato['tipo']==1)
                         <td width=5>
                             <form action="{{ route('user.asignature', $dato->id) }}" method ="POST" >
                                 @csrf
@@ -52,7 +53,7 @@
                         </td>
                         @else
                         <td width=5></td>
-                        @endif
+                        @endif --}}
                         <td width=5>
                         <a type="button"rel="tooltip" title="Editar Informacion" class="btn btn-primary btn-sm" href="{{ route('user.edit', $dato->id) }}">
                         <i class="material-icons">edit</i></a>

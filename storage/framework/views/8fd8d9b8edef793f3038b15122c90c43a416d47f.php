@@ -27,7 +27,7 @@
                   <th>Cuenta</th>
                   <th>Correo electronico</th>
                   <th>Cargo</th>
-                  <th colspan="3" class="text-center bg-sucess">Acciones</th>
+                  <th colspan="2" class="text-center bg-sucess">Acciones</th>
                 </thead>
                 <tbody>
                    <?php $__empty_1 = true; $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dato): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -38,20 +38,7 @@
                     <td><?php echo e($dato['email']); ?></td>
                     <td><b ><?php echo e($dato->relacion_cargo['descripcion']); ?></b></td>
 
-                        <?php if($dato['tipo']==1): ?>
-                        <td width=5>
-                            <form action="<?php echo e(route('user.asignature', $dato->id)); ?>" method ="POST" >
-                                <?php echo csrf_field(); ?>
-                                <?php echo e(method_field('post')); ?>
-
-
-                                <button type="submit" rel="tooltip" title="Materias y Grupos" class="btn btn-info btn-sm" >
-                                <i class="material-icons">science</i></button>
-                            </form>
-                        </td>
-                        <?php else: ?>
-                        <td width=5></td>
-                        <?php endif; ?>
+                       
                         <td width=5>
                         <a type="button"rel="tooltip" title="Editar Informacion" class="btn btn-primary btn-sm" href="<?php echo e(route('user.edit', $dato->id)); ?>">
                         <i class="material-icons">edit</i></a>
