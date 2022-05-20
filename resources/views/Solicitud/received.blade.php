@@ -10,12 +10,24 @@
                             <div class="col-9">
                                 <h4 class="card-title mt-0"> Historial de Solicitudes</h4>
                                 <p class="card-category">
-                                    Ordenar Solicitudes de Reserva
+                                    <select name="ordenar" id="ordenar" class="col-xl-5 col-md-5 col-xs-7"
+                                        style="font-size:16px;  ">
+                                        <optgroup label="Ordenar por :">
+                                            <option value="1" {{$valor===2?'selected':''}}>
+                                                fecha de creacion
+                                            </option>
+                                            <option value="2" {{$valor===1?'selected':''}}>
+                                                fecha de solicitud
+                                            </option>
+                                        </optgroup>
+                                    </select>
                                 </p>
                             </div>
-                            <div class="col-3">
-                                <a href="{{ route('recibido.llegada') }}" class="float-rigth btn btn-warning btn-sm active"id="btn-1"> llegada </a>
-                                <a href="{{ route('recibido.prioridad')  }}" class="float-rigth btn btn-info btn-sm" id="btn-2"> Prioridad </a>
+                            <div class="col-3 ">
+
+
+                                {{-- <a href="{{ route('recibido.llegada') }}" class="float-rigth btn btn-warning btn-sm active"id="btn-1"> llegada </a>
+                                <a href="{{ route('recibido.prioridad')  }}" class="float-rigth btn btn-info btn-sm" id="btn-2"> Prioridad </a> --}}
                             </div>
 
 
@@ -50,8 +62,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($recibidos as $dato )
-
+                                        @forelse ($recibidos as $dato)
                                             <tr>
                                                 {{-- 0=en proceso 1=rechazado 2=aceptado --}}
                                                 @if ($dato->estado == 0)
@@ -67,7 +78,7 @@
                                                     @endif
                                                 @endif
 
-                                                <td>{{ $dato->user->nombres." ".$dato->user->apellidos}}</td>
+                                                <td>{{ $dato->user->nombres . ' ' . $dato->user->apellidos }}</td>
                                                 <td>{{ $dato['motivo'] }}</td>
                                                 <td>{{ $dato['fecha'] }}</td>
                                                 <td>{{ devolver_hora($dato['inicio']) . ' - ' . devolver_hora($dato['final']) }}
@@ -76,20 +87,19 @@
 
                                                 <td>{{ $dato['created_at']->diffForHumans() }}</td>
                                                 @php
-                                                    $concat= "";
+                                                    $concat = '';
                                                 @endphp
-                                                @foreach ($dato->relacion_aulas as $aula )
-                                                @php
-                                                    if(strlen($concat)>0){
-                                                        $concat= $concat."-".$aula->relacion_aula->nombre;
-                                                    }else{
-                                                        $concat=$aula->relacion_aula->nombre;
-                                                    }
-                                                @endphp
-
+                                                @foreach ($dato->relacion_aulas as $aula)
+                                                    @php
+                                                        if (strlen($concat) > 0) {
+                                                            $concat = $concat . '-' . $aula->relacion_aula->nombre;
+                                                        } else {
+                                                            $concat = $aula->relacion_aula->nombre;
+                                                        }
+                                                    @endphp
                                                 @endforeach
 
-                                                <td>{{$concat}}</td>
+                                                <td>{{ $concat }}</td>
 
 
 
@@ -97,57 +107,60 @@
 
 
                                                 @php
-                                                    $union= "";
+                                                    $union = '';
                                                 @endphp
-                                                @foreach ($dato->relacion_grupo as $grupo )
-                                                @php
-                                                $_mate=$grupo->relacion_grupo->relacion_materia->descripcion;
-                                                $_grup=$grupo->relacion_grupo->grupo;
-                                                if(strlen($union)>0){
-                                                    $union= $union."-".$_mate." : "."[".$_grup."]";
-                                                    }else{
-                                                        $union=$_mate." : "."[".$_grup."]";
-                                                    }
+                                                @foreach ($dato->relacion_grupo as $grupo)
+                                                    @php
+                                                        $_mate = $grupo->relacion_grupo->relacion_materia->descripcion;
+                                                        $_grup = $grupo->relacion_grupo->grupo;
+                                                        if (strlen($union) > 0) {
+                                                            $union = $union . '-' . $_mate . ' : ' . '[' . $_grup . ']';
+                                                        } else {
+                                                            $union = $_mate . ' : ' . '[' . $_grup . ']';
+                                                        }
 
-                                                @endphp
+                                                    @endphp
                                                 @endforeach
-                                                <td>{{$union}}</td>
+                                                <td>{{ $union }}</td>
 
 
                                                 <td width=5>
-                                                    <form method="post" action="{{ route('recibido.update', $dato->id) }}" >
+                                                    <form method="post"
+                                                        action="{{ route('recibido.update', $dato->id) }}">
                                                         @csrf
                                                         @method('patch')
                                                         <input type="hidden" name="estado" value=2>
-                                                    <button type="submit"  rel="tooltip" title="Aceptar" class="btn btn-success btn-sm" >
-                                                        <span class="text-white material-icons">
-                                                            done
+                                                        <button type="submit" rel="tooltip" title="Aceptar"
+                                                            class="btn btn-success btn-sm">
+                                                            <span class="text-white material-icons">
+                                                                done
                                                             </span>
-                                                    </button>
+                                                        </button>
                                                     </form>
                                                 </td>
 
-                                                        <td width=5>
-                                                                <form method="post" action="{{route('recibido.update', $dato->id)}}" >
-                                                                    @csrf
-                                                                    @method('patch')
-                                                                    <input type="hidden" name="estado" value=1>
+                                                <td width=5>
+                                                    <form method="post"
+                                                        action="{{ route('recibido.update', $dato->id) }}">
+                                                        @csrf
+                                                        @method('patch')
+                                                        <input type="hidden" name="estado" value=1>
 
-                                                                <button type="submit"  rel="tooltip" title="rechazar" class="btn btn-danger btn-sm" >
-                                                                    <span class="text-white material-icons">
-                                                                        block
-                                                                        </span>
-                                                                </button>
-                                                                </form>
-                                                        </td>
+                                                        <button type="submit" rel="tooltip" title="rechazar"
+                                                            class="btn btn-danger btn-sm">
+                                                            <span class="text-white material-icons">
+                                                                block
+                                                            </span>
+                                                        </button>
+                                                    </form>
+                                                </td>
 
 
 
                                             </tr>
                                         @empty
 
-                                        no hay datos registrados
-
+                                            no hay datos registrados
                                         @endforelse
 
                                     </tbody>
@@ -160,4 +173,23 @@
             </div>
         </div>
     </div>
+    <script>
+        /* $('#ordenar').select2({
+                    theme: "classic"
+                }); */
+
+        let combo = document.getElementById('ordenar');
+        combo.addEventListener('change', (event) => {
+            console.log( event.target.value );
+            if (event.target.value==1){
+                //
+                window.location = "{{route('recibido.prioridad')}}";
+            }else{
+                window.location = "{{route('recibido.llegada')}}";
+
+            }
+
+
+        });
+    </script>
 @endsection
