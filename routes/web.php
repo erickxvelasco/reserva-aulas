@@ -28,7 +28,10 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController');
+
+    Route::get('solicitud/index2', 'App\Http\Controllers\SolicitudController@index2')->name('solicitud.index2');
     Route::resource('solicitud', 'App\Http\Controllers\SolicitudController');
+
     //Route::resource('recibido', 'App\Http\Controllers\SolicitudesRecibidosController');
 
     Route::resource('materia', 'App\Http\Controllers\MateriaController');

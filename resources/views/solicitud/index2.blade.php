@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'solicitud.index', 'titlePage' => __(' Historial')])
+@extends('layouts.app', ['activePage' => 'solicitud.index2', 'titlePage' => __(' Historial')])
 
 @section('content')
     <div class="content">
@@ -63,7 +63,7 @@
 
 
                                                 <td>{{ $dato['motivo'] }}</td>
-                                                <td>{{ $dato['fecha'] }}</td>
+                                                <td class="text-primary"><b>{{ $dato['fecha'] }}</b></td>
                                                 <td>{{ devolver_hora($dato['inicio']) . ' - ' . devolver_hora($dato['final']) }}
                                                 </td>
                                                 <td>{{ $dato['total'] }}</td>

@@ -19,8 +19,8 @@
                 <p>{{ __('Solicitudes Recibidas') }}</p>
             </a>
           </li>
-          <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-            <a class="nav-link" href="">
+          <li class="nav-item{{ $activePage == 'solicitud.index2' ? ' active' : '' }}">
+            <a class="nav-link" href="{{ route('solicitud.index2') }}">
               <i class="material-icons">schedule</i>
                 <p>{{ __('Historial de reservas') }}</p>
             </a>

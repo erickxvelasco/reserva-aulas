@@ -20,8 +20,8 @@
                 <p><?php echo e(__('Solicitudes Recibidas')); ?></p>
             </a>
           </li>
-          <li class="nav-item<?php echo e($activePage == 'table' ? ' active' : ''); ?>">
-            <a class="nav-link" href="">
+          <li class="nav-item<?php echo e($activePage == 'solicitud.index2' ? ' active' : ''); ?>">
+            <a class="nav-link" href="<?php echo e(route('solicitud.index2')); ?>">
               <i class="material-icons">schedule</i>
                 <p><?php echo e(__('Historial de reservas')); ?></p>
             </a>
