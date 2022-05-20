@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('materia', 'App\Http\Controllers\MateriaController');
 
     Route::resource('grupo', 'App\Http\Controllers\GrupoController');
+    Route::resource('ubicacion', 'App\Http\Controllers\UbicacionController');
 
 
 

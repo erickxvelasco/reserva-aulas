@@ -59,7 +59,7 @@
                                                 </td>
 
                                                 <td width=5>
-                                                    <form action="{{ route('materia.destroy', $dato->id) }}"
+                                                    <form action="{{ route('grupo.destroy', $dato->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         {{ method_field('DELETE') }}

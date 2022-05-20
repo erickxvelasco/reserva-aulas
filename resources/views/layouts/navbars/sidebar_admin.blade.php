@@ -89,8 +89,8 @@
             </a>
             <div class="px-3 collapse {{ strpos($activePage,'aula') === false ? '':'show' }}" id="aulascollapse">
             <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="">
+                <li class="nav-item {{ strpos($activePage,'aula.ubicacion') === false ? '':'active' }}">
+                  <a class="nav-link" href="{{ route('ubicacion.index') }}">
                     <i class="material-icons">apartment</i>
                     <span class="sidebar-normal">{{ __('Administrar Ubicaciones') }} </span>
                   </a>

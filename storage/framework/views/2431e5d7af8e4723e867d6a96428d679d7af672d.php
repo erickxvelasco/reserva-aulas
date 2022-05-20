@@ -93,8 +93,8 @@
             </a>
             <div class="px-3 collapse <?php echo e(strpos($activePage,'aula') === false ? '':'show'); ?>" id="aulascollapse">
             <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="">
+                <li class="nav-item <?php echo e(strpos($activePage,'aula.ubicacion') === false ? '':'active'); ?>">
+                  <a class="nav-link" href="<?php echo e(route('ubicacion.index')); ?>">
                     <i class="material-icons">apartment</i>
                     <span class="sidebar-normal"><?php echo e(__('Administrar Ubicaciones')); ?> </span>
                   </a>
