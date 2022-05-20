@@ -320,7 +320,7 @@
             function updateValue(e) {
                 removeOptions(fin);
                 indice_select_inicio = parseInt(e.target.value) + 1;
-                cargar_select(fin,indice_select_inicio,false,5);
+                cargar_select(fin,indice_select_inicio,false,6);
                 //alert(indice_select_inicio);
             }
 

@@ -116,7 +116,12 @@
           </li>
 
 
-
+          <li class="nav-item<?php echo e($activePage == 'recibido' ? ' active ' : ''); ?>">
+            <a class="nav-link " href="<?php echo e(route('recibido.llegada')); ?>  ">
+              <i class="material-icons">calendar_month</i>
+                <p><?php echo e(__('Administrar Gestiones')); ?></p>
+            </a>
+          </li>
         <hr>
         <li class="nav-item <?php echo e($activePage == 'profile'  ? ' active' : ''); ?>">
           

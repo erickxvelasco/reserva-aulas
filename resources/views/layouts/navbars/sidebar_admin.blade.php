@@ -112,7 +112,12 @@
           </li>
 
 
-
+          <li class="nav-item{{ $activePage == 'recibido' ? ' active ' : '' }}">
+            <a class="nav-link " href="{{ route('recibido.llegada') }}  ">
+              <i class="material-icons">calendar_month</i>
+                <p>{{ __('Administrar Gestiones') }}</p>
+            </a>
+          </li>
         <hr>
         <li class="nav-item {{ $activePage == 'profile'  ? ' active' : '' }}">
           {{--<li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">--}}

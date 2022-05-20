@@ -78,7 +78,7 @@ class UserController extends Controller
 
     public function update( User $user, UserRequest $request)
     {
-        dd($user);
+        //dd($user);
 
         $validated = $request->validated();
         if(strlen($validated['password'])>0){

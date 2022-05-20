@@ -113,9 +113,10 @@ class SolicitudController extends Controller
      * @param  \App\Models\Solicitud  $solicitud
      * @return \Illuminate\Http\Response
      */
-    public function show(Solicitud $solicitud)
+    public function show($id)
     {
-        //
+        $solicitudes = Solicitud::where('admin', auth()->user()->id)->orderby('created_at', 'desc')->paginate(8);
+        return view('solicitud.show', compact('solicitudes'));
     }
 
     /**
