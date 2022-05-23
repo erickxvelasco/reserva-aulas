@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('apellidos');
             $table->string('nombres');
-            $table->bigInteger('ci');
+            $table->bigInteger('ci')->unique();
             $table->tinyInteger('expedido');
             $table->string('domicilio')->nullable();
             $table->bigInteger('celular')->nullable();
