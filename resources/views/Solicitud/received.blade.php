@@ -14,7 +14,7 @@
                                         style="font-size:16px;  ">
                                         <optgroup label="Ordenar por :">
                                             <option value="1" {{$valor===2?'selected':''}}>
-                                                fecha de creacion
+                                                fecha de creación
                                             </option>
                                             <option value="2" {{$valor===1?'selected':''}}>
                                                 fecha de solicitud
