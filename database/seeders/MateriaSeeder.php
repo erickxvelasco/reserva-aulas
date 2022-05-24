@@ -22,23 +22,6 @@ class MateriaSeeder extends Seeder
             ['descripcion'=>'base de datos II','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'sistemas de informacion I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
 
-            ['descripcion'=>'ingenieria de software','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-
-            ['descripcion'=>'sistemas de informacion II','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'taller de metodos de programacion','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'taller de base de datos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'taller de ingenieria de software','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'entornos virtuales de aprendizaje','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'reconocimiento de voz','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-
-
-
-            ['descripcion'=>'inteligencia artificial (I)','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'matematica computacional II','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'taller de ingenieria de software','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'web semantica','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'proyecto final','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-
 
             //nuevas materias
             ['descripcion'=>'Aplicación de Sistemas Operativos (3)','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
@@ -161,7 +144,7 @@ class MateriaSeeder extends Seeder
             ['descripcion'=>'Introduccion a la Programación(3)','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Computacion(1)','departamento'=>'industrial','created_at' => now(),'updated_at' => now()],
 
-            
+
         ];
         DB::table('materias')->insert($data);
     }
