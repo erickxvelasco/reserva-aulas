@@ -35,7 +35,7 @@ class UserRequest extends FormRequest
                 'required', 'min:3',"max:50","regex:/^[\pL\s\-]+$/u"
             ],
             'ci' => [
-                'required', 'numeric','digits_between:6,10'
+                'required', 'numeric','digits_between:6,10','unique:users'
             ],
             'expedido' => [
                 ''
@@ -56,7 +56,7 @@ class UserRequest extends FormRequest
             'between:1,2'
             ],
             'email' => [
-                '' //((new User)->getTable())->ignore($this->route()->user->id ?? null)
+                'required', 'email', 'unique:users,email' //((new User)->getTable())->ignore($this->route()->user->id ?? null)
             ],
             'password' => [
                 ''
