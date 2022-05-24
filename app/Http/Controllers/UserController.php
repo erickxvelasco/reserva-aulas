@@ -60,10 +60,10 @@ class UserController extends Controller
         $dataEmail = request()->validate([
             'email' => ['required', 'email', 'unique:users,email'],
             'ci'=>['required','unique:users']
-            
+
         ]);
         $usuario = new User();
-        //$usuario->fill($validated);
+        $usuario->fill($validated);
         $usuario->save();
         return redirect()->route('user.index')->with('status','Usuario Registado con Exito!!!');
 
