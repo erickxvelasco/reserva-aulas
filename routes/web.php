@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('grupo', 'App\Http\Controllers\GrupoController');
     Route::resource('ubicacion', 'App\Http\Controllers\UbicacionController');
-
+    Route::resource('gestion', 'App\Http\Controllers\GestionController');
 
 
     Route::get('recibido/llegada','App\Http\Controllers\SolicitudesRecibidosController@llegada')->name('recibido.llegada');

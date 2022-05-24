@@ -15,7 +15,9 @@ class GestionController extends Controller
      */
     public function index()
     {
-        //
+        $gestiones = Gestion::orderby('inicio', 'asc')->paginate(8);
+
+        return view('gestion.index', compact('gestiones'));
     }
 
     /**

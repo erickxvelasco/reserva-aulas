@@ -112,8 +112,8 @@
           </li>
 
 
-          <li class="nav-item{{ $activePage == 'recibido' ? ' active ' : '' }}">
-            <a class="nav-link " href="{{ route('recibido.llegada') }}  ">
+          <li class="nav-item {{ strpos($activePage,'gestion') === false ? '':'active' }}">
+            <a class="nav-link " href="{{ route('gestion.index') }}">
               <i class="material-icons">calendar_month</i>
                 <p>{{ __('Administrar Gestiones') }}</p>
             </a>
