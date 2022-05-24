@@ -16,17 +16,37 @@ class MateriaSeeder extends Seeder
     public function run()
     {
         $data=[
-            ['descripcion'=>'introduccion a la programacion','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'elementos de programacion estructura de datos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'base de datos I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'base de datos II','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'sistemas de informacion I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            //erick
+            ['descripcion'=>'Introducción a la Programación','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Elementos de Programación Estructura de Datos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Base de Datos I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Base de Datos II','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Sistemas de Información I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+
+            //yasmani
+            ['descripcion'=>'Estadistica I','departamento'=>'industrial','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Introducción a la Programación','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Base de Datos I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Aplicacion de Sistemas Operativos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+
+            //patricia
+            ['descripcion'=>'Introducción a la Programación','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Elementos de Programación Estructura de Datos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Base de Datos I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Base de Datos II','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Estadistica II','departamento'=>'industrial','created_at' => now(),'updated_at' => now()],
+
+            //einar
+            ['descripcion'=>'Introducción a la Programación','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Elementos de Programación Estructura de Datos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Base de Datos II','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Sistemas de Información I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
 
 
             //nuevas materias
             ['descripcion'=>'Aplicación de Sistemas Operativos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Proyecto final','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'Taller de simulacion de sistemas (2)','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Taller de simulacion de sistemas','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
 
             ['descripcion'=>'Base de Datos I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Taller de Base de Datos','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
