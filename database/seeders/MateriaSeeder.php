@@ -89,7 +89,7 @@ class MateriaSeeder extends Seeder
             ['descripcion'=>'Introduccion a la Programación','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Metodología y Planificación de Proyecto de Grado','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
 
-            ['descripcion'=>'Arquitectura de Computadoras I','departamento'=>'sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Arquitectura de Computadoras I','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Electroctecnia Industrial','departamento'=>'industrial','created_at' => now(),'updated_at' => now()],
 
             ['descripcion'=>'Arquitectura de Computadoras I','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
