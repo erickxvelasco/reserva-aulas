@@ -16,15 +16,15 @@ class ExpedidoSeeder extends Seeder
     public function run()
     {
         $data=[
-            ['lugar'=>'cochabamba','created_at' => now(),'updated_at' => now()],
-            ['lugar'=>'La paz','created_at' => now(),'updated_at' => now()],
+            ['lugar'=>'Cochabamba','created_at' => now(),'updated_at' => now()],
+            ['lugar'=>'La Paz','created_at' => now(),'updated_at' => now()],
             ['lugar'=>'Santa Cruz','created_at' => now(),'updated_at' => now()],
             ['lugar'=>'Beni','created_at' => now(),'updated_at' => now()],
             ['lugar'=>'Chuquisaca','created_at' => now(),'updated_at' => now()],
             ['lugar'=>'Oruro','created_at' => now(),'updated_at' => now()],
             ['lugar'=>'Pando','created_at' => now(),'updated_at' => now()],
             ['lugar'=>'Tarija','created_at' => now(),'updated_at' => now()],
-            ['lugar'=>'potosi','created_at' => now(),'updated_at' => now()],
+            ['lugar'=>'Potosi','created_at' => now(),'updated_at' => now()],
         ];
         DB::table('expedidos')->insert($data);
     }
