@@ -15,6 +15,7 @@ class GestionController extends Controller
      */
     public function index()
     {
+        setlocale(LC_ALL, 'es_ES');
         $gestiones = Gestion::orderby('inicio', 'asc')->paginate(8);
 
         return view('gestion.index', compact('gestiones'));
@@ -27,7 +28,7 @@ class GestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('gestion.create');
     }
 
     /**
@@ -38,7 +39,20 @@ class GestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'detalle' => 'required|min:5|max:50|string|alpha_dash|unique:gestiones,detalle',
+            'inicio' => 'required|date',
+            'final' => 'required|date',
+
+        ]);
+
+
+        //dd($data);
+        $gestion = new Gestion();
+        $gestion->fill($data);
+        $gestion->estado=2;
+        $gestion->save();
+        return redirect()->route('gestion.index')->with('status', 'Gestion registrada con Exito!!!');
     }
 
     /**

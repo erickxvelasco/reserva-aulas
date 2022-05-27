@@ -12,7 +12,7 @@
                                 <p class="card-category"> Administracion de gestiones</p>
                             </div>
                             <div class=" float-end">
-                                <a href="{{ route('grupo.create') }}" class="btn btn-success"> Nuevo </a>
+                                <a href="{{ route('gestion.create') }}" class="btn btn-success"> Nuevo </a>
                             </div>
 
                         </div>
@@ -44,8 +44,20 @@
                                                 created 2 => "permite apertura de gestion" --}}
 
                                                 <td>{{ $dato->detalle }}</td>
-                                                <td class="text-primary"><b>{{ $dato->inicio }}</b></td>
-                                                <td class="text-primary"><b>{{ $dato->final }}</b></td>
+
+                                                <td class="text-dark"><b>
+                                                    {!! date('d/m/y', strtotime($dato->inicio)) !!}
+                                                   </b> </td>
+                                                @if ($dato->estado === 1)
+                                                    <td class="text-primary"><b>
+                                                            {{ \Carbon\Carbon::parse($dato->final)->diffForHumans() }}</b>
+                                                    </td>
+                                                @else
+                                                    <td class="text-primary"><b>
+                                                        {!! date('d/m/y', strtotime($dato->final)) !!}
+                                                        </td>
+                                                @endif
+
 
                                                 @if ($dato->estado === 0)
                                                     <td width=5>
@@ -55,12 +67,22 @@
                                                     </td>
                                                 @else
                                                     @if ($dato->estado === 1)
-                                                        <td width=5>
-                                                            <a type="button" class="btn btn-danger btn-block" href=""><i
-                                                                    class="material-icons">event_busy</i>&nbsp; Cerrar
-                                                                Gestion</a>
-                                                        </td>
+                                                    <td width=5>
+                                                        <a type="button" class="btn btn-success btn-block"
+                                                            href="" enable><i
+                                                                class="material-icons">event_available</i>&nbsp;
+                                                           Gestion en Curso</a>
+                                                    </td>
                                                     @else
+                                                        @if ($dato->estado === 2)
+                                                            <td width=5>
+                                                                <a type="button" class="btn btn-success btn-block"
+                                                                    href=""><i
+                                                                        class="material-icons">event_available</i>&nbsp;
+                                                                    Habilitar
+                                                                    Gestion</a>
+                                                            </td>
+                                                        @endif
                                                     @endif
                                                 @endif
                                             </tr>
