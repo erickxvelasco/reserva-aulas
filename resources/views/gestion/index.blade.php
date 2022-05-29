@@ -61,27 +61,35 @@
 
                                                 @if ($dato->estado === 0)
                                                     <td width=5>
-                                                        <a type="button" class="btn btn-warning btn-block" href=""><i
-                                                                class="material-icons">work_history</i>&nbsp; Ver
+                                                        <a type="button" class="btn btn-warning btn-block" href="{{ route('gestion.historico', $dato->id) }}" style="font-size: 100%">
+                                                            Ver
                                                             Historico</a>
                                                     </td>
                                                 @else
                                                     @if ($dato->estado === 1)
-                                                    <td width=5>
-                                                        <a type="button" class="btn btn-success btn-block"
-                                                            href="" enable><i
-                                                                class="material-icons">event_available</i>&nbsp;
-                                                           Gestion en Curso</a>
+                                                    <td width=5 class=" text-center btn-block  " >
+                                                        <br>
+                                                        <p class="p-2 border border-dark bg-secondary text-light" style="font-size: 100%">
+                                                            GESTIÓN EN CURSO <br></p>
                                                     </td>
                                                     @else
                                                         @if ($dato->estado === 2)
-                                                            <td width=5>
-                                                                <a type="button" class="btn btn-success btn-block"
-                                                                    href=""><i
-                                                                        class="material-icons">event_available</i>&nbsp;
+                                                        <td width=5>
+                                                        <form action="{{ route('gestion.update', $dato->id) }}" method ="POST" >
+                                                            @csrf
+                                                            {{ method_field('PATCH') }}
+
+                                                            <button type="submit" class="btn btn-success btn-block text-light" style="font-size: 100%">Habilitar
+                                                                Gestion</button>
+                                                        </form>
+                                                        </td>
+
+                                                           {{--  <td width=5>
+                                                                <a type="button" class="btn btn-success btn-block text-light" style="font-size: 100%" href="">
+
                                                                     Habilitar
                                                                     Gestion</a>
-                                                            </td>
+                                                            </td> --}}
                                                         @endif
                                                     @endif
                                                 @endif

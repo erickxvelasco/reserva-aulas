@@ -14,7 +14,7 @@ if (!function_exists('cargar_array_aulas')) {
     function cargar_array_aulas($date, $inicio, $final)
     {
         $solicitudes = Solicitud::where('fecha', $date)
-            ->where('estado', 0) //esta aceptado ya es una reserva
+            ->where('estado', 1) //esta aceptado ya es una reserva
             ->get();
         //dd($solicitudes);
         //hasta aqui tenemos todas las reservas de la fecha y rango de horas seleccionadas

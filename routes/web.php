@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('ubicacion', 'App\Http\Controllers\UbicacionController');
     Route::resource('gestion', 'App\Http\Controllers\GestionController');
 
+    Route::get('historico/{historico}', 'App\Http\Controllers\GestionController@historico')->name('gestion.historico');
 
     Route::get('recibido/llegada','App\Http\Controllers\SolicitudesRecibidosController@llegada')->name('recibido.llegada');
     Route::get('recibido','App\Http\Controllers\SolicitudesRecibidosController@prioridad')->name('recibido.prioridad');

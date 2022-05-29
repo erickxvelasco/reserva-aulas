@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gestion;
-use App\Http\Controllers\Controller;
+use App\Models\Solicitud;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GestionController extends Controller
 {
@@ -19,6 +20,16 @@ class GestionController extends Controller
         $gestiones = Gestion::orderby('inicio', 'asc')->paginate(8);
 
         return view('gestion.index', compact('gestiones'));
+    }
+    public function historico( $id )
+    {
+       /*  dd($id); */
+
+        $gestion = Gestion::whereId($id)->firstOrFail();
+
+        $solicitudes = Solicitud::where('gestion',$gestion->id)->orderby('created_at', 'desc')->paginate(8);
+
+        return view('gestion.historico', compact('gestion','solicitudes'));
     }
 
     /**
@@ -86,7 +97,16 @@ class GestionController extends Controller
      */
     public function update(Request $request, Gestion $gestion)
     {
-        //
+        /* dd($gestion); */
+        $gest_ant= Gestion::where('estado', '1')->first();
+        $gest_ant->estado=0;
+        $gest_ant->save();
+
+        $gestion->estado=1;
+        $gestion->save();
+
+
+        return redirect()->route('gestion.index')->with('status','Gestion Aperturada con exito');
     }
 
     /**

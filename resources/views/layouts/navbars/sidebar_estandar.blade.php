@@ -25,7 +25,7 @@
             <p>{{ __('Historial') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+      {{-- <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
         <a class="nav-link" href="">
           <i class="material-icons">science</i>
             <p>{{ __('Mis Materias') }}</p>
@@ -36,7 +36,7 @@
           <i class="material-icons">store</i>
             <p>{{ __('Aulas') }}</p>
         </a>
-      </li>
+      </li> --}}
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="">
           <i class="material-icons">notifications</i>

@@ -43,4 +43,7 @@ class Solicitud extends Model
     public function user(){
         return $this->hasOne('App\Models\User','id','usuario');
     }
+    public function administrador(){
+        return $this->hasOne('App\Models\User','id','admin');
+    }
 }
