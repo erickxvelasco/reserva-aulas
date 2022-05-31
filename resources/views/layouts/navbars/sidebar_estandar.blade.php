@@ -55,12 +55,12 @@
           </a>
           <div class="collapse " id="cuentacollapse">
             <ul class="nav">
-              <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+             {{--  <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
                 <a class="nav-link" href="">
                   <i class="material-icons ">settings</i>
                   <span class="sidebar-normal"><b>{{ __('mi Cuenta') }} </b></span>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   <i class="material-icons text-rose">exit_to_app</i>

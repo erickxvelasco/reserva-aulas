@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aula;
+use App\Models\Ubicacion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class AulaController extends Controller
      */
     public function index()
     {
-        //
+        $aulas = Aula::orderby('planta', 'asc')->paginate(8);
+
+        return view('aula.index', compact('aulas'));
     }
 
     /**
@@ -25,7 +28,10 @@ class AulaController extends Controller
      */
     public function create()
     {
-        //
+        $ubicaciones=Ubicacion::all();
+       //dd($materias_materias);
+        //$users=User::Where('tipo','<>','2')->get();
+        return view('aula.create', compact('ubicaciones'));
     }
 
     /**
