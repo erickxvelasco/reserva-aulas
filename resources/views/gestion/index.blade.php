@@ -9,7 +9,7 @@
                         <div class="row card-header card-header-default bg-dark">
                             <div class="col">
                                 <h4 class="card-title mt-0"> Gestiones</h4>
-                                <p class="card-category"> Administracion de gestiones</p>
+                                <p class="card-category"> Administración de gestiones</p>
                             </div>
                             <div class=" float-end">
                                 <a href="{{ route('gestion.create') }}" class="btn btn-success"> Nuevo </a>

@@ -49,7 +49,7 @@ class GrupoController extends Controller
         $data = $request->validate([
             'materia' => 'required|numeric|min:1',
             'usuario' => 'required|numeric|min:1',
-            'grupo' => 'required|min:1|max:3',
+            'grupo' => 'required|min:1|max:3|unique:grupos',
             'inscritos' => 'required|numeric|between:10,250'
         ]);
 
