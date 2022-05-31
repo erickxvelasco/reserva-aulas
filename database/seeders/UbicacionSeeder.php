@@ -14,11 +14,11 @@ class UbicacionSeeder extends Seeder
     public function run()
     {
         $data=[
-            ['ubicacion'=>'edificio nuevo','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['ubicacion'=>'edificio industrial','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['ubicacion'=>'trencito','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['ubicacion'=>'edificio elektro','detalle'=>'null','created_at' => now(),'updated_at' => now()],
-            ['ubicacion'=>'edificio antiguo','detalle'=>'null','created_at' => now(),'updated_at' => now()]
+            ['ubicacion'=>'edificio nuevo','detalle'=>'Esta ubicado en el lado sur entre la Calle Julian Maria Lopez','created_at' => now(),'updated_at' => now()],
+            ['ubicacion'=>'edificio industrial','detalle'=>'Esta ubicado en el lado sur, al frente de la biblioteca fcyt','created_at' => now(),'updated_at' => now()],
+            ['ubicacion'=>'trencito','detalle'=>'Esta ubicado en el lado sur, a lado de la ventanilla de valorados','created_at' => now(),'updated_at' => now()],
+            ['ubicacion'=>'edificio elektro','detalle'=>'Esta ubicado en el lado este, pasando el parqueo','created_at' => now(),'updated_at' => now()],
+            ['ubicacion'=>'edificio antiguo','detalle'=>'Esta ubicado en el lado este, en el mismo edificio de la venta de matriculas','created_at' => now(),'updated_at' => now()]
         ];
         DB::table('ubicaciones')->insert($data);
     }
