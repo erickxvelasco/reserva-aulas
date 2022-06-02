@@ -23,7 +23,6 @@ class MateriaSeeder extends Seeder
             ['descripcion'=>'Base de Datos II','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Sistemas de Información I','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
 
-            ['descripcion'=>'Estadistica I','departamento'=>'industrial','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Aplicacion de Sistemas Operativos','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
 
             ['descripcion'=>'Estadistica II','departamento'=>'industrial','created_at' => now(),'updated_at' => now()],
@@ -76,7 +75,7 @@ class MateriaSeeder extends Seeder
             ['descripcion'=>'Telefonía IP','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Técnicas de Ruteo Avanzado','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Administracion de Servidores Internet','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'Redes de Nueva Generación','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],           ['descripcion'=>'Ingenistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Redes de Nueva Generación','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Programación','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Sistemas de Información II','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Computacion','departamento'=>'industrial','created_at' => now(),'updated_at' => now()],
