@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('grupo', 'App\Http\Controllers\GrupoController');
     Route::resource('ubicacion', 'App\Http\Controllers\UbicacionController');
     Route::resource('gestion', 'App\Http\Controllers\GestionController');
+    Route::resource('aula', 'App\Http\Controllers\AulaController');
 
     Route::get('historico/{historico}', 'App\Http\Controllers\GestionController@historico')->name('gestion.historico');
 

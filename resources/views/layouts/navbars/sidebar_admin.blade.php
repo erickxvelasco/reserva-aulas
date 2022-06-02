@@ -95,14 +95,14 @@
                     <span class="sidebar-normal">{{ __('Administrar Ubicaciones') }} </span>
                   </a>
                 </li>
-                <li class="nav-item ">
+                {{-- <li class="nav-item ">
                     <a class="nav-link" href="">
                     <i class="material-icons">density_medium</i>
                     <span class="sidebar-normal"> {{ __('Administrar plantas') }} </span>
                   </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="">
+                </li> --}}
+                <li class="nav-item {{ strpos($activePage,'aula.aula') === false ? '':'active' }} ">
+                    <a class="nav-link" href="{{ route('aula.index') }}">
                     <i class="material-icons">store</i>
                     <span class="sidebar-normal"> {{ __('Administrar Aulas') }} </span>
                   </a>
@@ -129,12 +129,12 @@
           </a>
           <div class="px-3 collapse " id="cuentacollapse">
             <ul class="nav">
-              <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+              {{-- <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
                 <a class="nav-link" href="">
                   <i class="material-icons ">settings</i>
                   <span class="sidebar-normal"><b>{{ __('mi Cuenta') }} </b></span>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   <i class="material-icons text-rose">exit_to_app</i>
