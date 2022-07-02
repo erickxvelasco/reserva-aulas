@@ -22,13 +22,13 @@
                                         class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Ubicacion ') }}</label>
                                     <div class="col-sm-8">
                                         <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
-                                            <select name="materia" id="materia" class="js-example-responsive"
+                                            <select name="planta" id="planta" class="js-example-responsive"
                                             style="width: 100%;">
                                                 @foreach ($ubicaciones as $ubicacion)
                                                     <optgroup label="{{ $ubicacion->ubicacion }}">
 
                                                         @foreach ($ubicacion->relacion_plantas as $planta)
-                                                            @if (old('materia')==$planta->id)
+                                                            @if (old('planta')==$planta->id)
                                                             <option value="{{ $planta->id }}" selected>
                                                                 {{ $planta->planta }}</option>
                                                             @else
@@ -49,34 +49,65 @@
                                 </div>
                                 <div class="row">
                                     <label
-                                        class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Grupo ') }}</label>
+                                        class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Aula ') }}</label>
                                     <div class="col-sm-8">
-                                        <div class="form-group{{ $errors->has('grupo') ? ' has-danger' : '' }}">
+                                        <div class="form-group{{ $errors->has('nombre') ? ' has-danger' : '' }}">
                                             <input autocomplete="off"
-                                                class="form-control{{ $errors->has('grupo') ? ' is-invalid' : '' }}"
-                                                name="grupo" id="id_grupo" type="text"
-                                                placeholder="{{ __('Grupo') }}" value="{{ old('grupo') }}"
+                                                class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}"
+                                                name="nombre" id="id_nombre" type="text"
+                                                placeholder="{{ __('Aula') }}" value="{{ old('nombre') }}"
                                                 required="true" />
-                                            @if ($errors->has('grupo'))
+                                            @if ($errors->has('nombre'))
                                                 <span id="name-error" class="error text-danger"
-                                                    for="id_grupo">{{ $errors->first('grupo') }}</span>
+                                                    for="id_aula">{{ $errors->first('nombre') }}</span>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label
-                                        class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Inscritos ') }}</label>
+                                        class="col-sm-2 pt-3 col-form-label text-secondary">{{ __(' Aula Sig ') }}</label>
                                     <div class="col-sm-8">
-                                        <div class="form-group{{ $errors->has('inscritos') ? ' has-danger' : '' }}">
-                                            <input autocomplete="off"
-                                                class="form-control{{ $errors->has('inscritos') ? ' is-invalid' : '' }}"
-                                                name="inscritos" id="id_inscritos" type="number"
-                                                placeholder="{{ __('Incritos') }}" value="{{ old('inscritos') }}"
-                                                required="true" />
-                                            @if ($errors->has('inscritos'))
+                                        <div class="form-group{{ $errors->has('expedido') ? ' has-danger' : '' }}">
+                                            <select name="aulasig" id="aulasig" class="js-example-responsive"
+                                            style="width: 100%;">
+                                            {{-- <optgroup label="Aulas"> --}}
+                                                <option value="0" selected>
+                                                    Ninguno</option>
+                                                @foreach ($aulas as $aula)
+
+
+                                                        @if (old('aulasig')==$aula->id)
+                                                        <option value="{{ $aula->id }}" selected>
+                                                            {{ $aula->nombre }}</option>
+                                                        @else
+                                                        <option value="{{ $aula->id }}">
+                                                            {{ $aula->nombre }}</option>
+                                                        @endif
+
+                                                    </optgroup>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('expedido'))
                                                 <span id="name-error" class="error text-danger"
-                                                    for="id_inscritos">{{ $errors->first('inscritos') }}</span>
+                                                    for="id_nombre">{{ $errors->first('expedido') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label
+                                        class="col-sm-2 pt-3 col-form-label text-secondary">{{ __('Capacidad ') }}</label>
+                                    <div class="col-sm-8">
+                                        <div class="form-group{{ $errors->has('capacidad') ? ' has-danger' : '' }}">
+                                            <input autocomplete="off"
+                                                class="form-control{{ $errors->has('capacidad') ? ' is-invalid' : '' }}"
+                                                name="capacidad" id="id_inscritos" type="number"
+                                                placeholder="{{ __('Capacidad') }}" value="{{ old('capacidad') }}"
+                                                required="true" min="0" max="500"/>
+                                            @if ($errors->has('capacidad'))
+                                                <span id="name-error" class="error text-danger"
+                                                    for="id_capacidad">{{ $errors->first('capacidad') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -105,10 +136,10 @@
     </div>
 
     <script>
-        $('#materia').select2({
+        $('#planta').select2({
             theme: "classic"
         });
-        $('#usuario').select2({
+        $('#aulasig').select2({
             theme: "classic"
         });
     </script>
