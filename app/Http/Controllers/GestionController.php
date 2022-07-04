@@ -18,8 +18,18 @@ class GestionController extends Controller
     {
         setlocale(LC_ALL, 'es_ES');
         $gestiones = Gestion::orderby('inicio', 'asc')->paginate(8);
+        $bool=false; //para ver si se mostrara el button crear
+        $gestion_actual = Gestion::where('estado', 1)->first();
+        //dd($gestion_actual);
 
-        return view('gestion.index', compact('gestiones'));
+        if ($gestion_actual==null){
+            $bool = true;
+        } else {
+            if (now()->toDateString() >= $gestion_actual->final) {
+                $bool = true;
+            }
+        }
+        return view('gestion.index', compact('gestiones', 'bool'));
     }
     public function historico( $id )
     {

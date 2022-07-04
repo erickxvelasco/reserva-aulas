@@ -11,10 +11,11 @@
                                 <h4 class="card-title mt-0"> Gestiones</h4>
                                 <p class="card-category"> Administración de gestiones</p>
                             </div>
-                            <div class=" float-end">
-                                <a href="{{ route('gestion.create') }}" class="btn btn-success"> Nuevo </a>
-                            </div>
-
+                            @if ($bool === true)
+                                <div class=" float-end">
+                                    <a href="{{ route('gestion.create') }}" class="btn btn-success"> Nuevo </a>
+                                </div>
+                            @endif
                         </div>
                         @if (session('status'))
                             <div class="alert alert-default alert-with-icon bg-success" data-notify="container">
