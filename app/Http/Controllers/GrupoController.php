@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\User;
 use App\Models\Grupo;
 use App\Models\Materia;
-use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class GrupoController extends Controller
 {
@@ -49,7 +50,9 @@ class GrupoController extends Controller
         $data = $request->validate([
             'materia' => 'required|numeric|min:1',
             'usuario' => 'required|numeric|min:1',
-            'grupo' => 'required|min:1|max:3|unique:grupos',
+            'grupo' => 'required|min:1|max:4|'.
+            Rule::unique('grupos', 'grupo')
+                ->where('materia', $request->materia),
             'inscritos' => 'required|numeric|between:10,250'
         ]);
 
@@ -103,10 +106,13 @@ class GrupoController extends Controller
            $data = $request->validate([
                 'materia' => 'required|numeric|min:1',
                 'usuario' => 'required|numeric|min:1',
-                'grupo' => 'required|min:1|max:3',
+                'grupo' => 'required|min:1|max:4|'.
+                Rule::unique('grupos', 'grupo')
+                    ->ignore($grupo)
+                    ->where('materia', $request->materia),
                 'inscritos' => 'required|numeric|between:10,250'
             ]);
-
+            //dd($data);
 
         $grupo->update($data);
 
