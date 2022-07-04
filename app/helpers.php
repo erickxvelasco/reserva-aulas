@@ -13,9 +13,11 @@ $array_aulas = array();
 if (!function_exists('cargar_array_aulas')) {
     function cargar_array_aulas($date, $inicio, $final)
     {
+
         $solicitudes = Solicitud::where('fecha', $date)
-            ->where('estado', 1) //esta aceptado ya es una reserva
+            ->where('estado', 2) //2->aceptado 0->en proceso 1->rechazado =>esta aceptado ya es una reserva
             ->get();
+
         //dd($solicitudes);
         //hasta aqui tenemos todas las reservas de la fecha y rango de horas seleccionadas
         global $array_aulas;
@@ -43,6 +45,7 @@ if (!function_exists('verificar_existe_aula')) {
     {
         global $array_aulas;
         $rpta = false;
+        //dd($array_aulas);
         foreach ($array_aulas as $aula) {
             if ($aula == $id_aula) {
                 $rpta = true;
