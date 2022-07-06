@@ -35,7 +35,7 @@ class UserRequest extends FormRequest
                 'required', 'min:3',"max:50","regex:/^[\pL\s\-]+$/u"
             ],
             'ci' => [
-                'required', 'numeric','digits_between:6,10'
+                ''
             ],
             'expedido' => [
                 ''
@@ -56,21 +56,21 @@ class UserRequest extends FormRequest
             'between:1,2'
             ],
             'email' => [
-                'required', 'email' //((new User)->getTable())->ignore($this->route()->user->id ?? null)
+                '' //((new User)->getTable())->ignore($this->route()->user->id ?? null)
             ],
             'password' => [
                 ''
             ]
         ];
         switch ($this->method()) {
-            case "post": {
+            case "POST": {
                $reglas['password'] = ['required','min:6','max:10'];
                $reglas['email'] = ['required', 'email', 'unique:users,email'];
                $reglas['ci'] = ['required', 'numeric','digits_between:6,10', 'unique:users,ci'];
                break;
 
             }
-            case "patch":{
+            case "PATCH":{
                 $reglas['password']= ['nullable','min:6','max:10'];
                 $reglas['email'] = ['required', 'email', 'unique:users,email,'. $this->route('user.id')];
                 $reglas['ci'] = ['required', 'numeric','digits_between:6,10', 'unique:users,ci'. $this->route('user.id')];
