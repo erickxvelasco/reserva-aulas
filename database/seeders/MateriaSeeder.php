@@ -32,6 +32,8 @@ class MateriaSeeder extends Seeder
             ['descripcion'=>'Taller de Base de Datos','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Date Warehouse','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Graficacion por Computadora','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Web Semantica','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
+            ['descripcion'=>'Matematica Computacional II','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
 
             ['descripcion'=>'Metodos,Tecnicas y Taller de Programación','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Programación Web','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
@@ -66,7 +68,7 @@ class MateriaSeeder extends Seeder
             ['descripcion'=>'Inteligencia Artificial I','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Reconocimiento de Voz','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Robótica','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
-            ['descripcion'=>'Proyecto Final','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
+        
             ['descripcion'=>'Teoria de Autómatas y Lenguajes Formales','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Taller de Programación de Bajo Nivel','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
             ['descripcion'=>'Tecnología de Redes Avanzadas','departamento'=>'Departamento de Informatica y Sistemas','created_at' => now(),'updated_at' => now()],
