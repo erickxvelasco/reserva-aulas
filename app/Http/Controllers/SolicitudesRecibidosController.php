@@ -27,16 +27,51 @@ class SolicitudesRecibidosController extends Controller
      }
 
      public function update($id,Request $request){
-        //dd($request['estado']);
-
+        $mensaje = "";
+        $estado=0;
         $registro = Solicitud::whereId($id)->firstOrFail();
-        $registro->estado=$request['estado'];
+        /* 'gestion',
+        'usuario',
+        'estado',
+        'mensaje',
+        'admin',
+        'motivo',
+        'fecha',
+        'inicio',
+        'final',
+        'total' */
+
+        //dd(intval($request['estado']) === 2);
+
+        //dd($registro);
+        if (intval($request['estado']) === 2){
+             //cargamos el array general
+
+            cargar_array_aulas($registro->fecha, $registro->inicio, $registro->final);
+            //dd($registro->relacion_aulas);
+            //verificamos si las aulas ya estan reservadas
+            $estado=2;
+            $mensaje = "la Solicitud fue ACEPTADA, estado actualizado con exito";
+            foreach($registro->relacion_aulas as $aula){
+                if (verificar_existe_aula($aula->aula)){
+                    //si existe :sale del ciclo y guarda en estado=1
+                    $estado=1; //el estado es cancelado
+                    $mensaje = "la Solicitud fue RECHAZADA, estado actualizado con exito";
+                    break;
+                }
+            }
+            $registro->estado=$estado;
+        }else{
+            $mensaje = "la Solicitud fue ACEPTADA, estado actualizado con exito";
+            $registro->estado=$request['estado'];
+        }
+
         $registro->admin=auth()->user()->id;
         $registro->save();
 
         //falta guardar en reservas
 
-        return redirect()->route('recibido.prioridad')->with('status','la Solicitud fue Actualizada con Exito');
+        return redirect()->route('recibido.prioridad')->with('status',$mensaje);
 
      }
 }
