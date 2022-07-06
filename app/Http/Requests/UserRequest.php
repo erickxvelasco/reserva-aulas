@@ -73,7 +73,7 @@ class UserRequest extends FormRequest
             case "PATCH":{
                 $reglas['password']= ['nullable','min:6','max:10'];
                 $reglas['email'] = ['required', 'email', 'unique:users,email,'. $this->route('user.id')];
-                $reglas['ci'] = ['required', 'numeric','digits_between:6,10', 'unique:users,ci'. $this->route('user.id')];
+                $reglas['ci'] = ['required', 'numeric','digits_between:6,10', 'unique:users,ci,'. $this->route('user.id')];
                 break;
             }
         }
